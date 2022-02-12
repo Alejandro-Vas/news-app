@@ -1,10 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from "../../logo.svg";
+import "./App.css";
+import InputBox from "components/inputBox/InputBox";
 
 function App() {
   return (
     <div className="App">
+      <InputBox />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
