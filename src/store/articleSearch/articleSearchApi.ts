@@ -9,11 +9,11 @@ export const articleSearchApi = createApi({
     baseUrl: "https://api.nytimes.com/svc/search/v2",
   }),
   endpoints: (builder) => ({
-    getWeather: builder.query<IArticleSearch, string>({
+    getArticleSearch: builder.query<IArticleSearch, string>({
       query: (query = "IT") =>
         `articlesearch.json?q=${query}&api-key=${apiKey}`,
     }),
   }),
 });
 
-export const { useGetWeatherQuery } = articleSearchApi;
+export const { useGetArticleSearchQuery } = articleSearchApi;

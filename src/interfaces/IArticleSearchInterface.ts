@@ -15,7 +15,7 @@ export interface DocsEntity {
   print_section?: string | null;
   print_page?: string | null;
   source: string;
-  multimedia?: (MultimediaEntity | null)[] | null;
+  multimedia?: MultimediaEntity[] | null | undefined;
   headline: Headline;
   keywords?: KeywordsEntity[] | null;
   pub_date: string;
