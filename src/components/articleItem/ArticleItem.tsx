@@ -14,9 +14,10 @@ const ArticleItem: React.FC<IProps> = (props) => {
       <div>
         <img
           alt="article img"
-          src={"https://www.nytimes.com/" + article.multimedia![0].url}
+          src={"https://www.nytimes.com/" + article.multimedia![5].url}
         />
       </div>
+      <a href={article.web_url}>NYT Link</a>
       <hr />
     </div>
   );

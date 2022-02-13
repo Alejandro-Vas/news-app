@@ -1,4 +1,5 @@
 import ArticleItem from "components/articleItem/ArticleItem";
+import Spinner from "components/spinner/Spinner";
 import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
 
 const Header = () => {
@@ -9,13 +10,14 @@ const Header = () => {
 
   return (
     <div>
+      {isLoading && <Spinner />}
       {!isUninitialized && isSuccess && !isLoading && (
         <div>
           {data?.response?.docs?.map((article) => {
             return (
               article &&
-              typeof article?.multimedia![0] !== "undefined" && (
-                <ArticleItem key={article.abstract} article={article} />
+              typeof article?.multimedia![5] !== "undefined" && (
+                <ArticleItem key={article._id} article={article} />
               )
             );
           })}
