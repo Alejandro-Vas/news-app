@@ -1,11 +1,9 @@
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-// import { coordinatesActions } from "../store/coordinates/coordinatesSlice";
-// import { queryActions } from "../store/query/querySlice";
+import { articleSearchQueryActions } from "../store/articleSearchQuery/articleSearchQuerySlice";
 
 const AllActions = {
-  // ...queryActions,
-  // ...coordinatesActions,
+  ...articleSearchQueryActions,
 };
 
 const useActions = () => {

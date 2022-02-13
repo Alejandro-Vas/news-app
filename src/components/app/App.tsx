@@ -1,7 +1,7 @@
 import { Provider } from "react-redux";
 import { store } from "../../store/store";
 
-import InputBox from "components/inputBox/InputBox";
+import ArticleSearchBox from "components/articleSearchBox/ArticleSearchBox";
 import Header from "components/header/Header";
 import Section from "components/articleList/ArticleList";
 
@@ -15,7 +15,7 @@ function App() {
           <Header />
         </div>
         <div className="App-logo">
-          <InputBox />
+          <ArticleSearchBox />
         </div>
         <Section />
       </div>
