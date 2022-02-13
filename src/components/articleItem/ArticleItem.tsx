@@ -1,3 +1,4 @@
+import KeywordsItem from "components/tagItem/KeywordsItem";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
   article: DocsEntity;
@@ -17,7 +18,17 @@ const ArticleItem: React.FC<IProps> = (props) => {
           src={"https://www.nytimes.com/" + article.multimedia![5].url}
         />
       </div>
-      <a href={article.web_url}>NYT Link</a>
+      <div>
+        <a href={article.web_url}>NYT Link</a>
+      </div>
+      <div>
+        <ul>
+          {article.keywords?.map((keyword) => {
+            return <KeywordsItem key={keyword.value} keyword={keyword.value} />;
+          })}
+        </ul>
+      </div>
+
       <hr />
     </div>
   );
