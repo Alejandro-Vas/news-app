@@ -3,7 +3,7 @@ import { store } from "../../store/store";
 
 import InputBox from "components/inputBox/InputBox";
 import Header from "components/header/Header";
-import Section from "components/section/Section";
+import Section from "components/articleList/ArticleList";
 
 import "./App.css";
 
