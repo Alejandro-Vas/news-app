@@ -1,4 +1,5 @@
 import KeywordsItem from "components/tagItem/KeywordsItem";
+
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
   article: DocsEntity;
@@ -24,16 +25,16 @@ const ArticleItem: React.FC<IProps> = (props) => {
       </div>
       <div>
         <ul>
-          {article.keywords?.map((keyword, i) => {
-            if (i < 5) {
+          {article.keywords
+            ?.filter((item, index) => index < 5)
+            .map((keyword) => {
               return (
                 <KeywordsItem
                   key={article.web_url + keyword.value}
                   keyword={keyword.value}
                 />
               );
-            }
-          })}
+            })}
         </ul>
       </div>
 

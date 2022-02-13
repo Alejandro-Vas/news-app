@@ -7,15 +7,15 @@ const Header = () => {
   const articleSearchQuery = useTypedSelector(
     (state) => state.articleSearchQuery.value
   );
-  const { data, isSuccess, isLoading, isUninitialized } =
+  const { data, isSuccess, isLoading, isFetching } =
     useGetArticleSearchQuery(articleSearchQuery);
 
   console.log(data);
 
   return (
     <div>
-      {isLoading && <Spinner />}
-      {!isUninitialized && isSuccess && !isLoading && (
+      {isLoading && isFetching && <Spinner />}
+      {isSuccess && !isLoading && (
         <div>
           {data?.response?.docs?.map((article) => {
             return (

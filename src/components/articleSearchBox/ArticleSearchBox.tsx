@@ -27,7 +27,7 @@ const ArticleSearchBox = () => {
     <FormControl>
       <Autocomplete
         inputValue={queryValue}
-        isOptionEqualToValue={(option, value) => false}
+        isOptionEqualToValue={(option, value) => true}
         onInputChange={(event, newInputValue) => {
           setQueryValue(newInputValue);
         }}
