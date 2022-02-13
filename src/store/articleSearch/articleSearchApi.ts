@@ -10,7 +10,7 @@ export const articleSearchApi = createApi({
   }),
   endpoints: (builder) => ({
     getArticleSearch: builder.query<IArticleSearch, string>({
-      query: (query = "IT") =>
+      query: (query = "Russia") =>
         `articlesearch.json?q=${query}&api-key=${apiKey}`,
     }),
   }),

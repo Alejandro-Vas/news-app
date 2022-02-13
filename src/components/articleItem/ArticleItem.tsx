@@ -14,8 +14,9 @@ const ArticleItem: React.FC<IProps> = (props) => {
       <div>{article.pub_date}</div>
       <div>
         <img
-          alt="article img"
+          alt="article"
           src={"https://www.nytimes.com/" + article.multimedia![5].url}
+          loading="lazy"
         />
       </div>
       <div>
@@ -23,8 +24,15 @@ const ArticleItem: React.FC<IProps> = (props) => {
       </div>
       <div>
         <ul>
-          {article.keywords?.map((keyword) => {
-            return <KeywordsItem key={keyword.value} keyword={keyword.value} />;
+          {article.keywords?.map((keyword, i) => {
+            if (i < 5) {
+              return (
+                <KeywordsItem
+                  key={article.web_url + keyword.value}
+                  keyword={keyword.value}
+                />
+              );
+            }
           })}
         </ul>
       </div>

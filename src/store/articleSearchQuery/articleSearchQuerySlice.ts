@@ -4,10 +4,10 @@ interface IArticleSearchQueryState {
   value: string;
 }
 
-const initialState = { value: "Москва" } as IArticleSearchQueryState;
+const initialState = { value: "Russia" } as IArticleSearchQueryState;
 
 const articleSearchQuerySlice = createSlice({
-  name: "query",
+  name: "articleSearchQuery",
   initialState,
   reducers: {
     setArticleSearchQuery(state, action) {

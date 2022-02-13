@@ -1,10 +1,14 @@
 import ArticleItem from "components/articleItem/ArticleItem";
 import Spinner from "components/spinner/Spinner";
 import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
+import { useTypedSelector } from "hooks/useTypedSelector";
 
 const Header = () => {
+  const articleSearchQuery = useTypedSelector(
+    (state) => state.articleSearchQuery.value
+  );
   const { data, isSuccess, isLoading, isUninitialized } =
-    useGetArticleSearchQuery("Putin");
+    useGetArticleSearchQuery(articleSearchQuery);
 
   console.log(data);
 
