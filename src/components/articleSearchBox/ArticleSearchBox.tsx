@@ -1,4 +1,4 @@
-import TextField from "@mui/material/TextField";
+import { TextField, Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { FormControl } from "@mui/material";
 import { useState } from "react";
@@ -12,14 +12,17 @@ const ArticleSearchBox = () => {
     (state) => state.articleSearchQuery.value
   );
 
-  const [queryValue, setQueryValue] = useState(articleSearchQuery);
+  const [queryValue, setQueryValue] = useState("");
   console.log(queryValue);
 
   const { setArticleSearchQuery } = useActions();
 
-  const onBlurSearch = () => {
+  //TODO - type event
+  const onSearch = (e: any) => {
+    e.preventDefault();
     if (queryValue !== "") {
       setArticleSearchQuery(queryValue);
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -27,6 +30,7 @@ const ArticleSearchBox = () => {
     <FormControl>
       <Autocomplete
         inputValue={queryValue}
+        value={""}
         isOptionEqualToValue={(option, value) => true}
         onInputChange={(event, newInputValue) => {
           setQueryValue(newInputValue);
@@ -37,8 +41,16 @@ const ArticleSearchBox = () => {
         renderInput={(params) => (
           <TextField {...params} label="type article theme" />
         )}
-        onBlur={onBlurSearch}
+        onClick={onSearch}
       />
+      <Button
+        variant="contained"
+        size="large"
+        type="submit"
+        onClick={(e) => onSearch(e)}
+      >
+        Поиск
+      </Button>
     </FormControl>
   );
 };

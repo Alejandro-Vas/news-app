@@ -16,12 +16,14 @@ const Header = () => {
     <div>
       {isLoading && isFetching && <Spinner />}
       {isSuccess && !isLoading && (
-        <div>
+        <div className="grid-container">
           {data?.response?.docs?.map((article) => {
             return (
               article &&
               typeof article?.multimedia![5] !== "undefined" && (
-                <ArticleItem key={article._id} article={article} />
+                <div className="grid-item">
+                  <ArticleItem key={article._id} article={article} />
+                </div>
               )
             );
           })}

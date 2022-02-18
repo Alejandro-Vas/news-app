@@ -5,12 +5,10 @@ import ArticleSearchBox from "components/articleSearchBox/ArticleSearchBox";
 import Header from "components/header/Header";
 import Section from "components/articleList/ArticleList";
 
-import "./App.css";
-
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="container">
         <div className="App-logo">
           <Header />
         </div>
