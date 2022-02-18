@@ -1,5 +1,6 @@
 import ArticleItem from "components/articleItem/ArticleItem";
 import Spinner from "components/spinner/Spinner";
+import SkeletonItem from "components/skeletonItem/SkeletonItem";
 import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
@@ -22,7 +23,11 @@ const Header = () => {
               article &&
               typeof article?.multimedia![5] !== "undefined" && (
                 <div className="grid-item">
-                  <ArticleItem key={article._id} article={article} />
+                  {!isLoading && !isFetching ? (
+                    <ArticleItem key={article._id} article={article} />
+                  ) : (
+                    <SkeletonItem />
+                  )}
                 </div>
               )
             );
