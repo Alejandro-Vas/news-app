@@ -3,7 +3,6 @@ const Header = () => {
     <>
       <div>
         <h1>Header</h1>
-        <h2>Header2</h2>
       </div>
       <div>Article text</div>
     </>
