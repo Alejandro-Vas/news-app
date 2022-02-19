@@ -19,7 +19,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
       <Typography variant="subtitle2" gutterBottom>
         {article.abstract}
       </Typography>
-      <div>
+      <div className="article__link">
         <Link
           href={article.web_url}
           target="_blank"
@@ -31,7 +31,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
       </div>
 
       {/* <div>{articleDate}</div> */}
-      <div>
+      <div className="article__img">
         <img
           className="article-img"
           alt="article"
@@ -56,8 +56,6 @@ const ArticleItem: React.FC<IProps> = (props) => {
             })}
         </div>
       </div>
-
-      <hr />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, FormControl } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import { useTypedSelector } from "hooks/useTypedSelector";
@@ -29,36 +29,45 @@ const ArticleSearchBox = () => {
     }
   };
 
+  const onEnter = (e: any) => {
+    if (e.which === 13) {
+      setArticleSearchQuery(queryValue);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="search-form">
-      <Autocomplete
-        sx={{ width: 500 }}
-        className="search-form__item"
-        freeSolo
-        value={articleSearchQuery}
-        inputValue={queryValue}
-        onInputChange={(event, newInputValue) => {
-          setQueryValue(newInputValue);
-        }}
-        isOptionEqualToValue={(option, value) => true}
-        id="controllable-states-demo"
-        options={tags}
-        renderInput={(params) => (
-          <TextField {...params} label="type article theme" />
-        )}
-        onSubmit={onSearch}
-      />
-      <Button
-        className="search-form__item"
-        variant="contained"
-        disabled={isLoading || isFetching}
-        size="large"
-        type="submit"
-        onClick={(e) => onSearch(e)}
-      >
-        SEARCH ARTICLE
-      </Button>
-    </div>
+    <form>
+      <div className="search-form">
+        <Autocomplete
+          sx={{ width: 500 }}
+          className="search-form__item"
+          freeSolo
+          value={articleSearchQuery}
+          inputValue={queryValue}
+          onInputChange={(event, newInputValue) => {
+            setQueryValue(newInputValue);
+          }}
+          autoHighlight
+          autoSelect
+          options={tags}
+          renderInput={(params) => (
+            <TextField {...params} label="type article theme" />
+          )}
+          onSubmit={onSearch}
+        />
+        <Button
+          className="search-form__item"
+          variant="contained"
+          disabled={isLoading || isFetching}
+          size="large"
+          type="submit"
+          onClick={(e) => onSearch(e)}
+        >
+          SEARCH ARTICLE
+        </Button>
+      </div>
+    </form>
   );
 };
 export default ArticleSearchBox;

@@ -9,13 +9,13 @@ function App() {
   return (
     <Provider store={store}>
       <Header />
+
       <div className="container">
         <div className="App-logo"></div>
-        <div className="App-logo">
-          <ArticleSearchBox />
-        </div>
+        <ArticleSearchBox />
         <Section />
       </div>
+      <hr />
     </Provider>
   );
 }
