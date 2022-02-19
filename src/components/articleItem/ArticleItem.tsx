@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
 import { unixTimeConverter } from "helpers/unixTimeConverter";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
@@ -12,10 +13,12 @@ const ArticleItem: React.FC<IProps> = (props) => {
 
   return (
     <div className="fade-in">
-      <div>
-        <h2>{article.headline.main}</h2>
-      </div>
-      <div>{article.abstract}</div>
+      <Typography variant="h4" gutterBottom component="div">
+        {article.headline.main}
+      </Typography>
+      <Typography variant="subtitle2" gutterBottom>
+        {article.abstract}
+      </Typography>
       <div>{articleDate}</div>
       <div>
         <img
