@@ -8,10 +8,9 @@ import Section from "components/articleList/ArticleList";
 function App() {
   return (
     <Provider store={store}>
+      <Header />
       <div className="container">
-        <div className="App-logo">
-          <Header />
-        </div>
+        <div className="App-logo"></div>
         <div className="App-logo">
           <ArticleSearchBox />
         </div>

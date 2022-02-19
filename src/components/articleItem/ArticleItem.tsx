@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Link } from "@mui/material";
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
 import { unixTimeConverter } from "helpers/unixTimeConverter";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
@@ -19,7 +19,18 @@ const ArticleItem: React.FC<IProps> = (props) => {
       <Typography variant="subtitle2" gutterBottom>
         {article.abstract}
       </Typography>
-      <div>{articleDate}</div>
+      <div>
+        <Link
+          href={article.web_url}
+          target="_blank"
+          rel="noreferrer"
+          mt={"10px"}
+        >
+          See on www.nytimes.com
+        </Link>
+      </div>
+
+      {/* <div>{articleDate}</div> */}
       <div>
         <img
           className="article-img"
@@ -28,11 +39,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
           loading="lazy"
         />
       </div>
-      <div>
-        <a href={article.web_url} target="_blank" rel="noreferrer">
-          NYT Link
-        </a>
-      </div>
+
       <div>
         <div className="keywords-wrapper">
           {article.keywords

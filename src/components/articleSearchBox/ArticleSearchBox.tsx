@@ -1,9 +1,9 @@
 import { TextField, Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import { FormControl } from "@mui/material";
 import { useState } from "react";
 import { useTypedSelector } from "hooks/useTypedSelector";
 import useActions from "hooks/useActions";
+import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
 
 const ArticleSearchBox = () => {
   const tags = ["Politics", "Science", "Medicine", "Covid-19"];
@@ -11,6 +11,9 @@ const ArticleSearchBox = () => {
   const articleSearchQuery = useTypedSelector(
     (state) => state.articleSearchQuery.value
   );
+
+  const { isLoading, isFetching } =
+    useGetArticleSearchQuery(articleSearchQuery);
 
   const [queryValue, setQueryValue] = useState("");
   console.log(queryValue);
@@ -48,6 +51,7 @@ const ArticleSearchBox = () => {
       <Button
         className="search-form__item"
         variant="contained"
+        disabled={isLoading || isFetching}
         size="large"
         type="submit"
         onClick={(e) => onSearch(e)}
