@@ -1,7 +1,7 @@
 import { Typography, Link } from "@mui/material";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
+import FavoriteStar from "components/favoriteStar/FavoriteStar";
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
-import StarIcon from "@mui/icons-material/Star";
+
 import { unixTimeConverter } from "helpers/unixTimeConverter";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
@@ -16,17 +16,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
   return (
     <div className="fade-in">
       <div className="article__favorite">
-        <StarBorderIcon
-          className="favorite__article__item"
-          color="primary"
-          fontSize="large"
-        />
-        <StarIcon
-          onClick={() => console.log("aaa")}
-          className="favorite__article__item"
-          color="primary"
-          fontSize="large"
-        />
+        <FavoriteStar />
       </div>
       <Typography variant="h4" gutterBottom component="div">
         {article.headline.main}
