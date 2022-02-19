@@ -1,11 +1,10 @@
+import Typography from "@mui/material/Typography";
+
 const Header = () => {
   return (
-    <>
-      <div>
-        <h1>Header</h1>
-      </div>
-      <div>Article text</div>
-    </>
+    <Typography variant="h1" component="div" gutterBottom>
+      New York Times articles
+    </Typography>
   );
 };
 export default Header;
