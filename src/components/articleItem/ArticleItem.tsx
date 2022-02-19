@@ -1,5 +1,5 @@
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
-
+import { unixTimeConverter } from "helpers/unixTimeConverter";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
   article: DocsEntity;
@@ -7,13 +7,16 @@ interface IProps {
 
 const ArticleItem: React.FC<IProps> = (props) => {
   const { article } = props;
+  console.log(article.pub_date);
+  const articleDate = Date.parse(article.pub_date);
+
   return (
-    <div>
+    <div className="fade-in">
       <div>
         <h2>{article.headline.main}</h2>
       </div>
       <div>{article.abstract}</div>
-      <div>{article.pub_date}</div>
+      <div>{articleDate}</div>
       <div>
         <img
           className="article-img"
@@ -23,7 +26,9 @@ const ArticleItem: React.FC<IProps> = (props) => {
         />
       </div>
       <div>
-        <a href={article.web_url}>NYT Link</a>
+        <a href={article.web_url} target="_blank" rel="noreferrer">
+          NYT Link
+        </a>
       </div>
       <div>
         <div className="keywords-wrapper">
@@ -31,11 +36,11 @@ const ArticleItem: React.FC<IProps> = (props) => {
             ?.filter((_, index) => index < 5)
             .map((keyword) => {
               return (
-                <div className="keywords-item">
-                  <KeywordsItem
-                    key={article.web_url + keyword.value}
-                    keyword={keyword.value}
-                  />
+                <div
+                  className="keywords-item"
+                  key={article.web_url + keyword.value}
+                >
+                  <KeywordsItem keyword={keyword.value} />
                 </div>
               );
             })}

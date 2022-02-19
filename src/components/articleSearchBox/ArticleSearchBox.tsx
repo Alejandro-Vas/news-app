@@ -27,21 +27,22 @@ const ArticleSearchBox = () => {
   };
 
   return (
-    <FormControl>
+    <div className="search-form">
       <Autocomplete
+        freeSolo
+        value={articleSearchQuery}
         inputValue={queryValue}
-        value={""}
-        isOptionEqualToValue={(option, value) => true}
         onInputChange={(event, newInputValue) => {
           setQueryValue(newInputValue);
         }}
+        isOptionEqualToValue={(option, value) => true}
         id="controllable-states-demo"
         options={tags}
         sx={{ width: 300 }}
         renderInput={(params) => (
           <TextField {...params} label="type article theme" />
         )}
-        onClick={onSearch}
+        onSubmit={onSearch}
       />
       <Button
         variant="contained"
@@ -51,7 +52,7 @@ const ArticleSearchBox = () => {
       >
         Поиск
       </Button>
-    </FormControl>
+    </div>
   );
 };
 export default ArticleSearchBox;
