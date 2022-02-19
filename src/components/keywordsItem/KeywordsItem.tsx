@@ -15,7 +15,12 @@ const KeywordsItem: React.FC<IProps> = (props) => {
 
   return (
     <>
-      <Button variant="contained" onClick={handleClick}>
+      <Button
+        className="keywords-button"
+        variant="contained"
+        onClick={handleClick}
+        sx={{ fontSize: 12 }}
+      >
         {keyword.length < 30 ? keyword : `${keyword.slice(0, 30)}...`}
       </Button>{" "}
     </>
