@@ -29,6 +29,8 @@ const ArticleSearchBox = () => {
   return (
     <div className="search-form">
       <Autocomplete
+        sx={{ width: 500 }}
+        className="search-form__item"
         freeSolo
         value={articleSearchQuery}
         inputValue={queryValue}
@@ -38,19 +40,19 @@ const ArticleSearchBox = () => {
         isOptionEqualToValue={(option, value) => true}
         id="controllable-states-demo"
         options={tags}
-        sx={{ width: 300 }}
         renderInput={(params) => (
           <TextField {...params} label="type article theme" />
         )}
         onSubmit={onSearch}
       />
       <Button
+        className="search-form__item"
         variant="contained"
         size="large"
         type="submit"
         onClick={(e) => onSearch(e)}
       >
-        Поиск
+        SEARCH ARTICLE
       </Button>
     </div>
   );
