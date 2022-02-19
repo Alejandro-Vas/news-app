@@ -9,6 +9,11 @@
   }
 }
 
+.article__favorite {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .article-img {
   height: 100%;
 }

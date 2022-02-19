@@ -1,0 +1,36 @@
+@import "../../styles/variabales.scss";
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  @media screen and (max-width: 400px) {
+    justify-content: center;
+  }
+
+  &__item {
+    font-size: 2rem;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 26px;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #111;
+    }
+    @media screen and (max-width: 500px) {
+      font-size: 1.5rem;
+      padding: 10px 16px;
+      width: 50%;
+    }
+  }
+
+  .active {
+    background-color: #04aa6d;
+  }
+}

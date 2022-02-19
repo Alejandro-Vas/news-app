@@ -1,21 +1,26 @@
 import { Provider } from "react-redux";
 import { store } from "../../store/store";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
-import ArticleSearchBox from "components/articleSearchBox/ArticleSearchBox";
 import Header from "components/header/Header";
-import Section from "components/articleList/ArticleList";
+
+import NavBar from "components/navBar/NavBar";
+import MainPage from "pages/MainPage";
+import FavoritePage from "pages/FavoritePage";
 
 function App() {
   return (
     <Provider store={store}>
       <Header />
-
-      <div className="container">
-        <div className="App-logo"></div>
-        <ArticleSearchBox />
-        <Section />
-      </div>
-      <hr />
+      <Router>
+        <NavBar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="favorites" element={<FavoritePage />} />
+          </Routes>
+        </div>
+      </Router>
     </Provider>
   );
 }

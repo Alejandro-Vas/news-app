@@ -1,4 +1,4 @@
-import { TextField, Button, FormControl } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import { useTypedSelector } from "hooks/useTypedSelector";
@@ -24,13 +24,6 @@ const ArticleSearchBox = () => {
   const onSearch = (e: any) => {
     e.preventDefault();
     if (queryValue !== "") {
-      setArticleSearchQuery(queryValue);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  };
-
-  const onEnter = (e: any) => {
-    if (e.which === 13) {
       setArticleSearchQuery(queryValue);
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
