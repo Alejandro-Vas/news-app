@@ -14,9 +14,11 @@ const KeywordsItem: React.FC<IProps> = (props) => {
   };
 
   return (
-    <Button variant="outlined" onClick={handleClick}>
-      {keyword.length < 30 ? keyword : `${keyword.slice(0, 30)}...`}
-    </Button>
+    <>
+      <Button variant="contained" onClick={handleClick}>
+        {keyword.length < 30 ? keyword : `${keyword.slice(0, 30)}...`}
+      </Button>{" "}
+    </>
   );
 };
 export default KeywordsItem;
