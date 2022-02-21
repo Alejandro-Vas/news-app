@@ -2,7 +2,6 @@ import { Typography, Link } from "@mui/material";
 import FavoriteStar from "components/favoriteStar/FavoriteStarWrapper";
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
 
-import { unixTimeConverter } from "helpers/unixTimeConverter";
 import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
   article: DocsEntity;
@@ -10,8 +9,6 @@ interface IProps {
 
 const ArticleItem: React.FC<IProps> = (props) => {
   const { article } = props;
-  console.log(article.pub_date);
-  const articleDate = Date.parse(article.pub_date);
 
   return (
     <div className="fade-in">

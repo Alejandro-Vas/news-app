@@ -16,7 +16,6 @@ const ArticleSearchBox = () => {
     useGetArticleSearchQuery(articleSearchQuery);
 
   const [queryValue, setQueryValue] = useState("");
-  console.log(queryValue);
 
   const { setArticleSearchQuery } = useActions();
 

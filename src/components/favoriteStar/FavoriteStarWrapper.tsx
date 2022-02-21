@@ -14,11 +14,10 @@ interface IProps {
 
 const FavoriteStarWrapper: React.FC<IProps> = (props) => {
   const { article } = props;
-  console.log(article);
   const { addFavorite, removeFavorite } = useActions();
   const favoriteState = useTypedSelector((state) => state.favoriteSlice);
   const favoriteId = favoriteState.filter((el) => el._id === article?._id);
-  console.log(favoriteState);
+
 
   const handleAddFavorite = () => {
     const filteredState = favoriteState.filter((el) => el._id === article?._id);

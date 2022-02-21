@@ -12,7 +12,6 @@ const ArticleList = () => {
   const { data, isSuccess, isLoading, isFetching } =
     useGetArticleSearchQuery(articleSearchQuery);
 
-  console.log(data);
 
   return (
     <div>
