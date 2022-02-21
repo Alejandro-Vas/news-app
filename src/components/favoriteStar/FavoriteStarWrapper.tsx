@@ -4,29 +4,32 @@ import NoFavoriteStar from "./NoFavoriteStar";
 import useActions from "hooks/useActions";
 import { useTypedSelector } from "hooks/useTypedSelector";
 
-import { IFavorite } from "./../../interfaces/IFavorite";
+import { DocsEntity } from "./../../interfaces/IArticleSearchInterface";
+import { ReactNode } from "react";
 
 interface IProps {
-  article: IFavorite;
+  article?: DocsEntity;
+  children?: ReactNode;
 }
 
 const FavoriteStarWrapper: React.FC<IProps> = (props) => {
-  const { _id, web_url, headline, abstract, keywords } = props.article;
+  const { article } = props;
+  console.log(article);
   const { addFavorite, removeFavorite } = useActions();
   const favoriteState = useTypedSelector((state) => state.favoriteSlice);
-  const favoriteId = favoriteState.filter((el) => el._id === _id);
+  const favoriteId = favoriteState.filter((el) => el._id === article?._id);
   console.log(favoriteState);
 
   const handleAddFavorite = () => {
-    const filteredState = favoriteState.filter((el) => el._id === _id);
-    if (filteredState[0]?._id !== _id) {
-      addFavorite({ _id, web_url, headline, abstract, keywords });
+    const filteredState = favoriteState.filter((el) => el._id === article?._id);
+    if (filteredState[0]?._id !== article?._id) {
+      addFavorite(article!);
     }
   };
 
   const handleRemoveFavorite = () => {
     if (favoriteState.length !== 0) {
-      removeFavorite({ _id });
+      removeFavorite(article?._id);
     }
   };
 

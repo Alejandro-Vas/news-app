@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IFavorite } from "./../../interfaces/IFavorite";
+import { DocsEntity } from "./../../interfaces/IArticleSearchInterface";
 
-const initialState: IFavorite[] = [];
+const initialState: DocsEntity[] = [];
 
 const favoriteSlice = createSlice({
   name: "articleSearchQuery",
   initialState,
   reducers: {
-    addFavorite(state, action: PayloadAction<IFavorite>) {
+    addFavorite(state, action: PayloadAction<DocsEntity>) {
       state.push(action.payload);
     },
-    removeFavorite(state, action: PayloadAction<IFavorite>) {
+    removeFavorite(state, action) {
       return state.filter((el) => {
-        return el._id !== action.payload._id;
+        return el._id !== action.payload;
       });
     },
   },
