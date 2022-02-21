@@ -3,7 +3,6 @@ import { store } from "../../store/store";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import Header from "components/header/Header";
-
 import NavBar from "components/navBar/NavBar";
 import MainPage from "pages/MainPage";
 import FavoritePage from "pages/FavoritePage";

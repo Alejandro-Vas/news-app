@@ -9,6 +9,9 @@
 - Favorite articles page
 - Mobile adaptation (coming soon...)
 
+#### MAIN PAGE SCREENSHOT
+
+<img src="https://github.com/Alejandro-Vas/news-app/blob/master/MainPageScreen.png?raw=true" alt="main page screenshot"/>
 #### USAGE
 
 ```

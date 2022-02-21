@@ -1,9 +1,10 @@
-import { TextField, Button } from "@mui/material";
-import Autocomplete from "@mui/material/Autocomplete";
 import { useState } from "react";
 import { useTypedSelector } from "hooks/useTypedSelector";
 import useActions from "hooks/useActions";
 import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
+
+import { TextField, Button } from "@mui/material";
+import Autocomplete from "@mui/material/Autocomplete";
 
 const ArticleSearchBox = () => {
   const tags = ["Politics", "Science", "Medicine", "Covid-19"];

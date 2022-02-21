@@ -6,6 +6,10 @@ const SkeletonItem = () => {
       <Skeleton variant="text" />
       <Skeleton variant="text" />
       <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
       <Skeleton variant="rectangular" width={350} height={250} />
       <Skeleton variant="text" />
       <Skeleton variant="text" />
