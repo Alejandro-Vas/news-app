@@ -1,20 +1,14 @@
 import StarIcon from "@mui/icons-material/Star";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
 
-const FavoriteStar = () => {
+const FavoriteStar: React.FC = () => {
   return (
-    <>
-      <StarBorderIcon
-        className="favorite__article__item"
-        color="primary"
-        fontSize="large"
-      />
+    <div>
       <StarIcon
         className="favorite__article__item"
         color="primary"
         fontSize="large"
       />
-    </>
+    </div>
   );
 };
 export default FavoriteStar;

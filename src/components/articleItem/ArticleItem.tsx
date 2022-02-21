@@ -1,5 +1,5 @@
 import { Typography, Link } from "@mui/material";
-import FavoriteStar from "components/favoriteStar/FavoriteStar";
+import FavoriteStar from "components/favoriteStar/FavoriteStarWrapper";
 import KeywordsItem from "components/keywordsItem/KeywordsItem";
 
 import { unixTimeConverter } from "helpers/unixTimeConverter";
@@ -16,13 +16,17 @@ const ArticleItem: React.FC<IProps> = (props) => {
   return (
     <div className="fade-in">
       <div className="article__favorite">
-        <FavoriteStar />
+        <FavoriteStar article={article} />
       </div>
+
       <Typography variant="h4" gutterBottom component="div">
         {article.headline.main}
       </Typography>
-      <Typography variant="subtitle2" gutterBottom>
+      <Typography variant="h6" gutterBottom component="div">
         {article.abstract}
+      </Typography>
+      <Typography variant="subtitle1" gutterBottom>
+        {article.lead_paragraph}
       </Typography>
       <div className="article__link">
         <Link
