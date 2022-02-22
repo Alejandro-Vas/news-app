@@ -1,6 +1,6 @@
-# New Yourk Tims news app
+# New York Tims news app
 
-## Project made using JavaScript, TypeScript, React and Redux.
+## Project made using JavaScript, TypeScript, React and Redux, based on Material UI.
 
 #### APP FEATURES:
 
