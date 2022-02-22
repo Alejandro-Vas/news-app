@@ -4,7 +4,7 @@ const Spinner = () => {
   return (
     <div className="spinner-wrapper">
       <div className="spinner" />
-      <Typography variant="h3" gutterBottom component="div">
+      <Typography variant="subtitle1" gutterBottom component="div">
         Loading...
       </Typography>
     </div>

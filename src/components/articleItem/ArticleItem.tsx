@@ -16,13 +16,13 @@ const ArticleItem: React.FC<IProps> = (props) => {
         <FavoriteStar article={article} />
       </div>
 
-      <Typography variant="h4" gutterBottom component="div">
+      <Typography variant="subtitle1" gutterBottom component="div">
         {article.headline.main}
       </Typography>
-      <Typography variant="h6" gutterBottom component="div">
+      <Typography variant="subtitle2" gutterBottom component="div">
         {article.abstract}
       </Typography>
-      <Typography variant="subtitle1" gutterBottom>
+      <Typography variant="body1" gutterBottom>
         {article.lead_paragraph}
       </Typography>
       <div className="article__link">

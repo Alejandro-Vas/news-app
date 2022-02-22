@@ -11,20 +11,20 @@ import { theme } from "../../styles/theme";
 
 function App() {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <Router>
-          <NavBar />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="favorites" element={<FavoritePage />} />
-            </Routes>
-          </div>
-        </Router>
-      </ThemeProvider>
-    </Provider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Header />
+          <Router>
+            <NavBar />
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="favorites" element={<FavoritePage />} />
+              </Routes>
+            </div>
+          </Router>
+        </ThemeProvider>
+      </Provider>
   );
 }
 

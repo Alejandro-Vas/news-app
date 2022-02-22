@@ -57,7 +57,7 @@ const ArticleSearchBox = () => {
           type="submit"
           onClick={(e) => onSearch(e)}
         >
-          SEARCH ARTICLE
+          SEARCH
         </Button>
       </div>
     </form>

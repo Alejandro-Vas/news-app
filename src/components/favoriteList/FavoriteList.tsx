@@ -19,7 +19,7 @@ const FavoriteList = () => {
       })}
     </div>
   ) : (
-    <Typography variant="h4" component="div">
+    <Typography variant="body1" component="div">
       Please add articles to favorite
     </Typography>
   );
