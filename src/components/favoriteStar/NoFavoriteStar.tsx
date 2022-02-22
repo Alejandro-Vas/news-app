@@ -1,13 +1,16 @@
 import StarBorderIcon from "@mui/icons-material/StarBorder";
+import Tooltip from "@mui/material/Tooltip";
 
 const NoFavoriteStar: React.FC = () => {
   return (
     <div>
-      <StarBorderIcon
-        className="favorite__article__item"
-        color="primary"
-        fontSize="large"
-      />
+      <Tooltip title="Add to favorites">
+        <StarBorderIcon
+          className="favorite__article__item"
+          color="primary"
+          fontSize="large"
+        />
+      </Tooltip>
     </div>
   );
 };
