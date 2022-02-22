@@ -7,7 +7,7 @@
 - Article search by query or tag click
 - Fetching data from API
 - Favorite articles page
-- Mobile adaptation (coming soon...)
+- Mobile adaptation
 
 #### MAIN PAGE SCREENSHOT
 
