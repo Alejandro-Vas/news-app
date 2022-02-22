@@ -19,6 +19,14 @@ const ArticleItem: React.FC<IProps> = (props) => {
       <Typography variant="subtitle1" gutterBottom component="div">
         {article.headline.main}
       </Typography>
+      <div className="article__img">
+        <img
+          className="article-img"
+          alt="article"
+          src={"https://www.nytimes.com/" + article.multimedia![5].url}
+          loading="lazy"
+        />
+      </div>
       <Typography variant="subtitle2" gutterBottom component="div">
         {article.abstract}
       </Typography>
@@ -35,17 +43,6 @@ const ArticleItem: React.FC<IProps> = (props) => {
           See on www.nytimes.com
         </Link>
       </div>
-
-      {/* <div>{articleDate}</div> */}
-      <div className="article__img">
-        <img
-          className="article-img"
-          alt="article"
-          src={"https://www.nytimes.com/" + article.multimedia![5].url}
-          loading="lazy"
-        />
-      </div>
-
       <div>
         <div className="keywords-wrapper">
           {article.keywords
