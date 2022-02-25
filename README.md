@@ -16,7 +16,7 @@
 
 ```
 git clone https://github.com/Alejandro-Vas/news-app.git
-cd todo-list-app
+cd news-app
 npm i
 npm start
 ```
