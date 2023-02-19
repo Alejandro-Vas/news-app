@@ -20,7 +20,7 @@ function ArticleSearchBox() {
   const { setArticleSearchQuery } = useActions();
 
   // TODO - type event
-  const onSearch = (e: any) => {
+  const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     if (queryValue !== '') {
       setArticleSearchQuery(queryValue);
@@ -46,7 +46,6 @@ function ArticleSearchBox() {
           renderInput={(params) => (
             <TextField {...params} label="type article theme" />
           )}
-          onSubmit={onSearch}
         />
         <Button
           className="search-form__item"
