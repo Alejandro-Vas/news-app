@@ -15,6 +15,27 @@
       "plugin:@typescript-eslint/recommended"
     ],
     "rules" : {
+      "no-shadow": "off",
+      "import/extensions": [
+        "error",
+        "always",
+        {
+          "js": "never",
+          "jsx": "never",
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "@typescript-eslint/no-shadow": [
+        "error"
+      ],
+      "no-param-reassign": [
+        "error",
+        {
+          "props": false
+        }
+      ],
+      "semi": "off",
       "react/jsx-filename-extension": [
         2,
         {
@@ -38,9 +59,7 @@
     },
     "settings": {
       "import/resolver": {
-        "node": {
-          "extensions": [".ts", ".tsx"]
-        }
+        "typescript": {}
       }
     }
   }
