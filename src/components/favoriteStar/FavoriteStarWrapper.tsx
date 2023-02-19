@@ -8,6 +8,7 @@ interface IProps {
 
 function FavoriteStarWrapper({ article }:IProps) {
   console.log(article);
+
   const isFavorite = false
   return (
     <FavoriteStar isFavorite={isFavorite} />
