@@ -9,9 +9,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 function ArticleSearchBox() {
   const tags = ['Politics', 'Science', 'Medicine', 'Covid-19'];
 
-  const articleSearchQuery = useTypedSelector(
-    (state) => state.articleSearchQuery.value,
-  );
+  const articleSearchQuery = useTypedSelector((state) => state.articleSearchQuery.value);
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
 
@@ -22,6 +20,7 @@ function ArticleSearchBox() {
   // TODO - type event
   const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+
     if (queryValue !== '') {
       setArticleSearchQuery(queryValue);
       window.scrollTo({ top: 0, behavior: 'smooth' });
