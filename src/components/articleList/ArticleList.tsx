@@ -1,6 +1,6 @@
 import ArticleItem from "components/articleItem/ArticleItem";
-import Spinner from "components/spinner/Spinner";
 import SkeletonItem from "components/skeletonItem/SkeletonItem";
+import {Box, Typography, CircularProgress } from "@mui/material";
 import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
 import { useTypedSelector } from "hooks/useTypedSelector";
 import { v4 as uuidv4 } from "uuid";
@@ -13,9 +13,31 @@ const ArticleList = () => {
     useGetArticleSearchQuery(articleSearchQuery);
 
 
+    if (isLoading || isFetching ) {
+      return (
+        <Box sx={{margin: "0 auto", textAlign:'center'}}>
+          <Box sx={{
+            display: "flex",
+            justifyContent:'center',
+            alignItems: 'center',
+            mt: 4}}
+          >
+            <CircularProgress size={64}  />
+          </Box>
+
+          <Typography
+            variant="subtitle1"
+            component="div"
+            sx={{ mt:2 }}
+            >
+              Loading...
+          </Typography>
+        </Box>
+      )
+    }
+
   return (
     <div>
-      {isLoading && isFetching && <Spinner />}
 
       {isSuccess && !isLoading && (
         <div className="grid-container">
