@@ -2,7 +2,12 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
-      "@typescript-eslint"
+      "@typescript-eslint",
+      "react",
+      "jsx-a11y",
+      "import",
+      "react-hooks",
+      "jest"
     ],
     "extends": [
       "airbnb",
@@ -18,6 +23,17 @@
             ".tsx"
           ]
         }
-      ]
+      ],
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    },
+    "globals": {
+      "window": true,
+      "document": true
+    },
+    "env": {
+      "jest/globals": true
     }
   }
