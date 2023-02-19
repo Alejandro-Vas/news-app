@@ -11,8 +11,7 @@ const ArticleList = () => {
   );
   const { data, isSuccess, isLoading, isFetching } =
     useGetArticleSearchQuery(articleSearchQuery);
-
-
+    
     if (isLoading || isFetching ) {
       return (
         <Box sx={{margin: "0 auto", textAlign:'center'}}>
