@@ -1,12 +1,12 @@
-import ArticleList from "components/articleList/ArticleList";
-import ArticleSearchBox from "components/articleSearchBox/ArticleSearchBox";
+import ArticleList from 'components/articleList/ArticleList';
+import ArticleSearchBox from 'components/articleSearchBox/ArticleSearchBox';
 
-const MainPage = () => {
+function MainPage() {
   return (
     <>
       <ArticleSearchBox />
       <ArticleList />
     </>
   );
-};
+}
 export default MainPage;

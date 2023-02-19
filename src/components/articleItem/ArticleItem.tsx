@@ -1,13 +1,14 @@
-import { Typography, Link } from "@mui/material";
-import FavoriteStar from "components/favoriteStar/FavoriteStarWrapper";
-import KeywordsItem from "components/keywordsItem/KeywordsItem";
+import { Typography, Link } from '@mui/material';
+import FavoriteStar from 'components/favoriteStar/FavoriteStarWrapper';
+import KeywordsItem from 'components/keywordsItem/KeywordsItem';
 
-import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
+import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
+
 interface IProps {
   article: DocsEntity;
 }
 
-const ArticleItem: React.FC<IProps> = (props) => {
+function ArticleItem(props) {
   const { article } = props;
 
   return (
@@ -23,7 +24,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
         <img
           className="article-img"
           alt="article"
-          src={"https://www.nytimes.com/" + article.multimedia![5].url}
+          src={`https://www.nytimes.com/${article.multimedia![5].url}`}
           loading="lazy"
         />
       </div>
@@ -38,7 +39,7 @@ const ArticleItem: React.FC<IProps> = (props) => {
           href={article.web_url}
           target="_blank"
           rel="noreferrer"
-          mt={"10px"}
+          mt="10px"
         >
           See on www.nytimes.com
         </Link>
@@ -47,19 +48,17 @@ const ArticleItem: React.FC<IProps> = (props) => {
         <div className="keywords-wrapper">
           {article.keywords
             ?.filter((_, index) => index < 5)
-            .map((keyword) => {
-              return (
-                <div
-                  className="keywords-item"
-                  key={article.web_url + keyword.value}
-                >
-                  <KeywordsItem keyword={keyword.value} />
-                </div>
-              );
-            })}
+            .map((keyword) => (
+              <div
+                className="keywords-item"
+                key={article.web_url + keyword.value}
+              >
+                <KeywordsItem keyword={keyword.value} />
+              </div>
+            ))}
         </div>
       </div>
     </div>
   );
-};
+}
 export default ArticleItem;

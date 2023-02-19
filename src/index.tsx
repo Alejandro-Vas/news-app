@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./components/app/App";
-import { StyledEngineProvider } from "@mui/material/styles";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import { StyledEngineProvider } from '@mui/material/styles';
+import App from './components/app/App';
 
-import "./styles/styles.scss";
+import './styles/styles.scss';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,5 +12,5 @@ ReactDOM.render(
       <App />
     </StyledEngineProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );

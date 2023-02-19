@@ -1,31 +1,30 @@
-import { useState } from "react";
-import { useTypedSelector } from "hooks/useTypedSelector";
-import useActions from "hooks/useActions";
-import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
+import { useState } from 'react';
+import { useTypedSelector } from 'hooks/useTypedSelector';
+import useActions from 'hooks/useActions';
+import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 
-import { TextField, Button } from "@mui/material";
-import Autocomplete from "@mui/material/Autocomplete";
+import { TextField, Button } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 
-const ArticleSearchBox = () => {
-  const tags = ["Politics", "Science", "Medicine", "Covid-19"];
+function ArticleSearchBox() {
+  const tags = ['Politics', 'Science', 'Medicine', 'Covid-19'];
 
   const articleSearchQuery = useTypedSelector(
-    (state) => state.articleSearchQuery.value
+    (state) => state.articleSearchQuery.value,
   );
 
-  const { isLoading, isFetching } =
-    useGetArticleSearchQuery(articleSearchQuery);
+  const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
 
-  const [queryValue, setQueryValue] = useState("");
+  const [queryValue, setQueryValue] = useState('');
 
   const { setArticleSearchQuery } = useActions();
 
-  //TODO - type event
+  // TODO - type event
   const onSearch = (e: any) => {
     e.preventDefault();
-    if (queryValue !== "") {
+    if (queryValue !== '') {
       setArticleSearchQuery(queryValue);
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -62,5 +61,5 @@ const ArticleSearchBox = () => {
       </div>
     </form>
   );
-};
+}
 export default ArticleSearchBox;

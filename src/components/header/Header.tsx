@@ -1,6 +1,6 @@
-import Typography from "@mui/material/Typography";
+import Typography from '@mui/material/Typography';
 
-const Header = () => {
+function Header() {
   return (
     <div className="header-wrapper">
       <Typography variant="h1" component="div">
@@ -8,5 +8,5 @@ const Header = () => {
       </Typography>
     </div>
   );
-};
+}
 export default Header;

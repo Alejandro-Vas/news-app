@@ -1,17 +1,16 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IArticleSearch } from "interfaces/IArticleSearchInterface";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { IArticleSearch } from 'interfaces/IArticleSearchInterface';
 
-import { apiKey } from "../apiKey";
+import { apiKey } from '../apiKey';
 
 export const articleSearchApi = createApi({
-  reducerPath: "api/articleSearch",
+  reducerPath: 'api/articleSearch',
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.nytimes.com/svc/search/v2",
+    baseUrl: 'https://api.nytimes.com/svc/search/v2',
   }),
   endpoints: (builder) => ({
     getArticleSearch: builder.query<IArticleSearch, string>({
-      query: (query = "Russia") =>
-        `articlesearch.json?q=${query}&api-key=${apiKey}`,
+      query: (query = 'Russia') => `articlesearch.json?q=${query}&api-key=${apiKey}`,
     }),
   }),
 });

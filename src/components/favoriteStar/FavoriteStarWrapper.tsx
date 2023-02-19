@@ -1,23 +1,18 @@
-import FavoriteStar from "./FavoriteStar";
-import NoFavoriteStar from "./NoFavoriteStar";
+import useActions from 'hooks/useActions';
+import { useTypedSelector } from 'hooks/useTypedSelector';
+import FavoriteStar from './FavoriteStar';
+import NoFavoriteStar from './NoFavoriteStar';
 
-import useActions from "hooks/useActions";
-import { useTypedSelector } from "hooks/useTypedSelector";
-
-import { DocsEntity } from "./../../interfaces/IArticleSearchInterface";
-import { ReactNode } from "react";
+import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 
 interface IProps {
   article?: DocsEntity;
-  children?: ReactNode;
 }
 
-const FavoriteStarWrapper: React.FC<IProps> = (props) => {
-  const { article } = props;
+function FavoriteStarWrapper({ article }:IProps) {
   const { addFavorite, removeFavorite } = useActions();
   const favoriteState = useTypedSelector((state) => state.favoriteSlice);
   const favoriteId = favoriteState.filter((el) => el._id === article?._id);
-
 
   const handleAddFavorite = () => {
     const filteredState = favoriteState.filter((el) => el._id === article?._id);
@@ -45,6 +40,6 @@ const FavoriteStarWrapper: React.FC<IProps> = (props) => {
       )}
     </>
   );
-};
+}
 
 export default FavoriteStarWrapper;
