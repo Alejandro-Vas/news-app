@@ -8,9 +8,7 @@ interface IProps {
   article: DocsEntity;
 }
 
-function ArticleItem(props) {
-  const { article } = props;
-
+function ArticleItem({ article }:IProps) {
   return (
     <div className="fade-in">
       <div className="article__favorite">
@@ -20,6 +18,7 @@ function ArticleItem(props) {
       <Typography variant="subtitle1" gutterBottom component="div">
         {article.headline.main}
       </Typography>
+
       <div className="article__img">
         <img
           className="article-img"
@@ -31,9 +30,11 @@ function ArticleItem(props) {
       <Typography variant="subtitle2" gutterBottom component="div">
         {article.abstract}
       </Typography>
+
       <Typography variant="body1" gutterBottom>
         {article.lead_paragraph}
       </Typography>
+
       <div className="article__link">
         <Link
           href={article.web_url}
@@ -44,6 +45,7 @@ function ArticleItem(props) {
           See on www.nytimes.com
         </Link>
       </div>
+
       <div>
         <div className="keywords-wrapper">
           {article.keywords

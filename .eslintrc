@@ -35,5 +35,12 @@
     },
     "env": {
       "jest/globals": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".ts", ".tsx"]
+        }
+      }
     }
   }

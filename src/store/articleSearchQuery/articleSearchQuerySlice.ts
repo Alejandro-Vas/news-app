@@ -11,10 +11,10 @@ const articleSearchQuerySlice = createSlice({
   initialState,
   reducers: {
     setArticleSearchQuery(state, action) {
-      state.value = action.payload;
+      return { ...state, value: action.payload };
     },
     clearArticleSearchQuery(state) {
-      state.value = '';
+      return { ...state, value: '' };
     },
   },
 });

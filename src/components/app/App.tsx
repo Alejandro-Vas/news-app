@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider } from '@mui/material/styles';
 
-import Header from 'components/header/Header';
+import Header from 'components/header';
 import NavBar from 'components/navBar/NavBar';
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';

@@ -1,12 +1,11 @@
 import { Button } from '@mui/material';
-import useActions from 'hooks/useActions';
+import useActions from '../../hooks/useActions';
 
 interface IProps {
   keyword: string;
 }
 
-const KeywordsItem: React.FC<IProps> = (props) => {
-  const { keyword } = props;
+function KeywordsItem({ keyword }:IProps) {
   const { setArticleSearchQuery } = useActions();
   const handleClick = () => {
     setTimeout(() => setArticleSearchQuery(keyword), 500);
@@ -26,5 +25,5 @@ const KeywordsItem: React.FC<IProps> = (props) => {
       {' '}
     </>
   );
-};
+}
 export default KeywordsItem;

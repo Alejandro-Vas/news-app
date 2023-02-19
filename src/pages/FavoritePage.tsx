@@ -7,6 +7,7 @@ function MainPage() {
       <Typography variant="subtitle1" component="div">
         Favorite Articles
       </Typography>
+
       <FavoriteList />
     </div>
   );

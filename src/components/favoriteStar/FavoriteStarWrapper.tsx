@@ -17,7 +17,7 @@ function FavoriteStarWrapper({ article }:IProps) {
   const handleAddFavorite = () => {
     const filteredState = favoriteState.filter((el) => el._id === article?._id);
     if (filteredState[0]?._id !== article?._id) {
-      addFavorite(article!);
+      addFavorite(article);
     }
   };
 
@@ -28,17 +28,15 @@ function FavoriteStarWrapper({ article }:IProps) {
   };
 
   return (
-    <>
-      {favoriteId.length !== 0 ? (
-        <div onClick={handleRemoveFavorite}>
-          <FavoriteStar />
-        </div>
-      ) : (
-        <div onClick={handleAddFavorite}>
-          <NoFavoriteStar />
-        </div>
-      )}
-    </>
+    favoriteId.length !== 0 ? (
+      <div onClick={handleRemoveFavorite}>
+        <FavoriteStar />
+      </div>
+    ) : (
+      <div onClick={handleAddFavorite}>
+        <NoFavoriteStar />
+      </div>
+    )
   );
 }
 

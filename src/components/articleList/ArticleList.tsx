@@ -1,5 +1,5 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
-import SkeletonItem from 'components/skeletonItem/SkeletonItem';
+import Skeleton from 'components/skeleton/Skeleton';
 import { Box, Typography, CircularProgress } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import { useTypedSelector } from 'hooks/useTypedSelector';
@@ -13,7 +13,7 @@ function ArticleList() {
     data, isSuccess, isLoading, isFetching,
   } = useGetArticleSearchQuery(articleSearchQuery);
 
-  if (isLoading || isFetching) {
+  if (isLoading) {
     return (
       <Box sx={{ margin: '0 auto', textAlign: 'center' }}>
         <Box sx={{
@@ -39,7 +39,6 @@ function ArticleList() {
 
   return (
     <div>
-
       {isSuccess && !isLoading && (
         <div className="grid-container">
           {data?.response?.docs?.map((article) => (
@@ -49,7 +48,7 @@ function ArticleList() {
                   {!isLoading && !isFetching ? (
                     <ArticleItem key={article._id} article={article} />
                   ) : (
-                    <SkeletonItem key={uuidv4()} />
+                    <Skeleton key={uuidv4()} />
                   )}
                 </div>
             )
