@@ -46,7 +46,7 @@ function ArticleList() {
               && typeof article?.multimedia![5] !== 'undefined' && (
                 <div className="grid-item" key={uuidv4()}>
                   {!isLoading && !isFetching ? (
-                    <ArticleItem key={article._id} article={article} />
+                    <ArticleItem key={article.id} article={article} />
                   ) : (
                     <Skeleton key={uuidv4()} />
                   )}

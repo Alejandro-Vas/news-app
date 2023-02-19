@@ -12,18 +12,18 @@ interface IProps {
 function FavoriteStarWrapper({ article }:IProps) {
   const { addFavorite, removeFavorite } = useActions();
   const favoriteState = useTypedSelector((state) => state.favoriteSlice);
-  const favoriteId = favoriteState.filter((el) => el._id === article?._id);
+  const favoriteId = favoriteState.filter((el) => el.id === article?.id);
 
   const handleAddFavorite = () => {
-    const filteredState = favoriteState.filter((el) => el._id === article?._id);
-    if (filteredState[0]?._id !== article?._id) {
+    const filteredState = favoriteState.filter((el) => el.id === article?.id);
+    if (filteredState[0]?.id !== article?.id) {
       addFavorite(article);
     }
   };
 
   const handleRemoveFavorite = () => {
     if (favoriteState.length !== 0) {
-      removeFavorite(article?._id);
+      removeFavorite(article?.id);
     }
   };
 

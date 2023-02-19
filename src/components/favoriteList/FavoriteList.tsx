@@ -11,7 +11,7 @@ function FavoriteList() {
       {favoriteArticles?.map((article) => (
         article && (
         <div className="grid-item" key={uuidv4()}>
-          <ArticleItem key={article._id} article={article} />
+          <ArticleItem key={article.id} article={article} />
         </div>
         )
       ))}

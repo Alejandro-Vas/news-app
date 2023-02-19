@@ -55,7 +55,7 @@ export interface Byline {
   organization?: string | null;
 }
 
-export interface DocsEntity {
+export interface ResponseDocsEntity {
   abstract: string;
   web_url: string;
   snippet: string;
@@ -73,9 +73,13 @@ export interface DocsEntity {
   subsection_name?: string | null;
   byline: Byline;
   type_of_material: string;
-  _id: string;
   word_count: number;
   uri: string;
+  _id: string
+}
+
+export interface DocsEntity extends ResponseDocsEntity {
+  id: string
 }
 
 export interface Meta {
@@ -85,12 +89,23 @@ export interface Meta {
 }
 
 export interface Response {
+  docs?: ResponseDocsEntity[] | null;
+  meta: Meta;
+}
+
+export interface TransformedResponse {
   docs?: DocsEntity[] | null;
   meta: Meta;
+}
+
+export interface IArticleSearchResponse {
+  status: string;
+  copyright: string;
+  response: Response;
 }
 
 export interface IArticleSearch {
   status: string;
   copyright: string;
-  response: Response;
+  response: TransformedResponse;
 }
