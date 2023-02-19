@@ -7,7 +7,7 @@ import NavBar from 'components/navBar/NavBar';
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
 import { store } from '../../store/store';
-import { theme } from '../../styles/theme';
+import theme from '../../styles/theme';
 
 function App() {
   return (

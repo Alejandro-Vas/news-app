@@ -1,11 +1,17 @@
 import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import Tooltip from '@mui/material/Tooltip';
 
-function FavoriteStar() {
+interface IFavoriteStarProps {
+  isFavorite?: boolean;
+}
+
+function FavoriteStar({ isFavorite = false } : IFavoriteStarProps) {
+  const Icon = isFavorite ? StarIcon : StarBorderIcon
   return (
     <div>
       <Tooltip title="Remove from favorites">
-        <StarIcon
+        <Icon
           className="favorite__article__item"
           color="primary"
           fontSize="large"

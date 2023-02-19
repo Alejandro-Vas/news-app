@@ -22,7 +22,13 @@ export const articleSearchApi = createApi({
   }),
   endpoints: (builder) => ({
     getArticleSearch: builder.query<IArticleSearch, string>({
-      query: (query) => `articlesearch.json?q=${query}&api-key=${apiKey}`,
+      query: (query) => ({
+        url: 'articlesearch.json',
+        params: {
+          q: query,
+          'api-key': apiKey,
+        },
+      }),
       transformResponse,
     }),
   }),

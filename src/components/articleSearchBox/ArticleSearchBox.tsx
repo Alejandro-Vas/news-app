@@ -43,6 +43,7 @@ function ArticleSearchBox() {
           autoSelect
           options={tags}
           renderInput={(params) => (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <TextField {...params} label="type article theme" />
           )}
         />

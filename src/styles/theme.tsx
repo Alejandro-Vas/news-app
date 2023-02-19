@@ -1,6 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme();
+const theme = createTheme();
 
 theme.typography.h1 = {
   fontSize: '5rem',
@@ -42,3 +42,5 @@ theme.typography.body1 = {
     fontSize: '1.25rem',
   },
 };
+
+export default theme
