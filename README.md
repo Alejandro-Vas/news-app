@@ -17,23 +17,20 @@
 ```
 git clone https://github.com/Alejandro-Vas/news-app.git
 cd news-app
-npm i
-npm start
+yarn install
+yarn start
 ```
 
 ---
 
 #### DEPLOYMENT
-
-http://new-york-times-best-client.herokuapp.com/
-
+coming soon...
 ---
 
 #### REALISED TECHNOLOGIES:
 
 - HTML5
-- CSS3
-- SASS (SCSS)
+- CSS3 / SASS (SCSS)
 - JavaScript
 - TypeScript
 - ReactJS
