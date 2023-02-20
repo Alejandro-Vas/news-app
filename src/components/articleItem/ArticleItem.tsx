@@ -25,19 +25,22 @@ function ArticleItem({ article }:IProps) {
       sx={styles.paper}
       elevation={3}
     >
+      <Box sx={styles.headerWrapper}>
+        <div>
+          <Typography
+            sx={styles.header}
+            component="h3"
+            gutterBottom
+          >
+            {headline.main}
+          </Typography>
+        </div>
 
-      <Typography
-        sx={styles.header}
-        component="h3"
-        gutterBottom
-      >
-        {headline.main}
-      </Typography>
+        <Favorite article={article} />
+
+      </Box>
 
       <Box sx={styles.imageWrapper}>
-        <Box sx={styles.favorite}>
-          <Favorite article={article} />
-        </Box>
 
         <Box
           component="img"

@@ -1,20 +1,16 @@
 const styles = {
   paper: {
     p: 1,
-    position: 'relative',
+  },
+
+  headerWrapper: {
+    display: 'flex',
   },
 
   header: {
     cursor: 'pointer',
     fontSize: 'h6.fontSize',
-  },
-
-  favorite: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    zIndex: 100,
-    bgcolor: 'background.paper',
+    position: 'relative',
   },
 
   imageWrapper: {
