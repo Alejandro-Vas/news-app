@@ -32,13 +32,6 @@ function ArticleItem({ article }:IProps) {
           loading="lazy"
         />
       </div>
-      <Typography variant="subtitle2" gutterBottom component="div">
-        {article.abstract}
-      </Typography>
-
-      <Typography variant="body1" gutterBottom>
-        {article.lead_paragraph}
-      </Typography>
 
       <div className="article__link">
         <Link

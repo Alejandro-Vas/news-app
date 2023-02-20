@@ -13,13 +13,14 @@ function KeywordsItem({ keyword }:IProps) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const text = keyword.length < 30 ? keyword : `${keyword.slice(0, 30)}...`
+  const text = keyword.length < 36 ? keyword : `${keyword.slice(0, 36)}...`
 
   return (
     <Chip
       onClick={handleClick}
       color="primary"
       label={text}
+      size="small"
     />
   );
 }
