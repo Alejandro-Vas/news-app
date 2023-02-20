@@ -3,12 +3,10 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 import useActions from 'hooks/useActions';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 
-import { TextField, Button } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
+import { TextField, Button, Autocomplete } from '@mui/material';
+import searchTags from './searchTags'
 
 function ArticleSearchBox() {
-  const tags = ['Politics', 'Science', 'Medicine', 'Covid-19'];
-
   const articleSearchQuery = useTypedSelector((state) => state.articleSearchQuery.value);
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
@@ -41,12 +39,13 @@ function ArticleSearchBox() {
           }}
           autoHighlight
           autoSelect
-          options={tags}
+          options={searchTags}
           renderInput={(params) => (
             // eslint-disable-next-line react/jsx-props-no-spreading
             <TextField {...params} label="type article theme" />
           )}
         />
+
         <Button
           className="search-form__item"
           variant="contained"

@@ -17,9 +17,15 @@ function FavoriteList() {
       ))}
     </div>
   ) : (
-    <Typography variant="body1" component="div">
-      Please add articles to favorite
-    </Typography>
+    <>
+      <Typography variant="body1">
+        No articles found
+      </Typography>
+
+      <Typography variant="body1">
+        Please add article to favorite
+      </Typography>
+    </>
   );
 }
 export default FavoriteList;

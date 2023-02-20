@@ -55,7 +55,7 @@ function ArticleItem({ article }:IProps) {
       <div>
         <div className="keywords-wrapper">
           {article.keywords
-            ?.filter((_, index) => index < 5)
+            ?.slice(0, 5)
             .map((keyword) => (
               <div
                 className="keywords-item"
