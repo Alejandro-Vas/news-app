@@ -42,15 +42,14 @@ function ArticleList() {
       {isSuccess && !isLoading && (
         <div className="grid-container">
           {data?.response?.docs?.map((article) => (
-            article
-              && typeof article?.multimedia![5] !== 'undefined' && (
-                <div className="grid-item" key={uuidv4()}>
-                  {!isLoading && !isFetching ? (
-                    <ArticleItem key={article.id} article={article} />
-                  ) : (
-                    <Skeleton key={uuidv4()} />
-                  )}
-                </div>
+            !!article && (
+            <div className="grid-item" key={uuidv4()}>
+              {!isLoading && !isFetching ? (
+                <ArticleItem key={article.id} article={article} />
+              ) : (
+                <Skeleton key={uuidv4()} />
+              )}
+            </div>
             )
           ))}
         </div>

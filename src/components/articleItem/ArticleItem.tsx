@@ -9,6 +9,12 @@ interface IProps {
 }
 
 function ArticleItem({ article }:IProps) {
+  const imageUrl = article?.multimedia?.[5] ? article.multimedia[5].url : ''
+
+  if (!imageUrl) {
+    return null
+  }
+
   return (
     <div className="fade-in">
       <div className="article__favorite">
@@ -23,7 +29,7 @@ function ArticleItem({ article }:IProps) {
         <img
           className="article-img"
           alt="article"
-          src={`https://www.nytimes.com/${article.multimedia![5].url}`}
+          src={`https://www.nytimes.com/${imageUrl}`}
           loading="lazy"
         />
       </div>
