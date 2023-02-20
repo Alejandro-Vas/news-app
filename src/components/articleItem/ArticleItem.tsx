@@ -1,4 +1,6 @@
-import { Typography, Link } from '@mui/material';
+import {
+  Typography, Link, Box, Paper,
+} from '@mui/material';
 import FavoriteStar from 'components/favoriteStar/FavoriteStarWrapper';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
@@ -15,10 +17,17 @@ function ArticleItem({ article }:IProps) {
   }
 
   return (
-    <div className="fade-in">
-      <div className="article__favorite">
+    <Paper
+      sx={{ p: 2 }}
+      elevation={2}
+    >
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'end',
+      }}
+      >
         <FavoriteStar article={article} />
-      </div>
+      </Box>
 
       <Typography variant="subtitle1" gutterBottom component="div">
         {article.headline.main}
@@ -33,7 +42,7 @@ function ArticleItem({ article }:IProps) {
         />
       </div>
 
-      <div className="article__link">
+      <Box sx={{ mb: 1 }}>
         <Link
           href={article.web_url}
           target="_blank"
@@ -42,23 +51,26 @@ function ArticleItem({ article }:IProps) {
         >
           See on www.nytimes.com
         </Link>
-      </div>
+      </Box>
 
-      <div>
-        <div className="keywords-wrapper">
-          {article.keywords
-            ?.slice(0, 5)
-            .map((keyword) => (
-              <div
-                className="keywords-item"
-                key={article.web_url + keyword.value}
-              >
-                <KeywordsItem keyword={keyword.value} />
-              </div>
-            ))}
-        </div>
-      </div>
-    </div>
+      <Box sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 1,
+      }}
+      >
+        {article.keywords
+          ?.slice(0, 5)
+          .map((keyword) => (
+            <div
+              className="keywords-item"
+              key={article.web_url + keyword.value}
+            >
+              <KeywordsItem keyword={keyword.value} />
+            </div>
+          ))}
+      </Box>
+    </Paper>
   );
 }
 export default ArticleItem;

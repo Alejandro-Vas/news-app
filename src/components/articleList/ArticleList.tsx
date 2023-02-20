@@ -1,6 +1,8 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import Skeleton from 'components/skeleton/Skeleton';
-import { Box, Typography, CircularProgress } from '@mui/material';
+import {
+  Box, Typography, CircularProgress, Grid,
+} from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
@@ -10,12 +12,16 @@ function ArticleList() {
     (state) => state.articleSearchQuery.value,
   );
   const {
-    data, isSuccess, isLoading, isFetching,
+    data, isFetching, isLoading,
   } = useGetArticleSearchQuery(articleSearchQuery);
 
   if (isLoading) {
     return (
-      <Box sx={{ margin: '0 auto', textAlign: 'center' }}>
+      <Box sx={{
+        margin: '0 auto',
+        textAlign: 'center',
+      }}
+      >
         <Box sx={{
           display: 'flex',
           justifyContent: 'center',
@@ -38,23 +44,28 @@ function ArticleList() {
   }
 
   return (
-    <div>
-      {isSuccess && !isLoading && (
-        <div className="grid-container">
-          {data?.response?.docs?.map((article) => (
-            !!article && (
-            <div className="grid-item" key={uuidv4()}>
-              {!isLoading && !isFetching ? (
-                <ArticleItem key={article.id} article={article} />
-              ) : (
-                <Skeleton key={uuidv4()} />
-              )}
-            </div>
-            )
-          ))}
-        </div>
-      )}
-    </div>
-  );
+    <Grid
+      container
+      spacing={2}
+      sx={{ mt: 2 }}
+    >
+      {data?.response?.docs?.map((article) => (
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          key={uuidv4()}
+        >
+          {isFetching
+            ? (
+              <Skeleton />
+            ) : (
+              <ArticleItem article={article} />
+            )}
+        </Grid>
+      ))}
+    </Grid>
+  )
 }
 export default ArticleList;
