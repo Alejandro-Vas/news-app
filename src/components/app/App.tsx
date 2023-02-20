@@ -15,16 +15,19 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Header />
-          <Router>
-            <NavBar />
-            <Container>
+          <Container>
+            <Header />
+
+            <Router>
+              <NavBar />
+
               <Routes>
                 <Route path="/" element={<MainPage />} />
+
                 <Route path="favorites" element={<FavoritePage />} />
               </Routes>
-            </Container>
-          </Router>
+            </Router>
+          </Container>
         </ThemeProvider>
       </Provider>
     </StyledEngineProvider>
