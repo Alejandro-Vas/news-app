@@ -17,11 +17,8 @@ function ArticleSearchBox() {
 
   const { setArticleSearchQuery } = useActions();
 
-  console.log(searchText)
-
   const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log(searchText)
 
     if (searchText !== '') {
       setArticleSearchQuery(searchText);

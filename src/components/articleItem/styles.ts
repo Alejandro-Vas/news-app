@@ -5,6 +5,7 @@ const styles = {
 
   headerWrapper: {
     display: 'flex',
+    justifyContent: 'space-between',
   },
 
   header: {

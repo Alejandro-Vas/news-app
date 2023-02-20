@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import Favorite from 'components/favorite/FavoriteWrapper';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
+import noImage from 'assets/noImage.png'
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
 
@@ -14,11 +15,9 @@ function ArticleItem({ article }:IProps) {
   const {
     multimedia, headline, web_url: webUrl, keywords,
   } = article || {}
-  const imageUrl = multimedia?.[5] ? multimedia[5].url : ''
+  const imageUrl = multimedia?.[5] ? multimedia[5].url : null
 
-  if (!imageUrl) {
-    return null
-  }
+  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
 
   return (
     <Paper
@@ -46,7 +45,7 @@ function ArticleItem({ article }:IProps) {
           component="img"
           sx={styles.image}
           alt="article"
-          src={`https://www.nytimes.com/${imageUrl}`}
+          src={url}
           loading="lazy"
         />
       </Box>
