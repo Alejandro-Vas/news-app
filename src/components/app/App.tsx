@@ -14,7 +14,7 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Container>
+          <Container sx={{ mt: [8, 10] }}>
             <Router>
               <AppBar />
 

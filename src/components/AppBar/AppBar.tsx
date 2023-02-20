@@ -13,9 +13,19 @@ import {
   Button,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import { NavLink } from 'react-router-dom'
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Favorite articles'];
+const navItems = [
+  {
+    title: 'Home',
+    to: '/',
+  },
+  {
+    title: 'Favorite articles',
+    to: '/favorites',
+  },
+];
 
 interface IDrawerProps {
   handleDrawerToggle: () => void
@@ -25,10 +35,12 @@ function Drawer({ handleDrawerToggle }: IDrawerProps) {
   return (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+        {navItems.map(({ title, to }) => (
+          <ListItem key={title} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <NavLink to={to} style={{ textDecoration: 'none' }}>
+                <ListItemText primary={title} sx={{ color: 'text.primary' }} />
+              </NavLink>
             </ListItemButton>
           </ListItem>
         ))}
@@ -57,6 +69,7 @@ function AppBar() {
           >
             <MenuIcon />
           </IconButton>
+
           <Typography
             variant="h5"
             component="h1"
@@ -66,14 +79,19 @@ function AppBar() {
           </Typography>
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: '#fff' }}>
-                {item}
+            {navItems.map(({ title, to }) => (
+              <Button key={title}>
+                <NavLink to={to} style={{ textDecoration: 'none' }}>
+                  <Box sx={{ color: 'background.paper' }}>
+                    {title}
+                  </Box>
+                </NavLink>
               </Button>
             ))}
           </Box>
         </Toolbar>
       </MuiAppBar>
+
       <Box component="nav">
         <MuiDrawer
           variant="temporary"
