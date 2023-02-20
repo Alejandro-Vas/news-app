@@ -16,12 +16,12 @@ const transformResponse = (res: IArticleSearchResponse): IArticleSearch => ({
 })
 
 const API_URL = 'https://api.nytimes.com/'
-const API_URL2 = 'http://localhost:3000/'
+// const API_URL_DEV = 'http://localhost:3000/'
 
 export const articleSearchApi = createApi({
   reducerPath: 'api/articleSearch',
   baseQuery: fetchBaseQuery({
-    baseUrl: API_URL2,
+    baseUrl: API_URL,
   }),
 
   endpoints: (builder) => ({
