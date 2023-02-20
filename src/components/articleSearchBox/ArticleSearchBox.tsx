@@ -13,16 +13,18 @@ function ArticleSearchBox() {
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
 
-  const [queryValue, setQueryValue] = useState('');
-  console.log(queryValue)
+  const [searchText, setSearchText] = useState(articleSearchQuery);
 
   const { setArticleSearchQuery } = useActions();
 
+  console.log(searchText)
+
   const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    console.log(searchText)
 
-    if (queryValue !== '') {
-      setArticleSearchQuery(queryValue);
+    if (searchText !== '') {
+      setArticleSearchQuery(searchText);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -36,12 +38,13 @@ function ArticleSearchBox() {
     >
       <Autocomplete
         sx={{ width: 500, mr: 2 }}
-        value={articleSearchQuery}
-        inputValue={queryValue}
+        value={searchText}
+        inputValue={searchText}
         onInputChange={(event, newInputValue) => {
-          setQueryValue(newInputValue);
+          setSearchText(newInputValue);
         }}
         options={searchTags}
+        isOptionEqualToValue={(option, value) => option === value}
         size="small"
         renderInput={(params) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
