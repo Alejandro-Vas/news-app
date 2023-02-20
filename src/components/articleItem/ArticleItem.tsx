@@ -1,7 +1,6 @@
 import { Typography, Link } from '@mui/material';
 import FavoriteStar from 'components/favoriteStar/FavoriteStarWrapper';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
-
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 
 interface IProps {

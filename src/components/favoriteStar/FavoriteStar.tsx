@@ -1,6 +1,6 @@
 import StarIcon from '@mui/icons-material/Star';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-import Tooltip from '@mui/material/Tooltip';
+import { Tooltip } from '@mui/material';
 
 interface IFavoriteStarProps {
   isFavorite?: boolean;
