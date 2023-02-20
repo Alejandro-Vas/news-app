@@ -3,8 +3,6 @@ import { StrictMode } from 'react';
 import './index.css';
 import App from './components/app/App';
 
-import './styles/styles.scss';
-
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container)
 

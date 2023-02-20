@@ -31,6 +31,7 @@ function ArticleSearchBox() {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      mt: [8, 10],
     }}
     >
       <Autocomplete

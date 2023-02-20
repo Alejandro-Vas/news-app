@@ -2,8 +2,7 @@ import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
-import Header from 'components/header';
-import NavBar from 'components/navBar/NavBar';
+import AppBar from 'components/AppBar/AppBar';
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
 import { Container } from '@mui/material';
@@ -16,10 +15,8 @@ function App() {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <Container>
-            <Header />
-
             <Router>
-              <NavBar />
+              <AppBar />
 
               <Routes>
                 <Route path="/" element={<MainPage />} />
