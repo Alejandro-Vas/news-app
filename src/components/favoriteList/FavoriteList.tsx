@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Typography } from '@mui/material';
 
 function FavoriteList() {
-  const favoriteArticles = useTypedSelector((state) => state.favoriteSlice);
+  const { favoriteArticles } = useTypedSelector((state) => state);
 
   return favoriteArticles.length !== 0 ? (
     <div>

@@ -2,11 +2,11 @@ import Bookmark from '@mui/icons-material/Bookmark';
 import BookmarkBorder from '@mui/icons-material/BookmarkBorder';
 import { Tooltip } from '@mui/material';
 
-interface IFavoriteStarProps {
+interface IFavoriteProps {
   isFavorite?: boolean;
 }
 
-function Favorite({ isFavorite = false } : IFavoriteStarProps) {
+function Favorite({ isFavorite = false } : IFavoriteProps) {
   const Icon = isFavorite ? Bookmark : BookmarkBorder
   return (
     <div>

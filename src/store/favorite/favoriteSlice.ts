@@ -3,7 +3,7 @@ import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 
 const initialState: DocsEntity[] = [];
 
-const favoriteSlice = createSlice({
+const favoriteArticles = createSlice({
   name: 'articleSearchQuery',
   initialState,
   reducers: {
@@ -16,5 +16,5 @@ const favoriteSlice = createSlice({
   },
 });
 
-export default favoriteSlice;
-export const favoriteActions = favoriteSlice.actions;
+export default favoriteArticles;
+export const favoriteActions = favoriteArticles.actions;

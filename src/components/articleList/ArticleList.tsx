@@ -49,22 +49,24 @@ function ArticleList() {
       spacing={2}
       sx={{ mt: 2 }}
     >
-      {data?.response?.docs?.map((article) => (
-        <Grid
-          item
-          xs={12}
-          sm={6}
-          md={4}
-          key={uuidv4()}
-        >
-          {isFetching
-            ? (
-              <Skeleton />
-            ) : (
-              <ArticleItem article={article} />
-            )}
-        </Grid>
-      ))}
+      {data?.response?.docs
+        ?.filter((article) => !!article.multimedia?.[5])
+        .map((article) => (
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            key={uuidv4()}
+          >
+            {isFetching
+              ? (
+                <Skeleton />
+              ) : (
+                <ArticleItem article={article} />
+              )}
+          </Grid>
+        ))}
     </Grid>
   )
 }

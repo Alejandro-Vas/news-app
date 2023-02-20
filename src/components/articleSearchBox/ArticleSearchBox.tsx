@@ -14,6 +14,7 @@ function ArticleSearchBox() {
   const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
 
   const [queryValue, setQueryValue] = useState('');
+  console.log(queryValue)
 
   const { setArticleSearchQuery } = useActions();
 
@@ -46,6 +47,7 @@ function ArticleSearchBox() {
           // eslint-disable-next-line react/jsx-props-no-spreading
           <TextField {...params} />
         )}
+        autoSelect
       />
 
       <Button

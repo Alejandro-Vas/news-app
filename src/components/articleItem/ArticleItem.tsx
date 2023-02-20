@@ -23,7 +23,7 @@ function ArticleItem({ article }:IProps) {
   return (
     <Paper
       sx={styles.paper}
-      elevation={3}
+      elevation={4}
     >
       <Box sx={styles.headerWrapper}>
         <div>
