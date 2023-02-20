@@ -1,4 +1,4 @@
-import FavoriteStar from './FavoriteStar';
+import Favorite from './Favorite';
 
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 
@@ -6,13 +6,13 @@ interface IProps {
   article?: DocsEntity;
 }
 
-function FavoriteStarWrapper({ article }:IProps) {
+function FavoriteWrapper({ article }:IProps) {
   console.log(article);
 
   const isFavorite = false
   return (
-    <FavoriteStar isFavorite={isFavorite} />
+    <Favorite isFavorite={isFavorite} />
   );
 }
 
-export default FavoriteStarWrapper;
+export default FavoriteWrapper;

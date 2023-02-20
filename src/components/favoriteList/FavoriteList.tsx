@@ -7,7 +7,7 @@ function FavoriteList() {
   const favoriteArticles = useTypedSelector((state) => state.favoriteSlice);
 
   return favoriteArticles.length !== 0 ? (
-    <div className="grid-container fade-in">
+    <div>
       {favoriteArticles?.map((article) => (
         article && (
         <div className="grid-item" key={uuidv4()}>

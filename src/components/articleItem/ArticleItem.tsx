@@ -1,16 +1,20 @@
 import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
-import FavoriteStar from 'components/favoriteStar/FavoriteStarWrapper';
+import Favorite from 'components/favorite/FavoriteWrapper';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
+import styles from './styles';
 
 interface IProps {
   article: DocsEntity;
 }
 
 function ArticleItem({ article }:IProps) {
-  const imageUrl = article?.multimedia?.[5] ? article.multimedia[5].url : ''
+  const {
+    multimedia, headline, web_url: webUrl, keywords,
+  } = article || {}
+  const imageUrl = multimedia?.[5] ? multimedia[5].url : ''
 
   if (!imageUrl) {
     return null
@@ -18,56 +22,50 @@ function ArticleItem({ article }:IProps) {
 
   return (
     <Paper
-      sx={{ p: 2 }}
-      elevation={2}
+      sx={styles.paper}
+      elevation={3}
     >
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'end',
-      }}
-      >
-        <FavoriteStar article={article} />
-      </Box>
 
-      <Typography variant="subtitle1" gutterBottom component="div">
-        {article.headline.main}
+      <Typography
+        sx={styles.header}
+        component="h3"
+        gutterBottom
+      >
+        {headline.main}
       </Typography>
 
-      <div className="article__img">
-        <img
-          className="article-img"
+      <Box sx={styles.imageWrapper}>
+        <Box sx={styles.favorite}>
+          <Favorite article={article} />
+        </Box>
+
+        <Box
+          component="img"
+          sx={styles.image}
           alt="article"
           src={`https://www.nytimes.com/${imageUrl}`}
           loading="lazy"
         />
-      </div>
+      </Box>
 
-      <Box sx={{ mb: 1 }}>
+      <Box sx={styles.link}>
         <Link
-          href={article.web_url}
+          href={webUrl}
           target="_blank"
           rel="noreferrer"
-          mt="10px"
         >
           See on www.nytimes.com
         </Link>
       </Box>
 
-      <Box sx={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: 1,
-      }}
-      >
-        {article.keywords
+      <Box sx={styles.keywords}>
+        {keywords
           ?.slice(0, 5)
           .map((keyword) => (
-            <div
-              className="keywords-item"
-              key={article.web_url + keyword.value}
-            >
-              <KeywordsItem keyword={keyword.value} />
-            </div>
+            <KeywordsItem
+              keyword={keyword.value}
+              key={webUrl + keyword.value}
+            />
           ))}
       </Box>
     </Paper>
