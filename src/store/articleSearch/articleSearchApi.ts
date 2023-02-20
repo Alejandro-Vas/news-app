@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IArticleSearch, IArticleSearchResponse } from 'interfaces/IArticleSearchInterface';
+import { format } from 'date-fns'
 
 import { API_KEY } from '../apiKey';
 
@@ -11,6 +12,7 @@ const transformResponse = (res: IArticleSearchResponse): IArticleSearch => ({
       ...doc,
       // eslint-disable-next-line no-underscore-dangle
       id: doc._id,
+      pub_date: format(new Date(doc.pub_date), 'd MMMM yyyy'),
     })),
   },
 })

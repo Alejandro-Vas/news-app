@@ -13,7 +13,7 @@ interface IProps {
 
 function ArticleItem({ article }:IProps) {
   const {
-    multimedia, headline, web_url: webUrl, keywords,
+    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
   } = article || {}
   const imageUrl = multimedia?.[5] ? multimedia[5].url : null
 
@@ -24,6 +24,9 @@ function ArticleItem({ article }:IProps) {
       sx={styles.paper}
       elevation={4}
     >
+      <Box>
+        {date}
+      </Box>
       <Box sx={styles.headerWrapper}>
         <div>
           <Typography
