@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IArticleSearch, IArticleSearchResponse } from 'interfaces/IArticleSearchInterface';
 
-import { apiKey } from '../apiKey';
+import { API_KEY } from '../apiKey';
 
 const transformResponse = (res: IArticleSearchResponse): IArticleSearch => ({
   ...res,
@@ -15,18 +15,22 @@ const transformResponse = (res: IArticleSearchResponse): IArticleSearch => ({
   },
 })
 
+const API_URL = 'https://api.nytimes.com/'
+const API_URL2 = 'http://localhost:3000/'
+
 export const articleSearchApi = createApi({
   reducerPath: 'api/articleSearch',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.nytimes.com/svc/search/v2',
+    baseUrl: API_URL2,
   }),
+
   endpoints: (builder) => ({
     getArticleSearch: builder.query<IArticleSearch, string>({
       query: (query) => ({
-        url: 'articlesearch.json',
+        url: 'svc/search/v2/articlesearch.json',
         params: {
           q: query,
-          'api-key': apiKey,
+          'api-key': API_KEY,
         },
       }),
       transformResponse,
