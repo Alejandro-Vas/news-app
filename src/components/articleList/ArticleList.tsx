@@ -6,9 +6,11 @@ import {
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
+import { memo } from 'react';
+import { shallowEqual } from 'react-redux';
 
 function ArticleList() {
-  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery);
+  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
   const {
     data, isFetching, isLoading,
   } = useGetArticleSearchQuery(searchQuery);
@@ -66,4 +68,4 @@ function ArticleList() {
     </Grid>
   )
 }
-export default ArticleList;
+export default memo(ArticleList);

@@ -5,10 +5,13 @@ import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import {
   TextField, Button, Autocomplete, Box,
 } from '@mui/material';
+import { memo } from 'react';
+import { shallowEqual } from 'react-redux';
 import searchTags from './searchTags'
 
 function ArticleSearchBox() {
-  const { searchQuery, searchInputText } = useTypedSelector((state) => state.articleSearchQuery);
+  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
+  const { searchInputText } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual)
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(searchQuery);
 
@@ -58,4 +61,4 @@ function ArticleSearchBox() {
     </Box>
   );
 }
-export default ArticleSearchBox;
+export default memo(ArticleSearchBox);

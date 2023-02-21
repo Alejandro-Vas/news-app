@@ -1,4 +1,5 @@
 import { Chip } from '@mui/material';
+import { memo } from 'react';
 import useActions from '../../hooks/useActions';
 
 interface IProps {
@@ -25,4 +26,4 @@ function KeywordsItem({ keyword }:IProps) {
     />
   );
 }
-export default KeywordsItem;
+export default memo(KeywordsItem);

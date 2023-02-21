@@ -1,30 +1,44 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import { useTypedSelector } from 'hooks/useTypedSelector';
-import { Typography } from '@mui/material';
+import { Typography, Grid } from '@mui/material';
 
 function FavoriteList() {
-  const { favoriteArticles } = useTypedSelector((state) => state);
+  const { favoriteArticles = [] } = useTypedSelector((state) => state.favorite);
 
-  return favoriteArticles.length !== 0 ? (
-    <div>
-      {favoriteArticles?.map((article) => (
+  if (favoriteArticles.length === 0) {
+    return (
+      <>
+        <Typography>
+          No articles found
+        </Typography>
+
+        <Typography>
+          Please add article to favorite
+        </Typography>
+      </>
+    )
+  }
+
+  return (
+    <Grid
+      container
+      spacing={2}
+      sx={{ mt: 2 }}
+    >
+      {favoriteArticles.map((article) => (
         article && (
-        <div className="grid-item" key={article.id}>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          key={article.id}
+        >
           <ArticleItem article={article} />
-        </div>
+        </Grid>
         )
       ))}
-    </div>
-  ) : (
-    <>
-      <Typography variant="body1">
-        No articles found
-      </Typography>
-
-      <Typography variant="body1">
-        Please add article to favorite
-      </Typography>
-    </>
-  );
+    </Grid>
+  )
 }
 export default FavoriteList;

@@ -1,9 +1,10 @@
 import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
-import Favorite from 'components/favorite/FavoriteWrapper';
+import Favorite from 'components/favorite/Favorite';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
 import noImage from 'assets/noImage.png'
+import { memo } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
 
@@ -13,7 +14,7 @@ interface IProps {
 
 function ArticleItem({ article }:IProps) {
   const {
-    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
+    multimedia, headline, web_url: webUrl, keywords, pub_date: date, id,
   } = article || {}
   const imageUrl = multimedia?.[5] ? multimedia[5].url : null
 
@@ -77,4 +78,4 @@ function ArticleItem({ article }:IProps) {
     </Paper>
   );
 }
-export default ArticleItem;
+export default memo(ArticleItem);
