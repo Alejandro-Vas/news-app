@@ -13,21 +13,21 @@ function Favorite({ article } : IFavoriteProps) {
   const isFavorite = useTypedSelector((state) => state.favorite.favoriteArticles
     .find((favArticle) => article.id === favArticle?.id))
 
-  const favorites = useTypedSelector((state) => state.favorite.favoriteArticles
-    .find((favArticle) => article.id === favArticle?.id))
-
-  const { addFavorite } = useActions()
-
-  console.log('!!!favorites', favorites)
+  const { addFavorite, removeFavorite } = useActions()
 
   const handleToggleFavorite = () => {
-    addFavorite(article)
+    if (!isFavorite) {
+      addFavorite(article)
+    } else {
+      removeFavorite(article.id)
+    }
   }
 
   const Icon = isFavorite ? Bookmark : BookmarkBorder
+  const title = isFavorite ? 'Remove from favorites' : 'Add to Favorites'
   return (
     <div>
-      <Tooltip title="Remove from favorites">
+      <Tooltip title={title}>
         <Icon
           color="primary"
           fontSize="large"

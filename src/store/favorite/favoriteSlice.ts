@@ -10,10 +10,16 @@ const favorite = createSlice({
   initialState,
   reducers: {
     addFavorite(state, action: PayloadAction<DocsEntity>) {
-      state.favoriteArticles.push(action.payload);
+      return {
+        ...state,
+        favoriteArticles: [...state.favoriteArticles, action.payload],
+      }
     },
-    removeFavorite(state, action) {
-      state.favoriteArticles.filter((el) => el.id !== action.payload);
+    removeFavorite(state, action: PayloadAction<string>) {
+      return {
+        ...state,
+        favoriteArticles: state.favoriteArticles.filter((article) => article.id !== action.payload),
+      }
     },
   },
 });
