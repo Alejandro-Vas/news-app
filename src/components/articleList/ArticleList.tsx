@@ -8,12 +8,10 @@ import { useTypedSelector } from 'hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 
 function ArticleList() {
-  const articleSearchQuery = useTypedSelector(
-    (state) => state.articleSearchQuery.value,
-  );
+  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery);
   const {
     data, isFetching, isLoading,
-  } = useGetArticleSearchQuery(articleSearchQuery);
+  } = useGetArticleSearchQuery(searchQuery);
 
   if (isLoading) {
     return (

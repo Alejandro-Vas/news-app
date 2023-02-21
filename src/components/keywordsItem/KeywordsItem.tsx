@@ -6,10 +6,11 @@ interface IProps {
 }
 
 function KeywordsItem({ keyword }:IProps) {
-  const { setArticleSearchQuery } = useActions();
+  const { setSearchQuery, setSearchInputText } = useActions();
 
   const handleClick = () => {
-    setTimeout(() => setArticleSearchQuery(keyword), 500);
+    setSearchInputText(keyword)
+    setSearchQuery(keyword);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

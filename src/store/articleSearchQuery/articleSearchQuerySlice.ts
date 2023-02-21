@@ -1,20 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface IArticleSearchQueryState {
-  value: string;
+  searchQuery: string;
+  searchInputText: string;
 }
 
-const initialState = { value: 'Russia' } as IArticleSearchQueryState;
+const initialState = <IArticleSearchQueryState> {
+  searchQuery: 'Russia',
+  searchInputText: 'Russia',
+};
 
 const articleSearchQuerySlice = createSlice({
   name: 'articleSearchQuery',
   initialState,
   reducers: {
-    setArticleSearchQuery(state, action) {
-      return { ...state, value: action.payload };
+    setSearchQuery(state, action) {
+      return { ...state, searchQuery: action.payload };
     },
-    clearArticleSearchQuery(state) {
+    clearSearchQuery(state) {
       return { ...state, value: '' };
+    },
+    setSearchInputText(state, action) {
+      return { ...state, searchInputText: action.payload };
     },
   },
 });

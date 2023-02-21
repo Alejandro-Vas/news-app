@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import useActions from 'hooks/useActions';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
@@ -9,19 +8,17 @@ import {
 import searchTags from './searchTags'
 
 function ArticleSearchBox() {
-  const articleSearchQuery = useTypedSelector((state) => state.articleSearchQuery.value);
+  const { searchQuery, searchInputText } = useTypedSelector((state) => state.articleSearchQuery);
 
-  const { isLoading, isFetching } = useGetArticleSearchQuery(articleSearchQuery);
+  const { isLoading, isFetching } = useGetArticleSearchQuery(searchQuery);
 
-  const [searchText, setSearchText] = useState(articleSearchQuery);
-
-  const { setArticleSearchQuery } = useActions();
+  const { setSearchQuery, setSearchInputText } = useActions();
 
   const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
-    if (searchText !== '') {
-      setArticleSearchQuery(searchText);
+    if (searchInputText !== '') {
+      setSearchQuery(searchInputText);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -35,10 +32,10 @@ function ArticleSearchBox() {
     >
       <Autocomplete
         sx={{ width: 500, mr: 2 }}
-        value={searchText}
-        inputValue={searchText}
+        value={searchInputText}
+        inputValue={searchInputText}
         onInputChange={(event, newInputValue) => {
-          setSearchText(newInputValue);
+          setSearchInputText(newInputValue);
         }}
         options={searchTags}
         isOptionEqualToValue={(option, value) => option === value}
