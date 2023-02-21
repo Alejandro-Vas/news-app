@@ -58,8 +58,10 @@ function AppBar() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <MuiAppBar component="nav">
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <MuiAppBar component="nav" id="back-to-top-anchor">
+        <Toolbar
+          sx={{ display: 'flex', justifyContent: 'space-between' }}
+        >
           <IconButton
             color="inherit"
             aria-label="open drawer"

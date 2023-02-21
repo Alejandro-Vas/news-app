@@ -2,9 +2,11 @@ import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
-import AppBar from 'components/AppBar/AppBar';
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
+import AppBar from 'components/AppBar/AppBar';
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop'
+
 import { Container } from '@mui/material';
 import { store } from '../../store/store';
 import theme from '../../styles/theme';
@@ -25,6 +27,7 @@ function App() {
               </Routes>
             </Router>
           </Container>
+          <ScrollToTop />
         </ThemeProvider>
       </Provider>
     </StyledEngineProvider>
