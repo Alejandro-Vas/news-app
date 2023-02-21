@@ -17,23 +17,31 @@
 ```
 git clone https://github.com/Alejandro-Vas/news-app.git
 cd news-app
-yarn install
-yarn start
+yarn
+yarn dev
 ```
+
 
 ---
 
 #### DEPLOYMENT
-coming soon...
----
+
+coming soon
+
+#### MOCK API DEV SERVER 
+
+```
+yarn dev:api
+ ```
+opens express server on `localhost:3000`
 
 #### REALISED TECHNOLOGIES:
 
 - HTML5
-- CSS3 / SASS (SCSS)
 - JavaScript
 - TypeScript
 - ReactJS
 - Redux / Redux-Toolkit
 - React-router
 - Material UI
+- Express
