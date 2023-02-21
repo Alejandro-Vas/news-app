@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import FavoriteList from 'components/favoriteList/FavoriteList';
 
-function MainPage() {
+function FavoritePage() {
   return (
     <>
       <Typography variant="subtitle1" component="div">
@@ -12,4 +12,4 @@ function MainPage() {
     </>
   );
 }
-export default MainPage;
+export default FavoritePage;

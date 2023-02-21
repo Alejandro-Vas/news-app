@@ -1,6 +1,5 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import { useTypedSelector } from 'hooks/useTypedSelector';
-import { v4 as uuidv4 } from 'uuid';
 import { Typography } from '@mui/material';
 
 function FavoriteList() {
@@ -10,8 +9,8 @@ function FavoriteList() {
     <div>
       {favoriteArticles?.map((article) => (
         article && (
-        <div className="grid-item" key={uuidv4()}>
-          <ArticleItem key={article.id} article={article} />
+        <div className="grid-item" key={article.id}>
+          <ArticleItem article={article} />
         </div>
         )
       ))}
