@@ -66,10 +66,11 @@ function ArticleItem({ article }:IProps) {
       <Box sx={styles.keywords}>
         {keywords
           ?.slice(0, 5)
-          .map((keyword) => (
+          .map((keyword, i) => (
             <KeywordsItem
               keyword={keyword.value}
-              key={webUrl + keyword.value}
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
             />
           ))}
       </Box>

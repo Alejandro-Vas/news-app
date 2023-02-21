@@ -38,7 +38,7 @@ function ArticleSearchBox() {
           setSearchInputText(newInputValue);
         }}
         options={searchTags}
-        isOptionEqualToValue={(option, value) => option === value}
+        isOptionEqualToValue={(_option, value) => value === searchInputText}
         size="small"
         renderInput={(params) => (
           // eslint-disable-next-line react/jsx-props-no-spreading

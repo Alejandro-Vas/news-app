@@ -59,7 +59,7 @@ function AppBar() {
   return (
     <Box sx={{ display: 'flex' }}>
       <MuiAppBar component="nav">
-        <Toolbar>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -70,13 +70,17 @@ function AppBar() {
             <MenuIcon />
           </IconButton>
 
-          <Typography
-            variant="h5"
-            component="h1"
-            sx={{ flexGrow: 1 }}
-          >
-            New York Times articles
-          </Typography>
+          <Box>
+            <NavLink to="/" style={{ textDecoration: 'none' }}>
+              <Typography
+                variant="h5"
+                component="h1"
+                sx={{ flexGrow: 1, color: 'background.paper' }}
+              >
+                New York Times articles
+              </Typography>
+            </NavLink>
+          </Box>
 
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map(({ title, to }) => (
