@@ -1,29 +1,29 @@
-import { Button } from "@mui/material";
-import useActions from "hooks/useActions";
+import { Chip } from '@mui/material';
+import { memo } from 'react';
+import useActions from '../../hooks/useActions';
 
 interface IProps {
   keyword: string;
 }
 
-const KeywordsItem: React.FC<IProps> = (props) => {
-  const { keyword } = props;
-  const { setArticleSearchQuery } = useActions();
+function KeywordsItem({ keyword }:IProps) {
+  const { setSearchQuery, setSearchInputText } = useActions();
+
   const handleClick = () => {
-    setTimeout(() => setArticleSearchQuery(keyword), 500);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    setSearchInputText(keyword)
+    setSearchQuery(keyword);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const text = keyword.length < 36 ? keyword : `${keyword.slice(0, 36)}...`
+
   return (
-    <>
-      <Button
-        className="keywords-button"
-        variant="contained"
-        onClick={handleClick}
-        sx={{ fontSize: 12 }}
-      >
-        {keyword.length < 30 ? keyword : `${keyword.slice(0, 30)}...`}
-      </Button>{" "}
-    </>
+    <Chip
+      onClick={handleClick}
+      color="primary"
+      label={text}
+      size="small"
+    />
   );
-};
-export default KeywordsItem;
+}
+export default memo(KeywordsItem);

@@ -1,14 +1,15 @@
-import { Typography } from "@mui/material";
-import FavoriteList from "components/favoriteList/FavoriteList";
+import { Typography, Box } from '@mui/material';
+import FavoriteList from 'components/favoriteList/FavoriteList';
 
-const MainPage = () => {
+function FavoritePage() {
   return (
-    <div className="fade-in">
+    <Box sx={{ height: '100vh' }}>
       <Typography variant="subtitle1" component="div">
         Favorite Articles
       </Typography>
+
       <FavoriteList />
-    </div>
+    </Box>
   );
-};
-export default MainPage;
+}
+export default FavoritePage;

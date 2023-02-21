@@ -1,41 +1,74 @@
-import ArticleItem from "components/articleItem/ArticleItem";
-import Spinner from "components/spinner/Spinner";
-import SkeletonItem from "components/skeletonItem/SkeletonItem";
-import { useGetArticleSearchQuery } from "store/articleSearch/articleSearchApi";
-import { useTypedSelector } from "hooks/useTypedSelector";
-import { v4 as uuidv4 } from "uuid";
+import ArticleItem from 'components/articleItem/ArticleItem';
+import Skeleton from 'components/skeleton/Skeleton';
+import {
+  Box, Typography, CircularProgress, Grid,
+} from '@mui/material';
+import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
+import { v4 as uuidv4 } from 'uuid';
+import { memo } from 'react';
 
-const ArticleList = () => {
-  const articleSearchQuery = useTypedSelector(
-    (state) => state.articleSearchQuery.value
-  );
-  const { data, isSuccess, isLoading, isFetching } =
-    useGetArticleSearchQuery(articleSearchQuery);
+interface IArticleListProps {
+    searchQuery: string;
+}
 
+function ArticleList({ searchQuery }: IArticleListProps) {
+  const {
+    data, isFetching, isLoading,
+  } = useGetArticleSearchQuery(searchQuery);
+
+  if (isLoading) {
+    return (
+      <Box sx={{
+        margin: '0 auto',
+        textAlign: 'center',
+        minHeight: '100vh',
+        mt: 10,
+      }}
+      >
+        <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+
+        }}
+        >
+          <CircularProgress size={64} />
+        </Box>
+
+        <Typography
+          variant="subtitle1"
+          component="div"
+          sx={{ mt: 2 }}
+        >
+          Loading...
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
-    <div>
-      {isLoading && isFetching && <Spinner />}
-
-      {isSuccess && !isLoading && (
-        <div className="grid-container">
-          {data?.response?.docs?.map((article) => {
-            return (
-              article &&
-              typeof article?.multimedia![5] !== "undefined" && (
-                <div className="grid-item" key={uuidv4()}>
-                  {!isLoading && !isFetching ? (
-                    <ArticleItem key={article._id} article={article} />
-                  ) : (
-                    <SkeletonItem key={uuidv4()} />
-                  )}
-                </div>
-              )
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-};
-export default ArticleList;
+    <Grid
+      container
+      spacing={2}
+      sx={{ mt: 2, minHeight: '100vh' }}
+    >
+      {data?.response?.docs?.map((article) => (
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          key={uuidv4()}
+        >
+          {isFetching
+            ? (
+              <Skeleton />
+            ) : (
+              <ArticleItem article={article} />
+            )}
+        </Grid>
+      ))}
+    </Grid>
+  )
+}
+export default memo(ArticleList);

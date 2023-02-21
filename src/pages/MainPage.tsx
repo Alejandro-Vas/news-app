@@ -1,12 +1,15 @@
-import ArticleList from "components/articleList/ArticleList";
-import ArticleSearchBox from "components/articleSearchBox/ArticleSearchBox";
+import ArticleList from 'components/articleList/ArticleList';
+import ArticleSearchBox from 'components/articleSearchBox/ArticleSearchBox';
+import { useTypedSelector } from 'hooks/useTypedSelector';
 
-const MainPage = () => {
+function MainPage() {
+  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery);
   return (
     <>
       <ArticleSearchBox />
-      <ArticleList />
+
+      <ArticleList searchQuery={searchQuery} />
     </>
   );
-};
+}
 export default MainPage;

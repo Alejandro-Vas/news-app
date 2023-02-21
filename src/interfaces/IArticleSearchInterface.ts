@@ -1,47 +1,3 @@
-export interface IArticleSearch {
-  status: string;
-  copyright: string;
-  response: Response;
-}
-export interface Response {
-  docs?: DocsEntity[] | null;
-  meta: Meta;
-}
-export interface DocsEntity {
-  abstract: string;
-  web_url: string;
-  snippet: string;
-  lead_paragraph: string;
-  print_section?: string | null;
-  print_page?: string | null;
-  source: string;
-  multimedia?: MultimediaEntity[] | null | undefined;
-  headline: Headline;
-  keywords?: KeywordsEntity[] | null;
-  pub_date: string;
-  document_type: string;
-  news_desk: string;
-  section_name: string;
-  subsection_name?: string | null;
-  byline: Byline;
-  type_of_material: string;
-  _id: string;
-  word_count: number;
-  uri: string;
-}
-export interface MultimediaEntity {
-  rank: number;
-  subtype: string;
-  caption?: null;
-  credit?: null;
-  type: string;
-  url: string;
-  height: number;
-  width: number;
-  legacy: Legacy;
-  subType: string;
-  crop_name: string;
-}
 export interface Legacy {
   xlarge?: string | null;
   xlargewidth?: number | null;
@@ -62,17 +18,26 @@ export interface Headline {
   seo?: null;
   sub?: null;
 }
+export interface MultimediaEntity {
+  rank: number;
+  subtype: string;
+  caption?: null;
+  credit?: null;
+  type: string;
+  url: string;
+  height: number;
+  width: number;
+  legacy: Legacy;
+  subType: string;
+  crop_name: string;
+}
 export interface KeywordsEntity {
   name: string;
   value: string;
   rank: number;
   major: string;
 }
-export interface Byline {
-  original: string;
-  person?: (PersonEntity | null)[] | null;
-  organization?: string | null;
-}
+
 export interface PersonEntity {
   firstname: string;
   middlename?: string | null;
@@ -83,8 +48,64 @@ export interface PersonEntity {
   organization: string;
   rank: number;
 }
+
+export interface Byline {
+  original: string;
+  person?: (PersonEntity | null)[] | null;
+  organization?: string | null;
+}
+
+export interface ResponseDocsEntity {
+  abstract: string;
+  web_url: string;
+  snippet: string;
+  lead_paragraph: string;
+  print_section?: string | null;
+  print_page?: string | null;
+  source: string;
+  multimedia?: MultimediaEntity[] | null | undefined;
+  headline: Headline;
+  keywords?: KeywordsEntity[] | null;
+  pub_date: string;
+  document_type: string;
+  news_desk: string;
+  section_name: string;
+  subsection_name?: string | null;
+  byline: Byline;
+  type_of_material: string;
+  word_count: number;
+  uri: string;
+  _id: string
+}
+
+export interface DocsEntity extends ResponseDocsEntity {
+  id: string
+}
+
 export interface Meta {
   hits: number;
   offset: number;
   time: number;
+}
+
+export interface Response {
+  docs?: ResponseDocsEntity[] | null;
+  meta: Meta;
+}
+
+export interface TransformedResponse {
+  docs?: DocsEntity[] | null;
+  meta: Meta;
+}
+
+export interface IArticleSearchResponse {
+  status: string;
+  copyright: string;
+  response: Response;
+}
+
+export interface IArticleSearch {
+  status: string;
+  copyright: string;
+  response: TransformedResponse;
 }

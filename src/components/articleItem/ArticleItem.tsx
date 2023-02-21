@@ -1,65 +1,86 @@
-import { Typography, Link } from "@mui/material";
-import FavoriteStar from "components/favoriteStar/FavoriteStarWrapper";
-import KeywordsItem from "components/keywordsItem/KeywordsItem";
+import {
+  Typography, Link, Box, Paper,
+} from '@mui/material';
+import Favorite from 'components/favorite/Favorite';
+import KeywordsItem from 'components/keywordsItem/KeywordsItem';
+import noImage from 'assets/noImage.png'
+import { memo, SyntheticEvent } from 'react';
+import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
+import styles from './styles';
 
-import { DocsEntity } from "../../interfaces/IArticleSearchInterface";
 interface IProps {
   article: DocsEntity;
 }
 
-const ArticleItem: React.FC<IProps> = (props) => {
-  const { article } = props;
+function ArticleItem({ article }:IProps) {
+  const {
+    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
+  } = article || {}
+  const imageUrl = multimedia?.[5] ? multimedia[5].url : null
+
+  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
+
+  const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = noImage;
+  };
 
   return (
-    <div className="fade-in">
-      <div className="article__favorite">
-        <FavoriteStar article={article} />
-      </div>
+    <Paper
+      sx={styles.paper}
+      elevation={4}
+    >
+      <Box>
+        {date}
+      </Box>
+      <Box sx={styles.headerWrapper}>
+        <div>
+          <Typography
+            sx={styles.header}
+            component="h3"
+            gutterBottom
+          >
+            {headline.main}
+          </Typography>
+        </div>
 
-      <Typography variant="subtitle1" gutterBottom component="div">
-        {article.headline.main}
-      </Typography>
-      <div className="article__img">
-        <img
-          className="article-img"
+        <Favorite article={article} />
+
+      </Box>
+
+      <Box sx={styles.imageWrapper}>
+
+        <Box
+          component="img"
+          sx={styles.image}
           alt="article"
-          src={"https://www.nytimes.com/" + article.multimedia![5].url}
+          src={url}
           loading="lazy"
+          onError={onImageError}
         />
-      </div>
-      <Typography variant="subtitle2" gutterBottom component="div">
-        {article.abstract}
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        {article.lead_paragraph}
-      </Typography>
-      <div className="article__link">
+      </Box>
+
+      <Box sx={styles.link}>
         <Link
-          href={article.web_url}
+          href={webUrl}
           target="_blank"
           rel="noreferrer"
-          mt={"10px"}
         >
           See on www.nytimes.com
         </Link>
-      </div>
-      <div>
-        <div className="keywords-wrapper">
-          {article.keywords
-            ?.filter((_, index) => index < 5)
-            .map((keyword) => {
-              return (
-                <div
-                  className="keywords-item"
-                  key={article.web_url + keyword.value}
-                >
-                  <KeywordsItem keyword={keyword.value} />
-                </div>
-              );
-            })}
-        </div>
-      </div>
-    </div>
+      </Box>
+
+      <Box sx={styles.keywords}>
+        {keywords
+          ?.slice(0, 5)
+          .map((keyword, i) => (
+            <KeywordsItem
+              keyword={keyword.value}
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
+            />
+          ))}
+      </Box>
+    </Paper>
   );
-};
-export default ArticleItem;
+}
+export default memo(ArticleItem);

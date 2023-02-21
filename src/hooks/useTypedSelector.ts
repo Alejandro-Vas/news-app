@@ -1,5 +1,5 @@
-import { TypedUseSelectorHook, useSelector } from "react-redux";
-import { TypeRootState } from "../store/store";
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+import { TypeRootState } from '../store/store';
 
-export const useTypedSelector: TypedUseSelectorHook<TypeRootState> =
-  useSelector;
+// eslint-disable-next-line import/prefer-default-export
+export const useTypedSelector: TypedUseSelectorHook<TypeRootState> = useSelector;
