@@ -4,7 +4,7 @@ import {
 import Favorite from 'components/favorite/Favorite';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
 import noImage from 'assets/noImage.png'
-import { memo } from 'react';
+import { memo, SyntheticEvent } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
 
@@ -19,6 +19,10 @@ function ArticleItem({ article }:IProps) {
   const imageUrl = multimedia?.[5] ? multimedia[5].url : null
 
   const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
+
+  const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
+    event.currentTarget.src = noImage;
+  };
 
   return (
     <Paper
@@ -51,6 +55,7 @@ function ArticleItem({ article }:IProps) {
           alt="article"
           src={url}
           loading="lazy"
+          onError={onImageError}
         />
       </Box>
 
