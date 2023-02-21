@@ -14,7 +14,7 @@ interface IProps {
 
 function ArticleItem({ article }:IProps) {
   const {
-    multimedia, headline, web_url: webUrl, keywords, pub_date: date, id,
+    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
   } = article || {}
   const imageUrl = multimedia?.[5] ? multimedia[5].url : null
 
