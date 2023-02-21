@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { articleSearchApi } from './articleSearch/articleSearchApi';
 import articleSearchQuery from './articleSearchQuery/articleSearchQuerySlice';
 import favoriteArticles from './favorite/favoriteSlice';
+import rtkQueryErrorLogger from './middlewares/rtkQueryErrorLogger';
 
 export const store = configureStore({
   reducer: {
@@ -9,7 +10,9 @@ export const store = configureStore({
     articleSearchQuery: articleSearchQuery.reducer,
     favoriteArticles: favoriteArticles.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(articleSearchApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat(articleSearchApi.middleware)
+    .concat(rtkQueryErrorLogger),
 });
 
 export type TypeRootState = ReturnType<typeof store.getState>;
