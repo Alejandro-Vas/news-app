@@ -10,8 +10,6 @@ function ScrollToTop() {
     threshold: 500,
   });
 
-  console.log('trigger', trigger)
-
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const anchor = (
       (event.target as HTMLDivElement).ownerDocument || document

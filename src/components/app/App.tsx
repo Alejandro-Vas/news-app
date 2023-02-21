@@ -5,6 +5,7 @@ import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
 import AppBar from 'components/AppBar/AppBar';
+import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop'
 
 import { Container } from '@mui/material';
@@ -26,6 +27,8 @@ function App() {
                 <Route path="favorites" element={<FavoritePage />} />
               </Routes>
             </Router>
+
+            <Footer />
           </Container>
 
           <ScrollToTop />

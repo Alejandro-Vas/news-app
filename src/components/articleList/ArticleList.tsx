@@ -4,13 +4,14 @@ import {
   Box, Typography, CircularProgress, Grid,
 } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
-import { useTypedSelector } from 'hooks/useTypedSelector';
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
-import { shallowEqual } from 'react-redux';
 
-function ArticleList() {
-  const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
+interface IArticleListProps {
+    searchQuery: string;
+}
+
+function ArticleList({ searchQuery }: IArticleListProps) {
   const {
     data, isFetching, isLoading,
   } = useGetArticleSearchQuery(searchQuery);
@@ -20,13 +21,15 @@ function ArticleList() {
       <Box sx={{
         margin: '0 auto',
         textAlign: 'center',
+        minHeight: '100vh',
+        mt: 10,
       }}
       >
         <Box sx={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          mt: 4,
+
         }}
         >
           <CircularProgress size={64} />
@@ -47,7 +50,7 @@ function ArticleList() {
     <Grid
       container
       spacing={2}
-      sx={{ mt: 2 }}
+      sx={{ mt: 2, minHeight: '100vh' }}
     >
       {data?.response?.docs?.map((article) => (
         <Grid
