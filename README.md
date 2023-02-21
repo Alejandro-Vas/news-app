@@ -1,6 +1,6 @@
 # New York Tims news app
 
-## Project made using JavaScript, TypeScript, React and Redux, based on Material UI.
+## Project made using JavaScript, TypeScript, React and Redux, based on Material UI
 
 #### APP FEATURES:
 
@@ -12,6 +12,7 @@
 #### MAIN PAGE SCREENSHOT
 
 <img src="https://github.com/Alejandro-Vas/news-app/blob/master/MainPageScreen.png?raw=true" alt="main page screenshot"/>
+
 #### USAGE
 
 ```
@@ -22,18 +23,17 @@ yarn dev
 ```
 
 
----
 
 #### DEPLOYMENT
 
-coming soon
+coming soon...
 
 #### MOCK API DEV SERVER 
 
 ```
 yarn dev:api
  ```
-opens express server on `localhost:3000`
+Opens express server on `localhost:3000` for local development without real API
 
 #### REALISED TECHNOLOGIES:
 
