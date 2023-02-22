@@ -21,7 +21,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
       <Box sx={{
         margin: '0 auto',
         textAlign: 'center',
-        minHeight: '100vh',
+        minHeight: '95vh',
         mt: 10,
       }}
       >
@@ -50,7 +50,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
     <Grid
       container
       spacing={2}
-      sx={{ mt: 2, minHeight: '100vh' }}
+      sx={{ mt: 2, minHeight: '95vh' }}
     >
       {data?.response?.docs?.map((article) => (
         <Grid

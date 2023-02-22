@@ -13,6 +13,10 @@ const transformResponse = (res: IArticleSearchResponse): IArticleSearch => ({
       // eslint-disable-next-line no-underscore-dangle
       id: doc._id,
       pub_date: format(new Date(doc.pub_date), 'd MMMM yyyy'),
+      code: doc.headline?.main
+        ?.split(' ')
+        .join('-')
+        .toLowerCase(),
     })),
   },
 })

@@ -1,15 +1,13 @@
 import { Typography, Box } from '@mui/material';
-import FavoriteList from 'components/favoriteList/FavoriteList';
 
-function FavoritePage() {
+function ArticlePage() {
   return (
     <Box sx={{ height: '95vh' }}>
       <Typography variant="subtitle1" component="div">
-        Favorite Articles
+        ArticlePage
       </Typography>
 
-      <FavoriteList />
     </Box>
   );
 }
-export default FavoritePage;
+export default ArticlePage;
