@@ -110,4 +110,4 @@ const searchTags = [
   'Your Money',
 ];
 
-export default searchTags
+export default searchTags;

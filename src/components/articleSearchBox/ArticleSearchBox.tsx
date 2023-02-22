@@ -7,11 +7,11 @@ import {
 } from '@mui/material';
 import { memo } from 'react';
 import { shallowEqual } from 'react-redux';
-import searchTags from 'constants/searchTags'
+import searchTags from 'constants/searchTags';
 
 function ArticleSearchBox() {
   const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
-  const { searchInputText } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual)
+  const { searchInputText } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(searchQuery);
 

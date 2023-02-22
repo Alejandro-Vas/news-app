@@ -1,9 +1,10 @@
 import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import Favorite from 'components/favorite/Favorite';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
-import noImage from 'assets/noImage.png'
+import noImage from 'assets/noImage.png';
 import { memo, SyntheticEvent } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
@@ -13,15 +14,24 @@ interface IProps {
 }
 
 function ArticleItem({ article }:IProps) {
-  const {
-    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
-  } = article || {}
-  const imageUrl = multimedia?.[5] ? multimedia[5].url : null
+  const navigate = useNavigate();
 
-  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
+  const {
+    multimedia, headline, web_url: webUrl, keywords, pub_date: date, code,
+  } = article || {};
+  const imageUrl = multimedia?.[5] ? multimedia[5].url : null;
+
+  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage;
 
   const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     event.currentTarget.src = noImage;
+  };
+
+  const onGoToArticle = () => {
+    if (code) {
+      navigate(`/article/${encodeURIComponent(code)}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -35,6 +45,7 @@ function ArticleItem({ article }:IProps) {
       <Box sx={styles.headerWrapper}>
         <div>
           <Typography
+            onClick={onGoToArticle}
             sx={styles.header}
             component="h3"
             gutterBottom
@@ -47,8 +58,10 @@ function ArticleItem({ article }:IProps) {
 
       </Box>
 
-      <Box sx={styles.imageWrapper}>
-
+      <Box
+        sx={styles.imageWrapper}
+        onClick={onGoToArticle}
+      >
         <Box
           component="img"
           sx={styles.image}

@@ -13,7 +13,7 @@ import {
   Button,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 const navItems = [
@@ -118,4 +118,4 @@ function AppBar() {
   );
 }
 
-export default AppBar
+export default AppBar;

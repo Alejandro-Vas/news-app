@@ -1,6 +1,7 @@
 const styles = {
   paper: {
     p: 1,
+    mt: 1,
   },
 
   headerWrapper: {
@@ -8,9 +9,13 @@ const styles = {
     justifyContent: 'space-between',
   },
 
+  abstract: {
+    mb: 1,
+  },
+
   header: {
     cursor: 'pointer',
-    fontSize: 'h6.fontSize',
+    fontSize: 'h4.fontSize',
     position: 'relative',
   },
 

@@ -1,11 +1,10 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import Skeleton from 'components/skeleton/Skeleton';
-import {
-  Box, Typography, CircularProgress, Grid,
-} from '@mui/material';
+import { Grid } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
+import Loader from 'components/Loader/index';
 
 interface IArticleListProps {
     searchQuery: string;
@@ -18,31 +17,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
 
   if (isLoading) {
     return (
-      <Box sx={{
-        margin: '0 auto',
-        textAlign: 'center',
-        minHeight: '100vh',
-        mt: 10,
-      }}
-      >
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-
-        }}
-        >
-          <CircularProgress size={64} />
-        </Box>
-
-        <Typography
-          variant="subtitle1"
-          component="div"
-          sx={{ mt: 2 }}
-        >
-          Loading...
-        </Typography>
-      </Box>
+      <Loader />
     );
   }
 
@@ -50,7 +25,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
     <Grid
       container
       spacing={2}
-      sx={{ mt: 2, minHeight: '100vh' }}
+      sx={{ mt: 2, minHeight: '95vh' }}
     >
       {data?.response?.docs?.map((article) => (
         <Grid
@@ -69,6 +44,6 @@ function ArticleList({ searchQuery }: IArticleListProps) {
         </Grid>
       ))}
     </Grid>
-  )
+  );
 }
 export default memo(ArticleList);

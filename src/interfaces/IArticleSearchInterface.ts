@@ -80,6 +80,7 @@ export interface ResponseDocsEntity {
 
 export interface DocsEntity extends ResponseDocsEntity {
   id: string
+  code: string
 }
 
 export interface Meta {
