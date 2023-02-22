@@ -29,7 +29,7 @@ function ArticleItem({ article }:IProps) {
 
   const onGoToArticle = () => {
     if (code) {
-      navigate(`article/${encodeURIComponent(code)}`)
+      navigate(`/article/${encodeURIComponent(code)}`)
     }
   }
 
