@@ -8,6 +8,10 @@ const styles = {
     justifyContent: 'space-between',
   },
 
+  abstract: {
+    mb: 1,
+  },
+
   header: {
     cursor: 'pointer',
     fontSize: 'h4.fontSize',

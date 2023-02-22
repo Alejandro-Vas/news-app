@@ -18,7 +18,13 @@ function ArticlePage() {
   const article = data?.response?.docs?.[0]
 
   const {
-    multimedia, headline, web_url: webUrl, keywords, pub_date: date,
+    multimedia,
+    headline,
+    web_url: webUrl,
+    keywords,
+    pub_date: date,
+    abstract,
+    lead_paragraph: leadParagraph,
   } = article || {}
 
   const imageUrl = multimedia?.[11] ? multimedia[11].url : null
@@ -60,8 +66,14 @@ function ArticlePage() {
           </div>
 
           <Favorite article={article} />
-
         </Box>
+
+        <Typography
+          component="h4"
+          sx={styles.abstract}
+        >
+          {abstract}
+        </Typography>
 
         <Box sx={styles.imageWrapper}>
 
@@ -74,6 +86,10 @@ function ArticlePage() {
             onError={onImageError}
           />
         </Box>
+
+        <Typography>
+          {leadParagraph}
+        </Typography>
 
         <Box sx={styles.link}>
           <Link
