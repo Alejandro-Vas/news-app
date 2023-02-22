@@ -35,7 +35,6 @@
           "props": false
         }
       ],
-      "semi": "off",
       "react/jsx-filename-extension": [
         2,
         {

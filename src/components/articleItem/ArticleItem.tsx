@@ -1,10 +1,10 @@
 import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 import Favorite from 'components/favorite/Favorite';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
-import noImage from 'assets/noImage.png'
+import noImage from 'assets/noImage.png';
 import { memo, SyntheticEvent } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
@@ -14,14 +14,14 @@ interface IProps {
 }
 
 function ArticleItem({ article }:IProps) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const {
     multimedia, headline, web_url: webUrl, keywords, pub_date: date, code,
-  } = article || {}
-  const imageUrl = multimedia?.[5] ? multimedia[5].url : null
+  } = article || {};
+  const imageUrl = multimedia?.[5] ? multimedia[5].url : null;
 
-  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
+  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage;
 
   const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     event.currentTarget.src = noImage;
@@ -29,9 +29,10 @@ function ArticleItem({ article }:IProps) {
 
   const onGoToArticle = () => {
     if (code) {
-      navigate(`/article/${encodeURIComponent(code)}`)
+      navigate(`/article/${encodeURIComponent(code)}`);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }
+  };
 
   return (
     <Paper

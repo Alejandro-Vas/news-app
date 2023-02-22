@@ -1,6 +1,7 @@
 const styles = {
   paper: {
     p: 1,
+    mt: 1,
   },
 
   headerWrapper: {
@@ -45,6 +46,6 @@ const styles = {
     flexWrap: 'wrap',
     gap: 1,
   },
-}
+};
 
-export default styles
+export default styles;

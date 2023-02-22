@@ -1,21 +1,35 @@
 import {
-  Typography, Box, Paper, Link,
+  Typography, Box, Paper, Link, IconButton,
 } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Favorite from 'components/favorite/Favorite';
-import noImage from 'assets/noImage.png'
+import noImage from 'assets/noImage.png';
 import { SyntheticEvent } from 'react';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
-import Loader from '../../components/Loader/index';
-import styles from './styles'
+import Loader from 'components/Loader/index';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import styles from './styles';
+
+function BackButton() {
+  const navigate = useNavigate();
+  return (
+    <IconButton
+      color="primary"
+      size="large"
+      onClick={() => navigate('/')}
+    >
+      <ArrowBackIosNewIcon />
+    </IconButton>
+  );
+}
 
 function ArticlePage() {
-  const { code = '' } = useParams()
+  const { code = '' } = useParams();
 
   const { data, isLoading } = useGetArticleSearchQuery(code);
 
-  const article = data?.response?.docs?.[0]
+  const article = data?.response?.docs?.[0];
 
   const {
     multimedia,
@@ -25,11 +39,11 @@ function ArticlePage() {
     pub_date: date,
     abstract,
     lead_paragraph: leadParagraph,
-  } = article || {}
+  } = article || {};
 
-  const imageUrl = multimedia?.[11] ? multimedia[11].url : null
+  const imageUrl = multimedia?.[11] ? multimedia[11].url : null;
 
-  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage
+  const url = imageUrl ? `https://www.nytimes.com/${imageUrl}` : noImage;
 
   const onImageError = (event: SyntheticEvent<HTMLImageElement, Event>) => {
     event.currentTarget.src = noImage;
@@ -37,16 +51,22 @@ function ArticlePage() {
 
   if (isLoading) {
     return (
-      <Loader />
-    )
+      <>
+        <BackButton />
+        <Loader />
+      </>
+
+    );
   }
 
   if (!article) {
-    return null
+    return <BackButton />;
   }
 
   return (
     <Box sx={{ height: '95vh' }}>
+      <BackButton />
+
       <Paper
         sx={styles.paper}
         elevation={4}
