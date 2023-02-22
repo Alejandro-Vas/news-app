@@ -26,15 +26,15 @@ function Favorite({ article } : IFavoriteProps) {
   const Icon = isFavorite ? Bookmark : BookmarkBorder
   const title = isFavorite ? 'Remove from favorites' : 'Add to Favorites'
   return (
-    <div>
-      <Tooltip title={title}>
+    <Tooltip title={title}>
+      <div>
         <Icon
           color="primary"
           fontSize="large"
           onClick={handleToggleFavorite}
         />
-      </Tooltip>
-    </div>
+      </div>
+    </Tooltip>
   );
 }
 export default Favorite;

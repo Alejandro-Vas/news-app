@@ -4,7 +4,7 @@ import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
-import ArticlePage from 'pages/ArticlePage';
+import ArticlePage from 'pages/ArticlePage/ArticlePage';
 import AppBar from 'components/AppBar/AppBar';
 import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop'

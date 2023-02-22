@@ -61,7 +61,6 @@ function ArticleItem({ article }:IProps) {
         sx={styles.imageWrapper}
         onClick={onGoToArticle}
       >
-
         <Box
           component="img"
           sx={styles.image}
