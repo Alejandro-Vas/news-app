@@ -1,19 +1,21 @@
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
+import { Container } from '@mui/material';
 
 import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
 import ArticlePage from 'pages/ArticlePage/ArticlePage';
 import AppBar from 'components/AppBar/AppBar';
+import BottomNavigation from 'components/BottomNavigation';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
+import useBreakPoints from 'hooks/useBreakPoints';
 
-import { Container } from '@mui/material';
-
-import { store } from '../../store/store';
-import theme from '../../styles/theme';
+import { store } from 'store/store';
+import theme from 'styles/theme';
 
 function App() {
+  const { isMobile } = useBreakPoints();
   return (
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
@@ -30,6 +32,7 @@ function App() {
             </Router>
 
           </Container>
+          {isMobile && <BottomNavigation />}
 
           <ScrollToTop />
         </ThemeProvider>

@@ -35,6 +35,7 @@ function ArticleSearchBox() {
     >
       <Autocomplete
         sx={{ width: 500, mr: 2 }}
+        noOptionsText="No options found, press Search"
         value={searchInputText}
         inputValue={searchInputText}
         onInputChange={(event, newInputValue) => {
