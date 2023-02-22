@@ -6,7 +6,6 @@ import MainPage from 'pages/MainPage';
 import FavoritePage from 'pages/FavoritePage';
 import ArticlePage from 'pages/ArticlePage/ArticlePage';
 import AppBar from 'components/AppBar/AppBar';
-import Footer from 'components/Footer';
 import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 import { Container } from '@mui/material';
@@ -30,7 +29,6 @@ function App() {
               </Routes>
             </Router>
 
-            {/* <Footer /> */}
           </Container>
 
           <ScrollToTop />
