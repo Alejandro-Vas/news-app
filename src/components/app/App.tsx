@@ -7,7 +7,7 @@ import FavoritePage from 'pages/FavoritePage';
 import ArticlePage from 'pages/ArticlePage/ArticlePage';
 import AppBar from 'components/AppBar/AppBar';
 import Footer from 'components/Footer';
-import ScrollToTop from 'components/ScrollToTop/ScrollToTop'
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 
 import { Container } from '@mui/material';
 
@@ -19,7 +19,7 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Container sx={{ mt: [8, 10] }}>
+          <Container sx={{ mt: [8, 10], pb: 4 }}>
             <Router>
               <AppBar />
 
@@ -30,7 +30,7 @@ function App() {
               </Routes>
             </Router>
 
-            <Footer />
+            {/* <Footer /> */}
           </Container>
 
           <ScrollToTop />
