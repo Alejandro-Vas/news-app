@@ -18,7 +18,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
   if (isLoading) {
     return (
       <Loader />
-    )
+    );
   }
 
   return (
@@ -44,6 +44,6 @@ function ArticleList({ searchQuery }: IArticleListProps) {
         </Grid>
       ))}
     </Grid>
-  )
+  );
 }
 export default memo(ArticleList);

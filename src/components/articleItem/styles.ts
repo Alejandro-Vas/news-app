@@ -41,6 +41,6 @@ const styles = {
     flexWrap: 'wrap',
     gap: 1,
   },
-}
+};
 
-export default styles
+export default styles;

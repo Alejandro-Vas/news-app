@@ -11,20 +11,20 @@ interface IFavoriteProps {
 
 function Favorite({ article } : IFavoriteProps) {
   const isFavorite = useTypedSelector((state) => state.favorite.favoriteArticles
-    .find((favArticle) => article.id === favArticle?.id))
+    .find((favArticle) => article.id === favArticle?.id));
 
-  const { addFavorite, removeFavorite } = useActions()
+  const { addFavorite, removeFavorite } = useActions();
 
   const handleToggleFavorite = () => {
     if (!isFavorite) {
-      addFavorite(article)
+      addFavorite(article);
     } else {
-      removeFavorite(article.id)
+      removeFavorite(article.id);
     }
-  }
+  };
 
-  const Icon = isFavorite ? Bookmark : BookmarkBorder
-  const title = isFavorite ? 'Remove from favorites' : 'Add to Favorites'
+  const Icon = isFavorite ? Bookmark : BookmarkBorder;
+  const title = isFavorite ? 'Remove from favorites' : 'Add to Favorites';
   return (
     <Tooltip title={title}>
       <div>

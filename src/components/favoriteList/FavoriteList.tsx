@@ -16,7 +16,7 @@ function FavoriteList() {
           Please add article to favorite
         </Typography>
       </>
-    )
+    );
   }
 
   return (
@@ -39,6 +39,6 @@ function FavoriteList() {
         )
       ))}
     </Grid>
-  )
+  );
 }
 export default FavoriteList;

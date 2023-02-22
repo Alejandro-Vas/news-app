@@ -20,8 +20,8 @@ function ScrollToTop() {
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
-        })
-      }, 300)
+        });
+      }, 300);
     }
   };
 
@@ -40,4 +40,4 @@ function ScrollToTop() {
   );
 }
 
-export default ScrollToTop
+export default ScrollToTop;

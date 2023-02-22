@@ -43,4 +43,4 @@ theme.typography.body1 = {
   },
 };
 
-export default theme
+export default theme;

@@ -29,7 +29,7 @@ function Loader() {
         Loading...
       </Typography>
     </Box>
-  )
+  );
 }
 
-export default Loader
+export default Loader;
