@@ -15,10 +15,18 @@ const favorite = createSlice({
         favoriteArticles: [...state.favoriteArticles, action.payload],
       };
     },
+
     removeFavorite(state, action: PayloadAction<string>) {
       return {
         ...state,
         favoriteArticles: state.favoriteArticles.filter((article) => article.id !== action.payload),
+      };
+    },
+
+    clearFavorite(state) {
+      return {
+        ...state,
+        favoriteArticles: [],
       };
     },
   },

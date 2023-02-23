@@ -1,15 +1,14 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import useActions from 'hooks/useActions';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
-
-import {
-  TextField, Button, Autocomplete, Box,
-} from '@mui/material';
+import { TextField, Autocomplete, Box } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import SearchIcon from '@mui/icons-material/Search';
 import { memo } from 'react';
 import { shallowEqual } from 'react-redux';
 import searchTags from 'constants/searchTags';
 
-function ArticleSearchBox() {
+function Search() {
   const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
   const { searchInputText } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
 
@@ -17,7 +16,7 @@ function ArticleSearchBox() {
 
   const { setSearchQuery, setSearchInputText } = useActions();
 
-  const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onSearch = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (searchInputText !== '') {
@@ -35,6 +34,7 @@ function ArticleSearchBox() {
     >
       <Autocomplete
         sx={{ width: 500, mr: 2 }}
+        noOptionsText="No options found, press Search"
         value={searchInputText}
         inputValue={searchInputText}
         onInputChange={(event, newInputValue) => {
@@ -50,15 +50,20 @@ function ArticleSearchBox() {
         autoSelect
       />
 
-      <Button
-        variant="contained"
+      <LoadingButton
+        sx={{ flexShrink: 0 }}
         disabled={isLoading || isFetching}
         type="submit"
+        variant="contained"
+        color="primary"
         onClick={(e) => onSearch(e)}
+        loading={isLoading || isFetching}
+        loadingPosition="start"
+        startIcon={<SearchIcon />}
       >
         SEARCH
-      </Button>
+      </LoadingButton>
     </Box>
   );
 }
-export default memo(ArticleSearchBox);
+export default memo(Search);

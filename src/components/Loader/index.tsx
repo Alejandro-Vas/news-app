@@ -7,7 +7,6 @@ function Loader() {
     <Box sx={{
       margin: '0 auto',
       textAlign: 'center',
-      minHeight: '95vh',
       mt: 10,
     }}
     >

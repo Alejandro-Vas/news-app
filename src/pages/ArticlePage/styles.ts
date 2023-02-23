@@ -1,7 +1,10 @@
 const styles = {
   paper: {
     p: 1,
-    mt: 1,
+    mt: 2,
+    '& > div': {
+      mb: 1,
+    },
   },
 
   headerWrapper: {
@@ -9,13 +12,8 @@ const styles = {
     justifyContent: 'space-between',
   },
 
-  abstract: {
-    mb: 1,
-  },
-
   header: {
     cursor: 'pointer',
-    fontSize: 'h4.fontSize',
     position: 'relative',
   },
 
@@ -35,10 +33,6 @@ const styles = {
     height: '100%',
     objectFit: 'cover',
     borderRadius: 1,
-  },
-
-  link: {
-    mb: 1,
   },
 
   keywords: {

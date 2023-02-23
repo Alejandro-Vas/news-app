@@ -15,15 +15,20 @@ import {
 import MenuIcon from '@mui/icons-material/Menu';
 import { NavLink } from 'react-router-dom';
 
-const drawerWidth = 240;
+import styles from './styles';
+
 const navItems = [
   {
-    title: 'Home',
+    title: 'HOME',
     to: '/',
   },
   {
-    title: 'Favorite articles',
+    title: 'FAVORITE ARTICLES',
     to: '/favorites',
+  },
+  {
+    title: 'ABOUT',
+    to: '/about',
   },
 ];
 
@@ -33,13 +38,13 @@ interface IDrawerProps {
 
 function Drawer({ handleDrawerToggle }: IDrawerProps) {
   return (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+    <Box onClick={handleDrawerToggle} sx={styles.drawer}>
       <List>
         {navItems.map(({ title, to }) => (
           <ListItem key={title} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={styles.listItemButton}>
               <NavLink to={to} style={{ textDecoration: 'none' }}>
-                <ListItemText primary={title} sx={{ color: 'text.primary' }} />
+                <ListItemText primary={title} sx={styles.listItemText} />
               </NavLink>
             </ListItemButton>
           </ListItem>
@@ -57,17 +62,17 @@ function AppBar() {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={styles.appBar}>
       <MuiAppBar component="nav" id="back-to-top-anchor">
         <Toolbar
-          sx={{ display: 'flex', justifyContent: 'space-between' }}
+          sx={styles.toolbar}
         >
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={styles.iconButton}
           >
             <MenuIcon />
           </IconButton>
@@ -75,20 +80,20 @@ function AppBar() {
           <Box>
             <NavLink to="/" style={{ textDecoration: 'none' }}>
               <Typography
-                variant="h5"
+                variant="h1"
                 component="h1"
-                sx={{ flexGrow: 1, color: 'background.paper' }}
+                sx={styles.h1}
               >
                 New York Times articles
               </Typography>
             </NavLink>
           </Box>
 
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={styles.navItemsWrapper}>
             {navItems.map(({ title, to }) => (
-              <Button key={title}>
+              <Button key={title} variant="outlined">
                 <NavLink to={to} style={{ textDecoration: 'none' }}>
-                  <Box sx={{ color: 'background.paper' }}>
+                  <Box sx={styles.navLink}>
                     {title}
                   </Box>
                 </NavLink>
@@ -106,10 +111,7 @@ function AppBar() {
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-          }}
+          sx={styles.drawerWrapper}
         >
           <Drawer handleDrawerToggle={handleDrawerToggle} />
         </MuiDrawer>

@@ -30,7 +30,11 @@ function ScrollToTop() {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
+        sx={{
+          position: 'fixed',
+          bottom: [64, 32],
+          right: 16,
+        }}
       >
         <Fab aria-label="scroll back to top">
           <KeyboardArrowUpIcon fontSize="large" />

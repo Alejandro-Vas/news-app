@@ -1,35 +1,40 @@
 import { Provider } from 'react-redux';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-
-import MainPage from 'pages/MainPage';
-import FavoritePage from 'pages/FavoritePage';
-import ArticlePage from 'pages/ArticlePage/ArticlePage';
-import AppBar from 'components/AppBar/AppBar';
-import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
-
 import { Container } from '@mui/material';
 
-import { store } from '../../store/store';
-import theme from '../../styles/theme';
+import MainPage from 'pages/MainPage';
+import FavoritePage from 'pages/FavoritePage/index';
+import ArticlePage from 'pages/ArticlePage/ArticlePage';
+import AboutPage from 'pages/AboutPage/index';
+import AppBar from 'components/AppBar/AppBar';
+import BottomNavigation from 'components/BottomNavigation';
+import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
+import useBreakPoints from 'hooks/useBreakPoints';
+
+import { store } from 'store/store';
+import theme from 'theme/index';
 
 function App() {
+  const { isMobile } = useBreakPoints();
   return (
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Container sx={{ mt: [8, 10], pb: 4 }}>
-            <Router>
+          <Router>
+            <Container sx={{ my: [10, 12], pb: 4, px: 0 }}>
               <AppBar />
 
               <Routes>
-                <Route path="/article/:code" element={<ArticlePage />} />
+                <Route path="article/:code" element={<ArticlePage />} />
                 <Route path="/" element={<MainPage />} />
                 <Route path="favorites" element={<FavoritePage />} />
+                <Route path="about" element={<AboutPage />} />
               </Routes>
-            </Router>
 
-          </Container>
+            </Container>
+            {isMobile && <BottomNavigation />}
+          </Router>
 
           <ScrollToTop />
         </ThemeProvider>

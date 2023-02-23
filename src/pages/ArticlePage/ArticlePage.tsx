@@ -1,28 +1,15 @@
 import {
-  Typography, Box, Paper, Link, IconButton,
+  Typography, Box, Paper, Link,
 } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Favorite from 'components/favorite/Favorite';
 import noImage from 'assets/noImage.png';
 import { SyntheticEvent } from 'react';
 import KeywordsItem from 'components/keywordsItem/KeywordsItem';
-import Loader from 'components/Loader/index';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Loader from 'components/Loader';
+import BackButton from './BackButton';
 import styles from './styles';
-
-function BackButton() {
-  const navigate = useNavigate();
-  return (
-    <IconButton
-      color="primary"
-      size="large"
-      onClick={() => navigate('/')}
-    >
-      <ArrowBackIosNewIcon />
-    </IconButton>
-  );
-}
 
 function ArticlePage() {
   const { code = '' } = useParams();
@@ -64,39 +51,38 @@ function ArticlePage() {
   }
 
   return (
-    <Box sx={{ height: '95vh' }}>
+    <>
       <BackButton />
 
       <Paper
         sx={styles.paper}
         elevation={4}
       >
-        <Box>
-          {date}
-        </Box>
+
+        {date}
+
         <Box sx={styles.headerWrapper}>
-          <div>
-            <Typography
-              sx={styles.header}
-              component="h2"
-              gutterBottom
-            >
-              {headline?.main}
-            </Typography>
-          </div>
+          <Typography
+            sx={styles.header}
+            component="h2"
+            variant="h2"
+          >
+            {headline?.main}
+          </Typography>
 
           <Favorite article={article} />
         </Box>
 
-        <Typography
-          component="h4"
-          sx={styles.abstract}
-        >
-          {abstract}
-        </Typography>
+        <Box>
+          <Typography
+            component="h4"
+            variant="h4"
+          >
+            {abstract}
+          </Typography>
+        </Box>
 
         <Box sx={styles.imageWrapper}>
-
           <Box
             component="img"
             sx={styles.image}
@@ -107,11 +93,11 @@ function ArticlePage() {
           />
         </Box>
 
-        <Typography>
+        <Box fontSize="h5.fontSize">
           {leadParagraph}
-        </Typography>
+        </Box>
 
-        <Box sx={styles.link}>
+        <Box>
           <Link
             href={webUrl}
             target="_blank"
@@ -131,7 +117,7 @@ function ArticlePage() {
           ))}
         </Box>
       </Paper>
-    </Box>
+    </>
   );
 }
 export default ArticlePage;
