@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+import HandymanIcon from '@mui/icons-material/Handyman';
 
 function AboutPage() {
   return (
@@ -11,8 +12,14 @@ function AboutPage() {
         About Page
       </Typography>
 
-      <Typography variant="h3" component="h3">
-        Forbidden
+      <HandymanIcon
+        color="info"
+        fontSize="large"
+        sx={{ verticalAlign: 'bottom', mr: 1 }}
+      />
+
+      <Typography variant="h3" component="span">
+        Under construction...
       </Typography>
     </>
   );
