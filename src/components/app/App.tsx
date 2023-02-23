@@ -20,8 +20,8 @@ function App() {
     <StyledEngineProvider injectFirst>
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <Container sx={{ mt: [8, 10], pb: 4 }}>
-            <Router>
+          <Router>
+            <Container sx={{ mt: [8, 10], pb: 4 }}>
               <AppBar />
 
               <Routes>
@@ -29,10 +29,10 @@ function App() {
                 <Route path="/" element={<MainPage />} />
                 <Route path="favorites" element={<FavoritePage />} />
               </Routes>
-            </Router>
 
-          </Container>
-          {isMobile && <BottomNavigation />}
+            </Container>
+            {isMobile && <BottomNavigation />}
+          </Router>
 
           <ScrollToTop />
         </ThemeProvider>

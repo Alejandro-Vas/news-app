@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import { useState } from 'react';
 import {
   Paper,
@@ -7,6 +9,24 @@ import {
 import HomeIcon from '@mui/icons-material/Home';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import InfoIcon from '@mui/icons-material/Info';
+
+const actions = [
+  {
+    label: 'Main',
+    icon: <HomeIcon />,
+    to: '/',
+  },
+  {
+    label: 'Favorites',
+    icon: <FavoriteIcon />,
+    to: '/',
+  },
+  {
+    label: 'About',
+    icon: <InfoIcon />,
+    to: '/about',
+  },
+];
 
 function BottomNavigation() {
   const [value, setValue] = useState(0);
@@ -28,9 +48,14 @@ function BottomNavigation() {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="Main" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="About" icon={<InfoIcon />} />
+        {actions.map(({ label, icon, to }) => (
+          <BottomNavigationAction
+            label={label}
+            icon={icon}
+            to={to}
+            component={Link}
+          />
+        ))}
       </MuiBottomNavigation>
     </Paper>
   );
