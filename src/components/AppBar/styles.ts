@@ -39,7 +39,7 @@ const styles = {
   h1: {
     flexGrow: 1,
     color: 'background.paper',
-    p: 1,
+    py: 1,
   },
 
   navItemsWrapper: {

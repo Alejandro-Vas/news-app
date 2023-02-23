@@ -22,7 +22,7 @@ function App() {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <Router>
-            <Container sx={{ mt: [8, 10], pb: 4, px: 0 }}>
+            <Container sx={{ mt: [10, 12], pb: 4, px: 0 }}>
               <AppBar />
 
               <Routes>

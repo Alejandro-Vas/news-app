@@ -9,7 +9,7 @@ import { memo } from 'react';
 import { shallowEqual } from 'react-redux';
 import searchTags from 'constants/searchTags';
 
-function ArticleSearchBox() {
+function Search() {
   const { searchQuery } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
   const { searchInputText } = useTypedSelector((state) => state.articleSearchQuery, shallowEqual);
 
@@ -62,4 +62,4 @@ function ArticleSearchBox() {
     </Box>
   );
 }
-export default memo(ArticleSearchBox);
+export default memo(Search);
