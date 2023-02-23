@@ -6,11 +6,11 @@ import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
 import Loader from 'components/Loader';
 
-interface IArticleListProps {
+interface IArticlesListProps {
     searchQuery: string;
 }
 
-function ArticleList({ searchQuery }: IArticleListProps) {
+function ArticlesList({ searchQuery }: IArticlesListProps) {
   const {
     data, isFetching, isLoading,
   } = useGetArticleSearchQuery(searchQuery);
@@ -46,4 +46,4 @@ function ArticleList({ searchQuery }: IArticleListProps) {
     </Grid>
   );
 }
-export default memo(ArticleList);
+export default memo(ArticlesList);

@@ -1,6 +1,8 @@
 import { useState, forwardRef } from 'react';
 import useActions from 'hooks/useActions';
 
+import WarningAmberOutlinedIcon from '@mui/icons-material/WarningAmberOutlined';
+
 import {
   Button,
   Dialog,
@@ -57,11 +59,20 @@ function ClearDialog() {
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle>Confirmation</DialogTitle>
-        <DialogContent sx={{ textAlign: 'center' }}>
+        <DialogTitle>
+          <WarningAmberOutlinedIcon
+            color="info"
+            fontSize="large"
+            sx={{ verticalAlign: 'bottom' }}
+          />
+          {' '}
+          Confirmation
+        </DialogTitle>
+        <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
             Do you want to clear your favorite articles list?
-            <br />
+            <p />
+
             <strong>This action cannot be undone </strong>
           </DialogContentText>
         </DialogContent>

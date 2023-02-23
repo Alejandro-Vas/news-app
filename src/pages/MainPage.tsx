@@ -1,4 +1,4 @@
-import ArticleList from 'components/articleList/ArticleList';
+import ArticlesList from 'components/ArticlesList';
 import Search from 'components/Search';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 
@@ -8,7 +8,7 @@ function MainPage() {
     <>
       <Search />
 
-      <ArticleList searchQuery={searchQuery} />
+      <ArticlesList searchQuery={searchQuery} />
     </>
   );
 }
