@@ -93,7 +93,9 @@ function ArticlePage() {
           />
         </Box>
 
-        {leadParagraph}
+        <Box fontSize="h5.fontSize">
+          {leadParagraph}
+        </Box>
 
         <Box>
           <Link
