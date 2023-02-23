@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Paper,
   BottomNavigation as MuiBottomNavigation,
@@ -10,7 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import InfoIcon from '@mui/icons-material/Info';
 
-const actions = [
+const paths = [
   {
     label: 'Main',
     icon: <HomeIcon />,
@@ -19,7 +19,7 @@ const actions = [
   {
     label: 'Favorites',
     icon: <FavoriteIcon />,
-    to: '/',
+    to: '/favorites',
   },
   {
     label: 'About',
@@ -29,7 +29,16 @@ const actions = [
 ];
 
 function BottomNavigation() {
-  const [value, setValue] = useState(0);
+  const { pathname } = useLocation();
+  const [pathIndex, setPathIndex] = useState(() => paths.findIndex(({ to }) => to === pathname));
+
+  useEffect(() => {
+    const matchedRouteIndex = paths.findIndex(({ to }) => to === pathname);
+
+    if (matchedRouteIndex) {
+      setPathIndex(matchedRouteIndex);
+    }
+  }, [pathname]);
 
   return (
     <Paper
@@ -39,16 +48,16 @@ function BottomNavigation() {
         left: 0,
         right: 0,
       }}
-      elevation={3}
+      elevation={4}
     >
       <MuiBottomNavigation
         showLabels
-        value={value}
+        value={pathIndex}
         onChange={(event, newValue) => {
-          setValue(newValue);
+          setPathIndex(newValue);
         }}
       >
-        {actions.map(({ label, icon, to }) => (
+        {paths.map(({ label, icon, to }) => (
           <BottomNavigationAction
             key={label}
             label={label}
