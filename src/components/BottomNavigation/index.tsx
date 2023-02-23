@@ -50,6 +50,7 @@ function BottomNavigation() {
       >
         {actions.map(({ label, icon, to }) => (
           <BottomNavigationAction
+            key={label}
             label={label}
             icon={icon}
             to={to}
