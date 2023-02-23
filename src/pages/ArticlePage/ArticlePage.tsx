@@ -58,32 +58,31 @@ function ArticlePage() {
         sx={styles.paper}
         elevation={4}
       >
-        <Box>
-          {date}
-        </Box>
+
+        {date}
+
         <Box sx={styles.headerWrapper}>
-          <div>
-            <Typography
-              sx={styles.header}
-              component="h2"
-              gutterBottom
-            >
-              {headline?.main}
-            </Typography>
-          </div>
+          <Typography
+            sx={styles.header}
+            component="h2"
+            variant="h2"
+          >
+            {headline?.main}
+          </Typography>
 
           <Favorite article={article} />
         </Box>
 
-        <Typography
-          component="h3"
-          sx={styles.abstract}
-        >
-          {abstract}
-        </Typography>
+        <Box>
+          <Typography
+            component="h4"
+            variant="h4"
+          >
+            {abstract}
+          </Typography>
+        </Box>
 
         <Box sx={styles.imageWrapper}>
-
           <Box
             component="img"
             sx={styles.image}
@@ -94,11 +93,9 @@ function ArticlePage() {
           />
         </Box>
 
-        <Typography>
-          {leadParagraph}
-        </Typography>
+        {leadParagraph}
 
-        <Box sx={styles.link}>
+        <Box>
           <Link
             href={webUrl}
             target="_blank"

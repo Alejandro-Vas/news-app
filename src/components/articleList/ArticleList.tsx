@@ -25,7 +25,7 @@ function ArticleList({ searchQuery }: IArticleListProps) {
     <Grid
       container
       spacing={2}
-      sx={{ mt: 2 }}
+      sx={{ mt: 1 }}
     >
       {data?.response?.docs?.map((article) => (
         <Grid
