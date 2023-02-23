@@ -51,7 +51,7 @@ function ArticlePage() {
   }
 
   return (
-    <Box sx={{ height: '95vh' }}>
+    <>
       <BackButton />
 
       <Paper
@@ -118,7 +118,7 @@ function ArticlePage() {
           ))}
         </Box>
       </Paper>
-    </Box>
+    </>
   );
 }
 export default ArticlePage;

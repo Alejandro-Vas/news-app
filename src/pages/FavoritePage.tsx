@@ -1,9 +1,9 @@
-import { Typography, Box } from '@mui/material';
+import { Typography } from '@mui/material';
 import FavoriteList from 'components/favoriteList/FavoriteList';
 
 function FavoritePage() {
   return (
-    <Box sx={{ height: '95vh' }}>
+    <>
       <Typography
         variant="h2"
         component="h2"
@@ -13,7 +13,7 @@ function FavoritePage() {
       </Typography>
 
       <FavoriteList />
-    </Box>
+    </>
   );
 }
 export default FavoritePage;

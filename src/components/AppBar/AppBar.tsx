@@ -26,6 +26,10 @@ const navItems = [
     title: 'Favorite articles',
     to: '/favorites',
   },
+  {
+    title: 'About',
+    to: '/about',
+  },
 ];
 
 interface IDrawerProps {
