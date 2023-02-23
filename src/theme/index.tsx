@@ -32,6 +32,10 @@ const appTheme = createTheme({
       fontSize: '1.28rem',
       fontWeight: 500,
     },
+
+    button: {
+      textTransform: 'none',
+    },
   },
 
   components: {
@@ -87,10 +91,6 @@ const appTheme = createTheme({
     },
 
     MuiTextField: {
-      defaultProps: {
-        fullWidth: true,
-      },
-
       styleOverrides: {
         root: {
           input: {
@@ -105,10 +105,6 @@ const appTheme = createTheme({
     },
 
     MuiSelect: {
-      defaultProps: {
-        fullWidth: true,
-      },
-
       styleOverrides: {
         select: {
           padding: '12px 1rem',

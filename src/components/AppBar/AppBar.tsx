@@ -19,15 +19,15 @@ import styles from './styles';
 
 const navItems = [
   {
-    title: 'Home',
+    title: 'HOME',
     to: '/',
   },
   {
-    title: 'Favorite articles',
+    title: 'FAVORITE ARTICLES',
     to: '/favorites',
   },
   {
-    title: 'About',
+    title: 'ABOUT',
     to: '/about',
   },
 ];

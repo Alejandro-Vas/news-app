@@ -1,9 +1,9 @@
-import { Button, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import FavoriteList from 'components/favoriteList/FavoriteList';
-import useActions from 'hooks/useActions';
+
+import ClearDialog from './ClearDialog';
 
 function FavoritePage() {
-  const { clearFavorite } = useActions();
   return (
     <>
       <Typography
@@ -14,9 +14,7 @@ function FavoritePage() {
         Favorite Articles
       </Typography>
 
-      <Button onClick={() => clearFavorite()}>
-        Clear
-      </Button>
+      <ClearDialog />
 
       <FavoriteList />
     </>
