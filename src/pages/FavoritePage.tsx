@@ -4,7 +4,11 @@ import FavoriteList from 'components/favoriteList/FavoriteList';
 function FavoritePage() {
   return (
     <Box sx={{ height: '95vh' }}>
-      <Typography variant="subtitle1" component="div">
+      <Typography
+        variant="h2"
+        component="h2"
+        gutterBottom
+      >
         Favorite Articles
       </Typography>
 

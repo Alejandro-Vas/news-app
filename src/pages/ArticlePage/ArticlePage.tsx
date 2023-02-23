@@ -89,7 +89,7 @@ function ArticlePage() {
         </Box>
 
         <Typography
-          component="h4"
+          component="h3"
           sx={styles.abstract}
         >
           {abstract}
