@@ -10,7 +10,6 @@ const styles = {
 
   header: {
     cursor: 'pointer',
-    fontSize: 'h6.fontSize',
     position: 'relative',
   },
 

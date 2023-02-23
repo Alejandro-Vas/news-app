@@ -4,7 +4,7 @@ import { Grid } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
-import Loader from 'components/Loader/index';
+import Loader from 'components/Loader';
 
 interface IArticleListProps {
     searchQuery: string;

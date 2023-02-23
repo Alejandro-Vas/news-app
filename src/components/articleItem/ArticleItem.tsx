@@ -48,6 +48,7 @@ function ArticleItem({ article }:IProps) {
             onClick={onGoToArticle}
             sx={styles.header}
             component="h3"
+            variant="h4"
             gutterBottom
           >
             {headline.main}
