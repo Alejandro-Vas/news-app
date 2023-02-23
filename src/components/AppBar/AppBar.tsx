@@ -91,7 +91,7 @@ function AppBar() {
 
           <Box sx={styles.navItemsWrapper}>
             {navItems.map(({ title, to }) => (
-              <Button key={title}>
+              <Button key={title} variant="outlined">
                 <NavLink to={to} style={{ textDecoration: 'none' }}>
                   <Box sx={styles.navLink}>
                     {title}

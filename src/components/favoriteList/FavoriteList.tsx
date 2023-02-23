@@ -8,7 +8,7 @@ function FavoriteList() {
   if (favoriteArticles.length === 0) {
     return (
       <>
-        <Typography>
+        <Typography sx={{ mt: 2 }}>
           No articles found
         </Typography>
 

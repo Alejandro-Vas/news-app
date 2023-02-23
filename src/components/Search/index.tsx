@@ -52,7 +52,6 @@ function Search() {
       />
 
       <Button
-        variant="contained"
         disabled={isLoading || isFetching}
         type="submit"
         onClick={(e) => onSearch(e)}

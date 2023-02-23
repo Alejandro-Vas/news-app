@@ -7,7 +7,7 @@ const styles = {
 
     display: {
       xs: 'block',
-      sm: 'none',
+      md: 'none',
     },
     '& .MuiDrawer-paper': {
       boxSizing: 'border-box',
@@ -35,7 +35,9 @@ const styles = {
 
   iconButton: {
     mr: 2,
-    display: { sm: 'none' },
+    display: {
+      md: 'none',
+    },
   },
 
   h1: {
@@ -47,7 +49,7 @@ const styles = {
   navItemsWrapper: {
     display: {
       xs: 'none',
-      sm: 'block',
+      md: 'block',
     },
   },
 

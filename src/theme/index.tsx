@@ -33,6 +33,89 @@ const appTheme = createTheme({
       fontWeight: 500,
     },
   },
+
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        '*': {
+          boxSizing: 'border-box',
+        },
+
+        body: {
+          margin: 0,
+          overflowX: 'hidden',
+          fontFamily: '"Roboto", "Helvetica", "Arial", "sansSerif"',
+        },
+
+        a: {
+          color: 'unset',
+          textDecoration: 'none',
+          cursor: 'pointer',
+        },
+
+        ul: {
+          listStyleType: 'none',
+          padding: 0,
+          margin: 0,
+        },
+      },
+    },
+
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Roboto',
+          color: 'black',
+          textDecoration: 'none',
+          cursor: 'pointer',
+        },
+      },
+    },
+
+    MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+      },
+    },
+
+    MuiBadge: {
+      styleOverrides: {
+        badge: {
+          lineHeight: 'unset',
+        },
+      },
+    },
+
+    MuiTextField: {
+      defaultProps: {
+        fullWidth: true,
+      },
+
+      styleOverrides: {
+        root: {
+          input: {
+            padding: '12px 1rem',
+          },
+
+          label: {
+            top: '-6px',
+          },
+        },
+      },
+    },
+
+    MuiSelect: {
+      defaultProps: {
+        fullWidth: true,
+      },
+
+      styleOverrides: {
+        select: {
+          padding: '12px 1rem',
+        },
+      },
+    },
+  },
 }, ruRU);
 
 export default responsiveFontSizes(appTheme);
