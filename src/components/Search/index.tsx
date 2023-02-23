@@ -1,10 +1,9 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import useActions from 'hooks/useActions';
 import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
-
-import {
-  TextField, Button, Autocomplete, Box,
-} from '@mui/material';
+import { TextField, Autocomplete, Box } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
+import SearchIcon from '@mui/icons-material/Search';
 import { memo } from 'react';
 import { shallowEqual } from 'react-redux';
 import searchTags from 'constants/searchTags';
@@ -17,7 +16,7 @@ function Search() {
 
   const { setSearchQuery, setSearchInputText } = useActions();
 
-  const onSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const onSearch = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (searchInputText !== '') {
@@ -51,13 +50,19 @@ function Search() {
         autoSelect
       />
 
-      <Button
+      <LoadingButton
+        sx={{ flexShrink: 0 }}
         disabled={isLoading || isFetching}
         type="submit"
+        variant="contained"
+        color="primary"
         onClick={(e) => onSearch(e)}
+        loading={isLoading || isFetching}
+        loadingPosition="start"
+        startIcon={<SearchIcon />}
       >
         SEARCH
-      </Button>
+      </LoadingButton>
     </Box>
   );
 }
