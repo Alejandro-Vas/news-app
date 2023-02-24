@@ -33,7 +33,7 @@ function AppWrapper() {
         <ThemeProvider theme={theme}>
           <StyledSnackbarProvider
             action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
-            // dense
+            maxSnack={2}
           >
             <App />
           </StyledSnackbarProvider>
