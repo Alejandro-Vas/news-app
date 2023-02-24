@@ -8,7 +8,7 @@ import theme from 'theme/index';
 
 import { IconButton, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import App from '../App';
+import Application from 'components/Application';
 
 function SnackbarCloseButton({ snackbarKey }:{snackbarKey: string | number}) {
   const { closeSnackbar } = useSnackbar();
@@ -35,7 +35,7 @@ function AppWrapper() {
             action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
             maxSnack={2}
           >
-            <App />
+            <Application />
           </StyledSnackbarProvider>
         </ThemeProvider>
       </StyledEngineProvider>
