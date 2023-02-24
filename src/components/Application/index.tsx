@@ -10,7 +10,7 @@ import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
 import useBreakPoints from 'hooks/useBreakPoints';
 import useNotifier from 'hooks/useNotifier';
 
-function App() {
+function Application() {
   const { isMobile } = useBreakPoints();
   useNotifier();
 
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export default Application;
