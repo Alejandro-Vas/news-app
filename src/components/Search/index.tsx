@@ -1,6 +1,6 @@
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import useActions from 'hooks/useActions';
-import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
+import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { TextField, Autocomplete, Box } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import SearchIcon from '@mui/icons-material/Search';

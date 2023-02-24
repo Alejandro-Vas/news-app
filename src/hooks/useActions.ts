@@ -1,11 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { articleSearchQueryActions } from '../store/articleSearchQuery/articleSearchQuerySlice';
-import { favoriteActions } from '../store/favorite/favoriteSlice';
+import { notificationsActions } from 'store/slices/notifications';
+import { articleSearchQueryActions } from '../store/slices/articleSearchQuerySlice';
+import { favoriteActions } from '../store/slices/favorite';
 
 const AllActions = {
   ...articleSearchQueryActions,
   ...favoriteActions,
+  ...notificationsActions,
 };
 
 const useActions = () => {
