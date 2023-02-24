@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { notificationsActions } from 'store/slices/notifications';
 import { articleSearchQueryActions } from '../store/slices/articleSearchQuerySlice';
-import { favoriteActions } from '../store/favorite/favoriteSlice';
+import { favoriteActions } from '../store/slices/favorite';
 
 const AllActions = {
   ...articleSearchQueryActions,

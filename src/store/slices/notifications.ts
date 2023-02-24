@@ -9,7 +9,7 @@ const notificationsSlice = createSlice({
   reducers: {
     enqueueSnackbar(state, { payload }) {
       const { options } = payload;
-      const key = options && (options.key || uuidv4());
+      const key = (options && options.key) || uuidv4();
 
       return [
         ...state,
@@ -23,6 +23,10 @@ const notificationsSlice = createSlice({
           },
         },
       ];
+    },
+
+    removeSnackbar(state, action) {
+      return [...state.filter((notification) => notification.key !== action.payload)];
     },
   },
 });

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSnackbar } from 'notistack';
-// import { removeSnackbar } from 'actions/notifyActions';
+import useActions from 'hooks/useActions';
 import { useTypedSelector } from './useTypedSelector';
 
 let displayed = [];
@@ -12,12 +12,13 @@ const useNotifier = () => {
   const notifications = useTypedSelector((state) => state.notifications || []);
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+  const { removeSnackbar } = useActions();
 
-  const storeDisplayed = (id:string) => {
+  const storeDisplayed = (id:string | number) => {
     displayed = [...displayed, id];
   };
 
-  const removeDisplayed = (id) => {
+  const removeDisplayed = (id: string | number) => {
     displayed = [...displayed.filter((key) => id !== key)];
   };
 
@@ -41,14 +42,16 @@ const useNotifier = () => {
           }
         },
         onExited: (event, myKey) => {
-          // dispatch(removeSnackbar(myKey));
+          removeSnackbar(myKey);
           removeDisplayed(myKey);
         },
       });
 
       storeDisplayed(key);
     });
-  }, [notifications, closeSnackbar, enqueueSnackbar, dispatch]);
+  }, [notifications, closeSnackbar, enqueueSnackbar, dispatch, removeSnackbar]);
+
+  console.log(displayed);
 };
 
 export default useNotifier;
