@@ -4,7 +4,7 @@ import { useSnackbar } from 'notistack';
 import useActions from 'hooks/useActions';
 import { useTypedSelector } from './useTypedSelector';
 
-let displayed = [];
+let displayedKeys:(string| number)[] = [];
 
 const useNotifier = () => {
   const dispatch = useDispatch();
@@ -15,11 +15,11 @@ const useNotifier = () => {
   const { removeSnackbar } = useActions();
 
   const storeDisplayed = (id:string | number) => {
-    displayed = [...displayed, id];
+    displayedKeys = [...displayedKeys, id];
   };
 
   const removeDisplayed = (id: string | number) => {
-    displayed = [...displayed.filter((key) => id !== key)];
+    displayedKeys = [...displayedKeys.filter((key) => id !== key)];
   };
 
   useEffect(() => {
@@ -31,7 +31,7 @@ const useNotifier = () => {
         return;
       }
 
-      if (displayed.includes(key)) return;
+      if (displayedKeys.includes(key)) return;
 
       enqueueSnackbar(message, {
         key,
@@ -51,7 +51,7 @@ const useNotifier = () => {
     });
   }, [notifications, closeSnackbar, enqueueSnackbar, dispatch, removeSnackbar]);
 
-  console.log(displayed);
+  console.log('displayed', displayedKeys);
 };
 
 export default useNotifier;
