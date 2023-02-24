@@ -22,8 +22,7 @@ function Search() {
     enqueueSnackbar({
       message: 'Ошибка получения данных о существующей встрече',
       options: {
-        // key: uniqueId(),
-        variant: 'error',
+        variant: 'info',
       },
     });
 

@@ -26,7 +26,7 @@ const Transition = forwardRef((
 
 function ClearDialog() {
   const { favoriteArticles = [] } = useTypedSelector((state) => state.favorite);
-  const { clearFavorite } = useActions();
+  const { clearFavorite, enqueueSnackbar } = useActions();
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -39,6 +39,14 @@ function ClearDialog() {
 
   const handleOk = () => {
     clearFavorite();
+
+    enqueueSnackbar({
+      message: 'Favorite articles list cleared successfully',
+      options: {
+        variant: 'success',
+      },
+    });
+
     setOpen(false);
   };
 
