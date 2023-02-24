@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-import App from 'components/App/index';
+import App from 'components/App';
 
 import theme from 'theme/index';
 
