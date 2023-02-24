@@ -7,7 +7,7 @@ import App from 'components/App/index';
 
 import theme from 'theme/index';
 
-import { IconButton } from '@mui/material';
+import { IconButton, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 function SnackbarCloseButton({ snackbarKey }:{snackbarKey: string | number}) {
@@ -20,17 +20,23 @@ function SnackbarCloseButton({ snackbarKey }:{snackbarKey: string | number}) {
   );
 }
 
+const StyledSnackbarProvider = styled(SnackbarProvider)`
+  &.SnackbarContent-root {
+    margin-bottom: 26px;
+  }
+`;
+
 function AppWrapper() {
   return (
     <Provider store={store}>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <SnackbarProvider
+          <StyledSnackbarProvider
             action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
-            dense
+            // dense
           >
             <App />
-          </SnackbarProvider>
+          </StyledSnackbarProvider>
         </ThemeProvider>
       </StyledEngineProvider>
     </Provider>

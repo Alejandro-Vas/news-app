@@ -50,8 +50,6 @@ const useNotifier = () => {
       storeDisplayed(key);
     });
   }, [notifications, closeSnackbar, enqueueSnackbar, dispatch, removeSnackbar]);
-
-  console.log('displayed', displayedKeys);
 };
 
 export default useNotifier;
