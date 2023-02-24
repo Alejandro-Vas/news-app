@@ -3,12 +3,12 @@ import { Provider } from 'react-redux';
 import { SnackbarProvider, useSnackbar } from 'notistack';
 
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-import App from 'components/App';
 
 import theme from 'theme/index';
 
 import { IconButton, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import App from '../App';
 
 function SnackbarCloseButton({ snackbarKey }:{snackbarKey: string | number}) {
   const { closeSnackbar } = useSnackbar();
