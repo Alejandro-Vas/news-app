@@ -27,6 +27,7 @@ function AppWrapper() {
         <ThemeProvider theme={theme}>
           <SnackbarProvider
             action={(snackbarKey) => <SnackbarCloseButton snackbarKey={snackbarKey} />}
+            dense
           >
             <App />
           </SnackbarProvider>

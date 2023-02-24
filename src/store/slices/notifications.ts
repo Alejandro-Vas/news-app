@@ -15,11 +15,9 @@ const notificationsSlice = createSlice({
         ...state,
         {
           ...payload,
-          // TODO где key лишний
           key,
           options: {
             ...payload.options,
-            key,
           },
         },
       ];
