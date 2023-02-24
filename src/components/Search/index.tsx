@@ -14,10 +14,18 @@ function Search() {
 
   const { isLoading, isFetching } = useGetArticleSearchQuery(searchQuery);
 
-  const { setSearchQuery, setSearchInputText } = useActions();
+  const { setSearchQuery, setSearchInputText, enqueueSnackbar } = useActions();
 
   const onSearch = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+
+    enqueueSnackbar({
+      message: 'Ошибка получения данных о существующей встрече',
+      options: {
+        // key: uniqueId(),
+        variant: 'error',
+      },
+    });
 
     if (searchInputText !== '') {
       setSearchQuery(searchInputText);
