@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { OptionsObject, SnackbarMessage } from 'notistack';
 import { v4 as uuidv4 } from 'uuid';
 
