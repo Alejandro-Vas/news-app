@@ -1,7 +1,7 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import Skeleton from 'components/skeleton/Skeleton';
 import { Button, Grid, Typography } from '@mui/material';
-import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
+import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
 import Loader from 'components/Loader';

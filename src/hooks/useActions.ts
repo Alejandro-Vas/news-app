@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { articleSearchQueryActions } from '../store/articleSearchQuery/articleSearchQuerySlice';
+import { articleSearchQueryActions } from '../store/articleSearchQuerySlice/articleSearchQuerySlice';
 import { favoriteActions } from '../store/favorite/favoriteSlice';
 
 const AllActions = {

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { articleSearchApi } from './articleSearch/articleSearchApi';
-import articleSearchQuery from './articleSearchQuery/articleSearchQuerySlice';
+import { articleSearchApi } from './api/articleSearchApi';
+import articleSearchQuery from './articleSearchQuerySlice/articleSearchQuerySlice';
 import favorite from './favorite/favoriteSlice';
 import rtkQueryErrorLogger from './middlewares/rtkQueryErrorLogger';
 

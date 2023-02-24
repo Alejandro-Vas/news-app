@@ -1,7 +1,7 @@
 import {
   Typography, Box, Paper, Link,
 } from '@mui/material';
-import { useGetArticleSearchQuery } from 'store/articleSearch/articleSearchApi';
+import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { useParams } from 'react-router-dom';
 import Favorite from 'components/favorite/Favorite';
 import noImage from 'assets/noImage.png';
