@@ -13,7 +13,7 @@ const useNotifier = () => {
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
-  const storeDisplayed = (id) => {
+  const storeDisplayed = (id:string) => {
     displayed = [...displayed, id];
   };
 
