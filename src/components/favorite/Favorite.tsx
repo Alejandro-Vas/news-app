@@ -13,25 +13,13 @@ function Favorite({ article } : IFavoriteProps) {
   const isFavorite = useTypedSelector((state) => state.favorite.favoriteArticles
     .find((favArticle) => article.id === favArticle?.id));
 
-  const { addFavorite, removeFavorite, enqueueSnackbar } = useActions();
+  const { addFavorite, removeFavorite } = useActions();
 
   const handleToggleFavorite = () => {
     if (!isFavorite) {
       addFavorite(article);
-      enqueueSnackbar({
-        message: 'Added to favorites',
-        options: {
-          variant: 'info',
-        },
-      });
     } else {
       removeFavorite(article.id);
-      enqueueSnackbar({
-        message: 'Removed from favorites',
-        options: {
-          variant: 'warning',
-        },
-      });
     }
   };
 
