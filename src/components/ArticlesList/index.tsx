@@ -9,6 +9,7 @@ import { memo } from 'react';
 import Loader from 'components/Loader';
 import useActions from 'hooks/useActions';
 import { useNavigate } from 'react-router-dom';
+import searchTags from 'constants/searchTags';
 
 const styles = {
   container: {
@@ -26,8 +27,9 @@ function ArticlesList({ searchQuery }: IArticlesListProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setSearchInputText('123');
-    setSearchQuery('123');
+    const randomArticleQuery = searchTags[Math.floor(Math.random() * searchTags.length)];
+    setSearchInputText(randomArticleQuery);
+    setSearchQuery(randomArticleQuery);
     navigate('/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
