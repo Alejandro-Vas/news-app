@@ -27,7 +27,6 @@ yarn dev
 ```
 
 
-
 #### DEPLOYMENT
 
 Deployed via [Netlify](https://www.netlify.com/)
@@ -51,3 +50,11 @@ Opens express dev server with mocked response on `localhost:3000` for local deve
 - React-router
 - Material UI
 - Express
+
+### PROJECT ROADMAP
+- [x] Article page
+- [x] Error handling with notistack
+- [x] Saving reducer state to local storage
+- [ ] Refactor from CRA to Webpack bundling
+- [ ] Save search query to params
+
