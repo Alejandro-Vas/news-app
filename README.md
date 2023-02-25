@@ -39,7 +39,7 @@ https://lighthearted-custard-5024f1.netlify.app
 ```
 yarn dev:api
  ```
-Opens express server on `localhost:3000` for local development without real API
+Opens express dev server with mocked response on `localhost:3000` for local development without real API (need to change API_URL from `https://api.nytimes.com/` to `http://localhost:3000/`).
 
 #### REALISED TECHNOLOGIES:
 
