@@ -41,7 +41,7 @@ function ClearDialog() {
     clearFavorite();
 
     enqueueSnackbar({
-      message: 'Favorite articles list cleared successfully',
+      message: 'Favorite list cleared',
       options: {
         variant: 'success',
       },
