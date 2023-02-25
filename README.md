@@ -4,14 +4,18 @@
 
 #### APP FEATURES:
 
-- Article search by query or tag click
-- Fetching data from API
-- Favorite articles page
-- Mobile adaptation
+- Fetching data from [The New York Times API](https://developer.nytimes.com/apis) (article search by query or tag and article preview in another page)
+- Favorite articles list with saving in local storage
+- Error handling
+- Mobile adaptation with Material UI design
 
 #### MAIN PAGE SCREENSHOT
 
-<img src="https://github.com/Alejandro-Vas/news-app/blob/master/MainPageScreen.png?raw=true" alt="main page screenshot"/>
+<img src="https://github.com/Alejandro-Vas/news-app/blob/master/mainPage.png?raw=true" alt="main page screenshot"/>
+
+#### MAIN PAGE MOBILES SCREENSHOT
+
+<img src="https://github.com/Alejandro-Vas/news-app/blob/master/mainPageMobile.png?raw=true" alt="main page mobile screenshot"/>
 
 #### USAGE
 
@@ -26,7 +30,8 @@ yarn dev
 
 #### DEPLOYMENT
 
-coming soon...
+Deployed via [Netlify](https://www.netlify.com/)
+https://lighthearted-custard-5024f1.netlify.app/
 
 #### MOCK API DEV SERVER 
 
