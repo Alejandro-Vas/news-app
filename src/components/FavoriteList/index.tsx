@@ -1,4 +1,4 @@
-import ArticleItem from 'components/articleItem/ArticleItem';
+import ArticleItem from 'components/ArticleItem';
 import { useTypedSelector } from 'hooks/useTypedSelector';
 import { Typography, Grid } from '@mui/material';
 

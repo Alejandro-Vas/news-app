@@ -1,16 +1,16 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Container } from '@mui/material';
 import MainPage from 'pages/MainPage';
-import FavoritePage from 'pages/FavoritePage/index';
-import ArticlePage from 'pages/ArticlePage/ArticlePage';
-import AboutPage from 'pages/AboutPage/index';
-import AppBar from 'components/AppBar/AppBar';
+import FavoritePage from 'pages/FavoritePage';
+import ArticlePage from 'pages/ArticlePage';
+import AboutPage from 'pages/AboutPage';
+import AppBar from 'components/AppBar';
 import BottomNavigation from 'components/BottomNavigation';
-import ScrollToTop from 'components/ScrollToTop/ScrollToTop';
+import ScrollToTop from 'components/ScrollToTop';
 import useBreakPoints from 'hooks/useBreakPoints';
 import useNotifier from 'hooks/useNotifier';
 
-function Application() {
+function App() {
   const { isMobile } = useBreakPoints();
   useNotifier();
 
@@ -36,4 +36,4 @@ function Application() {
   );
 }
 
-export default Application;
+export default App;

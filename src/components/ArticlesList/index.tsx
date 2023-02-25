@@ -1,5 +1,5 @@
-import ArticleItem from 'components/articleItem/ArticleItem';
-import Skeleton from 'components/skeleton/Skeleton';
+import ArticleItem from 'components/ArticleItem';
+import Skeleton from 'components/Skeleton';
 import {
   Box, Button, Grid, Typography,
 } from '@mui/material';

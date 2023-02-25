@@ -3,10 +3,10 @@ import {
 } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { useParams } from 'react-router-dom';
-import Favorite from 'components/favorite/Favorite';
+import Favorite from 'components/Favorite';
 import noImage from 'assets/noImage.png';
 import { SyntheticEvent } from 'react';
-import KeywordsItem from 'components/keywordsItem/KeywordsItem';
+import KeywordsItem from 'components/KeywordsItem';
 import Loader from 'components/Loader';
 import BackButton from './BackButton';
 import styles from './styles';

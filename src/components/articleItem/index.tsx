@@ -2,8 +2,8 @@ import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Favorite from 'components/favorite/Favorite';
-import KeywordsItem from 'components/keywordsItem/KeywordsItem';
+import Favorite from 'components/Favorite';
+import KeywordsItem from 'components/KeywordsItem';
 import noImage from 'assets/noImage.png';
 import { memo, SyntheticEvent } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
