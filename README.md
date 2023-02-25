@@ -15,7 +15,7 @@
 
 #### MAIN PAGE MOBILES SCREENSHOT
 
-<img src="https://github.com/Alejandro-Vas/news-app/blob/master/mainPageMobile.png?raw=true" alt="main page mobile screenshot" max-width="486px" max-height="1045px" />
+<img src="https://github.com/Alejandro-Vas/news-app/blob/master/mainPageMobile.png?raw=true" alt="main page mobile screenshot" width="50%" height="50%" />
 
 #### USAGE
 
