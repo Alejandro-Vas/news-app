@@ -14,7 +14,7 @@ import searchTags from 'constants/searchTags';
 const styles = {
   container: {
     '& > *': {
-      mt: 1,
+      mt: 2,
     },
   },
 };
