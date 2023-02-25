@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const styles = {
   container: {
-    '& > div': {
+    '& > *': {
       mt: 1,
     },
   },
@@ -73,7 +73,7 @@ function ArticlesList({ searchQuery }: IArticlesListProps) {
           You can use AI random search query generator
         </Typography>
 
-        <Button sx={{ mt: 1 }} onClick={handleClick}>
+        <Button onClick={handleClick}>
           TRY!
         </Button>
       </Box>
