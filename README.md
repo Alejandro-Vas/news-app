@@ -32,7 +32,7 @@ yarn dev
 
 Deployed via [Netlify](https://www.netlify.com/)
 
-https://lighthearted-custard-5024f1.netlify.app/
+https://lighthearted-custard-5024f1.netlify.app
 
 #### MOCK API DEV SERVER 
 
