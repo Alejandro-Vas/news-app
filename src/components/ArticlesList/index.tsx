@@ -1,13 +1,23 @@
 import ArticleItem from 'components/articleItem/ArticleItem';
 import Skeleton from 'components/skeleton/Skeleton';
-import { Button, Grid, Typography } from '@mui/material';
+import {
+  Box, Button, Grid, Typography,
+} from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react';
 import Loader from 'components/Loader';
 import useActions from 'hooks/useActions';
 import { useNavigate } from 'react-router-dom';
+import searchTags from 'constants/searchTags';
 
+const styles = {
+  container: {
+    '& > *': {
+      mt: 1,
+    },
+  },
+};
 interface IArticlesListProps {
     searchQuery: string;
 }
@@ -17,8 +27,9 @@ function ArticlesList({ searchQuery }: IArticlesListProps) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setSearchInputText('123');
-    setSearchQuery('123');
+    const randomArticleQuery = searchTags[Math.floor(Math.random() * searchTags.length)];
+    setSearchInputText(randomArticleQuery);
+    setSearchQuery(randomArticleQuery);
     navigate('/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -41,33 +52,33 @@ function ArticlesList({ searchQuery }: IArticlesListProps) {
 
   if (isError) {
     return (
-      <>
-        <Typography sx={{ mt: 1 }} variant="h3">
+      <Box sx={styles.container}>
+        <Typography variant="h3">
           An error occurred
         </Typography>
 
-        <Typography sx={{ mt: 1 }} variant="h4">
+        <Typography variant="h4">
           Try again later
         </Typography>
-      </>
+      </Box>
     );
   }
 
   if (!data?.response?.docs?.length && !isError) {
     return (
-      <>
-        <Typography sx={{ mt: 1 }} variant="h3">
+      <Box sx={styles.container}>
+        <Typography variant="h3">
           Nothing has found
         </Typography>
 
-        <Typography sx={{ mt: 1 }} variant="h4">
+        <Typography variant="h4">
           You can use AI random search query generator
         </Typography>
 
-        <Button sx={{ mt: 1 }} onClick={handleClick}>
+        <Button onClick={handleClick}>
           TRY!
         </Button>
-      </>
+      </Box>
     );
   }
 
