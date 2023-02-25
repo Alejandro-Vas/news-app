@@ -4,11 +4,11 @@ import { SnackbarProvider, useSnackbar } from 'notistack';
 
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
-import theme from 'theme/index';
+import theme from 'theme';
 
 import { IconButton, styled } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import Application from 'components/Application';
+import Application from 'components/App';
 
 function SnackbarCloseButton({ snackbarKey }:{snackbarKey: string | number}) {
   const { closeSnackbar } = useSnackbar();

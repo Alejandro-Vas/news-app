@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import FavoriteList from 'components/favoriteList/FavoriteList';
+import FavoriteList from 'components/FavoriteList';
 
 import ClearDialog from './ClearDialog';
 

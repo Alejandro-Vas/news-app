@@ -2,16 +2,16 @@ import {
   Typography, Link, Box, Paper,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import Favorite from 'components/favorite/Favorite';
-import KeywordsItem from 'components/keywordsItem/KeywordsItem';
+import Favorite from 'components/Favorite';
+import KeywordsItem from 'components/KeywordsItem';
 import noImage from 'assets/noImage.png';
 import { memo, SyntheticEvent } from 'react';
 import { DocsEntity } from '../../interfaces/IArticleSearchInterface';
 import styles from './styles';
 
-interface IProps {
-  article: DocsEntity;
-}
+  interface IProps {
+    article: DocsEntity;
+  }
 
 function ArticleItem({ article }:IProps) {
   const navigate = useNavigate();
@@ -89,7 +89,7 @@ function ArticleItem({ article }:IProps) {
           .map((keyword, i) => (
             <KeywordsItem
               keyword={keyword.value}
-              // eslint-disable-next-line react/no-array-index-key
+                // eslint-disable-next-line react/no-array-index-key
               key={i}
             />
           ))}
