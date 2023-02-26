@@ -55,6 +55,6 @@ Opens express dev server with mocked response on `localhost:3000` for local deve
 - [x] Article page
 - [x] Error handling with notistack
 - [x] Saving reducer state to local storage
-- [ ] Refactor from CRA to Webpack bundling
+- [x] Refactor from CRA to Webpack bundling
 - [ ] Save search query to params
 
