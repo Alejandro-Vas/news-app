@@ -1,48 +1,41 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack');
 
-const DIR = path.resolve(__dirname, '../..');
+const DIR = path.resolve(__dirname);
 
 module.exports = {
   entry: {
-    index: ['./client/src/index.jsx'],
-    firebase: ['./client/src/firebase-messaging-sw.js'],
+    index: ['./client/src/index.tsx'],
   },
 
   resolve: {
-    modules: ['./client/src', './node_modules'],
-    extensions: ['.js', '.jsx'],
+    modules: ['./src', './node_modules'],
+    extensions: ['.ts', '.tsx'],
     alias: {
-      assets: path.resolve(DIR, 'client/src/assets'),
-      components: path.resolve(DIR, 'client/src/components'),
-      hooks: path.resolve(DIR, 'client/src/hooks'),
-      pages: path.resolve(DIR, 'client/src/pages'),
+      assets: path.resolve(DIR, 'src/assets'),
+      components: path.resolve(DIR, 'src/components'),
+      constants: path.resolve(DIR, 'src/constants'),
+      hooks: path.resolve(DIR, 'src/hooks'),
+      pages: path.resolve(DIR, 'src/pages'),
       react: path.join(DIR, 'node_modules', 'react'),
-      scripts: path.resolve(DIR, 'client/src/scripts'),
-      theme: path.resolve(DIR, 'client/src/theme'),
-      utils: path.resolve(DIR, 'client/src/utils'),
+      theme: path.resolve(DIR, 'src/theme'),
+      interfaces: path.resolve(DIR, 'src/interfaces'),
+      store: path.resolve(DIR, 'src/store'),
     },
   },
 
   plugins: [
     new CleanWebpackPlugin(),
 
-    new MiniCssExtractPlugin({
-      linkType: 'text/css',
-    }),
-
     new CopyPlugin({
       patterns: [
-        { from: path.resolve(DIR, 'client/src/robots.txt'), to: '' },
-        { from: path.resolve(DIR, 'client/src/assets/favicons'), to: '' },
-        { from: path.resolve(DIR, 'client/src/scripts'), to: 'scripts' },
-        { from: path.resolve(DIR, 'client/src/assets/og'), to: 'og' },
-        // { from: path.resolve(DIR, 'client/src/firebase-messaging-sw.js'), to: '' },
-        { from: path.resolve(DIR, 'client/src/manifest.json'), to: '' },
+        { from: path.resolve(DIR, 'src/robots.txt'), to: '' },
+        { from: path.resolve(DIR, 'src/assets/og'), to: '' },
+        { from: path.resolve(DIR, 'src/manifest.json'), to: '' },
       ],
     }),
 
@@ -58,10 +51,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         include: [
-          path.join(DIR, 'client/src'),
-        ],
-        exclude: [
-          path.join(DIR, 'client/src/scripts'),
+          path.join(DIR, 'src'),
         ],
         use: {
           loader: 'babel-loader',
@@ -89,34 +79,6 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ['@svgr/webpack'],
-        exclude: [
-          /car-scheme/,
-        ],
-      },
-
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: true,
-              url: false,
-              modules: {
-                localIdentName: '[local]_[hash:base64:5]',
-                getLocalIdent: (context, _localIdentName, localName) => {
-                  if (/\.global\./i.test(context.resourcePath)) {
-                    return localName;
-                  }
-                  return null;
-                },
-              },
-            },
-          },
-        ],
       },
     ],
   },

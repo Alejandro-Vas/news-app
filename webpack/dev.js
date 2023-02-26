@@ -1,13 +1,11 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
-const webpack = require('webpack');
 const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./common');
 
-const envFile = require('../env/dev.json');
-
-const DIR = path.resolve(__dirname, '../..');
+const DIR = path.resolve(__dirname);
 
 module.exports = merge(common, {
   mode: 'development',
@@ -25,27 +23,15 @@ module.exports = merge(common, {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(DIR, 'client/src/index.html'),
+      template: path.join(DIR, 'src/index.html'),
       minify: true,
-    }),
-
-    new webpack.DefinePlugin({
-      'process.env': {
-        CONFIG: JSON.stringify(envFile),
-        USE_ANALYTICS: false,
-      },
     }),
   ],
 
   output: {
     path: path.join(DIR, 'build'),
     publicPath: '/',
-    filename: src => {
-      if (src.runtime === 'firebase') {
-        return 'firebase-messaging-sw.js';
-      }
-      return `${src.runtime}.${src.chunk.javascript}.js`;
-    },
+    filename: (src) => `${src.runtime}.${src.chunk.javascript}.js`,
     sourceMapFilename: '[file].map',
   },
 
