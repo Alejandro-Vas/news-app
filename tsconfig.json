@@ -17,5 +17,5 @@
     "noEmit": true,
     "jsx": "react-jsx",
   },
-  "include": ["src", "dev-server"]
+  "include": ["src", "webpack", "dev-server"]
 }
