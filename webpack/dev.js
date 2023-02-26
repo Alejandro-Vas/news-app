@@ -1,10 +1,13 @@
+/* eslint-disable import/extensions */
+/* eslint-disable import/no-import-module-exports */
 /* eslint-disable import/no-extraneous-dependencies */
-import { resolve, join } from 'path';
+import { join, resolve } from 'path';
 import { merge } from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import common from './common';
+import common from './common.js';
 
-const DIR = resolve(__dirname);
+// eslint-disable-next-line no-underscore-dangle
+const __dirname = resolve();
 
 export default merge(common, {
   mode: 'development',
@@ -22,16 +25,17 @@ export default merge(common, {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: join(DIR, 'src/index.html'),
+      template: join(__dirname, 'src/index.html'),
       minify: true,
     }),
   ],
 
   output: {
-    path: join(DIR, 'build'),
+    path: join(__dirname, 'build'),
     publicPath: '/',
     filename: (src) => `${src.runtime}.${src.chunk.javascript}.js`,
     sourceMapFilename: '[file].map',
+    clean: true,
   },
 
 });
