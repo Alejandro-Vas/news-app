@@ -1,86 +1,79 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const webpack = require('webpack');
+import { resolve as _resolve, join } from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
+import { ProvidePlugin, ContextReplacementPlugin } from 'webpack';
 
-const DIR = path.resolve(__dirname);
+const DIR = _resolve(__dirname);
 
-module.exports = {
-  entry: {
-    index: ['./client/src/index.tsx'],
+export const entry = {
+  index: ['./src/index.tsx'],
+};
+export const resolve = {
+  modules: ['./src', './node_modules'],
+  extensions: ['.ts', '.tsx'],
+  alias: {
+    assets: _resolve(DIR, 'src/assets'),
+    components: _resolve(DIR, 'src/components'),
+    constants: _resolve(DIR, 'src/constants'),
+    hooks: _resolve(DIR, 'src/hooks'),
+    pages: _resolve(DIR, 'src/pages'),
+    react: join(DIR, 'node_modules', 'react'),
+    theme: _resolve(DIR, 'src/theme'),
+    interfaces: _resolve(DIR, 'src/interfaces'),
+    store: _resolve(DIR, 'src/store'),
   },
+};
+export const plugins = [
+  new CleanWebpackPlugin(),
 
-  resolve: {
-    modules: ['./src', './node_modules'],
-    extensions: ['.ts', '.tsx'],
-    alias: {
-      assets: path.resolve(DIR, 'src/assets'),
-      components: path.resolve(DIR, 'src/components'),
-      constants: path.resolve(DIR, 'src/constants'),
-      hooks: path.resolve(DIR, 'src/hooks'),
-      pages: path.resolve(DIR, 'src/pages'),
-      react: path.join(DIR, 'node_modules', 'react'),
-      theme: path.resolve(DIR, 'src/theme'),
-      interfaces: path.resolve(DIR, 'src/interfaces'),
-      store: path.resolve(DIR, 'src/store'),
-    },
-  },
-
-  plugins: [
-    new CleanWebpackPlugin(),
-
-    new CopyPlugin({
-      patterns: [
-        { from: path.resolve(DIR, 'src/robots.txt'), to: '' },
-        { from: path.resolve(DIR, 'src/assets/og'), to: '' },
-        { from: path.resolve(DIR, 'src/manifest.json'), to: '' },
-      ],
-    }),
-
-    new webpack.ProvidePlugin({
-      React: 'react',
-    }),
-
-    new webpack.ContextReplacementPlugin(/moment[\\]locale$/, /ru/),
-  ],
-
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        include: [
-          path.join(DIR, 'src'),
-        ],
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-          },
-        },
-      },
-      {
-        test: /\.png$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          mimetype: 'image/png',
-        },
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'url-loader',
-          },
-        ],
-      },
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
+  new CopyPlugin({
+    patterns: [
+      { from: _resolve(DIR, 'src/robots.txt'), to: '' },
+      { from: _resolve(DIR, 'src/assets/og'), to: '' },
+      { from: _resolve(DIR, 'src/manifest.json'), to: '' },
     ],
-  },
+  }),
 
+  new ProvidePlugin({
+    React: 'react',
+  }),
+
+  new ContextReplacementPlugin(/moment[\\]locale$/, /ru/),
+];
+export const module = {
+  rules: [
+    {
+      test: /\.(js|jsx)$/,
+      include: [
+        join(DIR, 'src'),
+      ],
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
+      },
+    },
+    {
+      test: /\.png$/,
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+        mimetype: 'image/png',
+      },
+    },
+    {
+      test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+      use: [
+        {
+          loader: 'url-loader',
+        },
+      ],
+    },
+    {
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    },
+  ],
 };

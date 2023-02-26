@@ -1,20 +1,19 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
-const { merge } = require('webpack-merge');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const common = require('./common');
+import { resolve, join } from 'path';
+import { merge } from 'webpack-merge';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import common from './common';
 
-const DIR = path.resolve(__dirname, '../..');
+const DIR = resolve(__dirname, '../..');
 
-module.exports = merge(common, {
+export default merge(common, {
   mode: 'production',
   optimization: {
     usedExports: true,
   },
 
   output: {
-    path: path.join(DIR, 'build'),
+    path: join(DIR, 'build'),
     publicPath: '/',
     filename: (src) => `${src.runtime}.${src.chunk.contentHash.javascript}.js`,
     sourceMapFilename: '[file].map',
@@ -22,7 +21,7 @@ module.exports = merge(common, {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(DIR, 'client/src/index.html'),
+      template: join(DIR, 'src/index.html'),
       minify: true,
     }),
   ],

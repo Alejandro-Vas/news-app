@@ -68,6 +68,9 @@
     "import/resolver": {
       "typescript": {},
       "node": {}
+    },
+    "webpack": {
+      "config": "webpack/common.js"
     }
   }
 }

@@ -4,9 +4,9 @@ WORKDIR /usr
 
 COPY package.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY . .
 
-EXPOSE 8080
-CMD [ "npm", "start" ]
+EXPOSE 8081
+CMD [ "yarn", "dev" ]
