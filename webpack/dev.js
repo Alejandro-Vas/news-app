@@ -32,7 +32,7 @@ export default merge(common, {
 
   output: {
     path: join(__dirname, 'build'),
-    publicPath: '/',
+    publicPath: './',
     filename: (src) => `${src.runtime}.${src.chunk.javascript}.js`,
     sourceMapFilename: '[file].map',
     clean: true,
