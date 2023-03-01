@@ -28,8 +28,7 @@ export default {
       // new CopyPlugin({
       //   patterns: [
       //     { from: _resolve(__dirname, './src/robots.txt'), to: '' },
-      //     { from: _resolve(__dirname, './src/assents/og'), to: '/og' },
-      //     { from: _resolve(__dirname, '.src/manifest.json'), to: '' },
+      //     { from: _resolve(__dirname, './src/assets/og'), to: '/og' },
       //   ],
       // }),
     ],
