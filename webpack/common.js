@@ -1,38 +1,41 @@
 /* eslint-disable import/no-import-module-exports */
 /* eslint-disable import/no-extraneous-dependencies */
-import { resolve as _resolve, join } from 'path';
+import { resolve, join } from 'path';
 import CopyPlugin from 'copy-webpack-plugin';
 
 // eslint-disable-next-line no-underscore-dangle
-const __dirname = _resolve();
+const __dirname = resolve();
 
 export default {
   entry: {
     index: ['./src/index.tsx'],
   },
+
   resolve: {
     modules: ['./src', './node_modules'],
     extensions: ['.ts', '.tsx', '.js'],
     alias: {
-      assets: _resolve(__dirname, 'src/assets'),
-      components: _resolve(__dirname, 'src/components'),
-      constants: _resolve(__dirname, 'src/constants'),
-      hooks: _resolve(__dirname, 'src/hooks'),
-      pages: _resolve(__dirname, 'src/pages'),
+      assets: resolve(__dirname, 'src/assets'),
+      components: resolve(__dirname, 'src/components'),
+      constants: resolve(__dirname, 'src/constants'),
+      hooks: resolve(__dirname, 'src/hooks'),
+      pages: resolve(__dirname, 'src/pages'),
       react: join(__dirname, 'node_modules', 'react'),
-      theme: _resolve(__dirname, 'src/theme'),
-      interfaces: _resolve(__dirname, 'src/interfaces'),
-      store: _resolve(__dirname, 'src/store'),
+      theme: resolve(__dirname, 'src/theme'),
+      interfaces: resolve(__dirname, 'src/interfaces'),
+      store: resolve(__dirname, 'src/store'),
     },
-    plugins: [
-      // new CopyPlugin({
-      //   patterns: [
-      //     { from: _resolve(__dirname, './src/robots.txt'), to: '' },
-      //     { from: _resolve(__dirname, './src/assets/og'), to: '/og' },
-      //   ],
-      // }),
-    ],
   },
+
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: resolve(__dirname, 'src/robots.txt'), to: '' },
+        { from: resolve(__dirname, 'src/assets/og'), to: './og' },
+      ],
+    }),
+  ],
+
   module: {
     rules: [
       {
@@ -50,7 +53,7 @@ export default {
           {
             loader: 'ts-loader',
             options: {
-              configFile: _resolve('./tsconfig.json'),
+              configFile: resolve('./tsconfig.json'),
             },
           },
         ],
