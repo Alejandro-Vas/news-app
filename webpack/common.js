@@ -32,6 +32,7 @@ export default {
       patterns: [
         { from: resolve(__dirname, 'src/robots.txt'), to: '' },
         { from: resolve(__dirname, 'src/assets/og'), to: './og' },
+        { from: resolve(__dirname, 'src/assets/favicon.ico'), to: '' },
       ],
     }),
   ],
