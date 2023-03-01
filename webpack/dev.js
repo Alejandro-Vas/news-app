@@ -13,14 +13,10 @@ export default merge(common, {
   mode: 'development',
 
   devServer: {
-    static: {
-      directory: join(__dirname, './build/'),
-    },
-    historyApiFallback: {
-      disableDotRule: true,
-    },
+    static: './dist/',
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
 
   plugins: [
@@ -31,11 +27,6 @@ export default merge(common, {
   ],
 
   output: {
-    path: join(__dirname, 'build'),
-    publicPath: './',
-    filename: (src) => `${src.runtime}.${src.chunk.javascript}.js`,
-    sourceMapFilename: '[file].map',
-    clean: true,
+    publicPath: '/',
   },
-
 });
