@@ -1,6 +1,6 @@
-# New York Tims news app
+## New York Tims news app
 
-## Project made using JavaScript, TypeScript, React and Redux, based on Material UI
+### Project made using JavaScript, TypeScript, React and Redux, based on Material UI
 
 #### APP FEATURES:
 
@@ -8,6 +8,12 @@
 - Favorite articles list with saving in local storage
 - Error handling
 - Mobile adaptation with Material UI design
+
+#### DEMO
+
+https://lighthearted-custard-5024f1.netlify.app
+
+Deployed via [Netlify](https://www.netlify.com/)
 
 #### MAIN PAGE SCREENSHOT
 
@@ -26,12 +32,6 @@ yarn
 yarn dev
 ```
 
-
-#### DEPLOYMENT
-
-Deployed via [Netlify](https://www.netlify.com/)
-
-https://lighthearted-custard-5024f1.netlify.app
 
 #### MOCK API DEV SERVER 
 

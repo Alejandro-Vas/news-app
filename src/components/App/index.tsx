@@ -9,6 +9,7 @@ import BottomNavigation from 'components/BottomNavigation';
 import ScrollToTop from 'components/ScrollToTop';
 import useBreakPoints from 'hooks/useBreakPoints';
 import useNotifier from 'hooks/useNotifier';
+import NotFound404Page from '../../pages/NotFound404Page/index';
 
 function App() {
   const { isMobile } = useBreakPoints();
@@ -21,10 +22,11 @@ function App() {
           <AppBar />
 
           <Routes>
-            <Route path="article/:code" element={<ArticlePage />} />
+            <Route path="*" element={<NotFound404Page />} />
+            <Route path="/article/:code" element={<ArticlePage />} />
             <Route path="/" element={<MainPage />} />
-            <Route path="favorites" element={<FavoritePage />} />
-            <Route path="about" element={<AboutPage />} />
+            <Route path="/favorites" element={<FavoritePage />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
 
         </Container>
