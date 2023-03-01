@@ -3,16 +3,19 @@ import {
 } from '@mui/material';
 import { useGetArticleSearchQuery } from 'store/api/articleSearchApi';
 import { useParams } from 'react-router-dom';
-import Favorite from 'components/Favorite';
-import noImage from 'assets/noImage.png';
 import { SyntheticEvent } from 'react';
+import useActions from 'hooks/useActions';
+import Favorite from 'components/Favorite';
 import KeywordsItem from 'components/KeywordsItem';
 import Loader from 'components/Loader';
-import BackButton from './BackButton';
+import BackButton from 'components/BackButton';
+import noImage from 'assets/noImage.png';
 import styles from './styles';
 
 function ArticlePage() {
   const { code = '' } = useParams();
+
+  const { enqueueSnackbar } = useActions();
 
   const { data, isLoading } = useGetArticleSearchQuery(code);
 
@@ -46,7 +49,14 @@ function ArticlePage() {
     );
   }
 
-  if (!article) {
+  if (!article || !code) {
+    enqueueSnackbar({
+      message: 'Favorite list cleared',
+      options: {
+        variant: 'success',
+      },
+    });
+
     return <BackButton />;
   }
 
