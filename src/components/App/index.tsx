@@ -22,8 +22,8 @@ function App() {
           <AppBar />
 
           <Routes>
-            <Route path="/article/:code" element={<ArticlePage />} />
             <Route path="*" element={<NotFound404Page />} />
+            <Route path="/article/:code" element={<ArticlePage />} />
             <Route path="/" element={<MainPage />} />
             <Route path="/favorites" element={<FavoritePage />} />
             <Route path="/about" element={<AboutPage />} />
