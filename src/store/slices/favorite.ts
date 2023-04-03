@@ -5,32 +5,24 @@ const initialState = {
   favoriteArticles: <DocsEntity[]>[],
 };
 
-const favorite = createSlice({
-  name: 'articleSearchQuery',
+const favoriteState = createSlice({
+  name: 'favorite',
   initialState,
   reducers: {
-    addFavorite(state, action: PayloadAction<DocsEntity>) {
-      return {
-        ...state,
-        favoriteArticles: [...state.favoriteArticles, action.payload],
-      };
+    addFavorite: (state, action: PayloadAction<DocsEntity>) => {
+      state.favoriteArticles.push(action.payload);
     },
 
-    removeFavorite(state, action: PayloadAction<string>) {
-      return {
-        ...state,
-        favoriteArticles: state.favoriteArticles.filter((article) => article.id !== action.payload),
-      };
+    removeFavorite: (state, action: PayloadAction<string>) => {
+      state.favoriteArticles = state.favoriteArticles
+        .filter((article) => article.id !== action.payload);
     },
 
-    clearFavorite(state) {
-      return {
-        ...state,
-        favoriteArticles: [],
-      };
+    clearFavorite: (state) => {
+      state.favoriteArticles = [];
     },
   },
 });
 
-export default favorite;
-export const favoriteActions = favorite.actions;
+export default favoriteState;
+export const favoriteActions = favoriteState.actions;
