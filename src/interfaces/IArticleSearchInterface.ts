@@ -25,6 +25,9 @@ export interface MultimediaEntity {
   credit?: null;
   type: string;
   url: string;
+  default: {
+    url: string;
+  };
   height: number;
   width: number;
   legacy: Legacy;
@@ -63,7 +66,7 @@ export interface ResponseDocsEntity {
   print_section?: string | null;
   print_page?: string | null;
   source: string;
-  multimedia?: MultimediaEntity[] | null | undefined;
+  multimedia?: MultimediaEntity | null | undefined;
   headline: Headline;
   keywords?: KeywordsEntity[] | null;
   pub_date: string;
@@ -75,12 +78,12 @@ export interface ResponseDocsEntity {
   type_of_material: string;
   word_count: number;
   uri: string;
-  _id: string
+  _id: string;
 }
 
 export interface DocsEntity extends ResponseDocsEntity {
-  id: string
-  code: string
+  id: string;
+  code: string;
 }
 
 export interface Meta {
